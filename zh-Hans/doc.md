@@ -2,7 +2,7 @@
 
 ### [用户许可协议](/zh-Hans/agreement)
 
-`该文档适用于5.1.5或以上版本`
+`该文档适用于5.2.3或以上版本`
 
 > - AutoTouch是一个用来录制和回放触摸操作的“宏”工具。
 > - 它可以模拟手指在屏幕上的触摸操作，和按键操作。
@@ -89,6 +89,7 @@
          * [listAutoLaunch()](#listautolaunch)
          * [stop()](#stop)
          * [ocr(region, languages, threshold, whitelist, blacklist, timeout, tessdataParentDir, debug)](#ocrregion-languages-threshold-whitelist-blacklist-timeout-tessdataparentdir-debug)
+         * [appInfo(appIdentifier)](#appinfoappidentifier)
       * [HTTP APIs](#http-apis)
          * [运行一个脚本](#运行一个脚本)
          * [停止运行一个脚本](#停止运行一个脚本)
@@ -102,6 +103,8 @@
          * [Types of dialog controls](#types-of-dialog-controls)
          * [Types of screen orientations](#types-of-screen-orientations)
 
+[Top](#table-of-contents)
+
 # 用法
 
 ## 怎样安装？
@@ -109,12 +112,16 @@
 > - 您还可以将官方源[https://apt.autotouch.net](https://apt.autotouch.net)添加到Cydia/Sileo中来下载安装。
 > - 您还可以将官方测试源[https://beta.autotouch.net](https://beta.autotouch.net)添加到Cydia/Sileo中来安装更新的版本。
 
+[Top](#table-of-contents)
+
 ## 怎样使用Activator?
 > - AutoTouch默认使用长按音量减键和单击音量减键来进行控制，如果您从Cydia/Sileo手动安装Activator，那么您可以使用Activator来自定义这些控制动作。
 > - 添加Activator官方源: http://rpetri.ch/repo/到Cydia/Sileop。
 > - 搜索并安装Actiavtor。
 > - AutoTouch将自动侦测到Activator。
 > - 根据需要通过Activator自定义您的控制动作，但千万不要将包含触摸的动作设为AutoTouch的控制动作，因为这类动作会被录制到脚本里，进而导致AutoTouch无法循环播放。
+
+[Top](#table-of-contents)
 
 ## 怎样录制?
 > - 在任何您想开始录制操作的界面，长按音量减键（或您设置的其它Activator控制动作），来弹出控制面板，控制面板上包含一个录制按钮和一个脚本列表。
@@ -124,6 +131,8 @@
 > - 长按音量减键（或您设置的其它Activator控制动作）来停止录制；
 > - 然后会有一个以录制时间为文件名的Lua脚本保存到Record目录，您可以播放或编辑它。
 
+[Top](#table-of-contents)
+
 ## 怎样播放？
 > - 长按音量减键（或您设置的其它控制动作）来调出控制面板。
 > - 点击您要播放的脚本来播放它。
@@ -132,12 +141,18 @@
 > - 再次长按音量减键可以推出`Hold`模式。
 > - 播放中长按音量减键可以强制停止。
 
+[Top](#table-of-contents)
+
 ## 怎样截屏?
 > - 使用iOS自身的截屏功能，或者使用AutoTouch控制面板上的截屏按钮来截屏，截屏图片会保存在iOS系统相册中。
 > - 截屏图片可以在脚本编辑器的`助手`中为getColors, findColors 或findImage指定参数提供帮助。
 
+[Top](#table-of-contents)
+
 ## 怎样写一个脚本
 > - 在AutoTouch App的本地脚本列表界面，点击右上方“+”按钮来新建脚本，编辑并保存。
+
+[Top](#table-of-contents)
 
 ## 怎样在编辑脚本时使用函数“帮助”来方便地插入函数和参数？
 > - 在脚本编辑界面的键盘区域上部，有两个按钮：“扩展函数”和“常用语法”，可以通过它们便捷地插入扩展函数和Lua语言常用语法。
@@ -151,19 +166,27 @@
 > 
 >   ![Function Helper](https://i.imgur.com/ng2QWrz.png)
 
+[Top](#table-of-contents)
+
 ## 怎样在电脑上编写和管理脚本？
 > - 您可以在设置界面开启Web Server，然后通过电脑上的浏览器访问提示的URL，然后在其中编辑脚本。
 > - 您也可以在设置界面开启WebDAV Server，然后在电脑上通过WebDAV客户端软件连接提示的地址，然后在其中编辑脚本。
 
+[Top](#table-of-contents)
+
 ## 怎样创建一个脚本Package项目?
 > - 你可以创建一个Package项目，它可以包含不同的脚本，文件，图片等所需素材。一个Package实际上是一个名称带.at后缀的文件夹。Package的秘诀在于其中的main.lua文件，它是个脚本的入口。
 > - Package可以被整体加密和压缩成一个xxx.ate文件，这个文件可以直接被AutoTouch来执行。
+
+[Top](#table-of-contents)
 
 ## 怎样加密脚本？
 > - 在AutoTouch点击脚本，选择“加密”；
 > - 输入加密密码，无需密码留空即可;
 > - 点击确定即可完成加密，并生成一个同名但.ate结尾的加密文件；
 > - 可以选择加密脚本进行播放，设有密码的根据提示输入密码即可。
+
+[Top](#table-of-contents)
 
 ## 怎样发布脚本到商城？
 > - 您可以将自己的优秀脚本发布在商店中，以分享或售卖给其他人。
@@ -173,9 +196,13 @@
 > - 接下来等待审核通过，或者在Discord中与我们联系。
 > - 目前您需要自行搭建脚本的授权管理，您可以在脚本中请求您的服务器来查验授权，授权确认的才能执行。AutoTouch暂时无法在这个环节帮助您。
 
+[Top](#table-of-contents)
+
 ## 怎样从商城下载和购买脚本？
 > - 您可以直接从商店中下载所有的脚本。
 > - 然后跟作者联系来购买密码。请务必自行注意不要被骗，如果被骗AutoTouch对此无能为力。
+
+[Top](#table-of-contents)
 
 ## 怎样购买授权？
 > - 点击“设置”界面的“授权”按钮来打开授权管理界面。
@@ -189,13 +216,19 @@
 ![License View](https://i.imgur.com/CB0Fnfm.jpg)
 
 
+[Top](#table-of-contents)
+
 # 脚本
 
 ## 基础
 您可以从这里学习Lua语言的使用：《[Lua Official Reference Manual](http://www.lua.org/manual/5.3/)》
 
+[Top](#table-of-contents)
+
 ## 开发工具
 [LuaStudio](http://luastudio.net/)
+
+[Top](#table-of-contents)
 
 ## Coordinate, Size and Orientation System
 AutoTouch的坐标体系是建立在像素的基础上，请看[不同设备的像素尺寸](https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/Displays/Displays.html), 比如iPhone X 的屏幕尺寸是1125 x 2436.
@@ -204,10 +237,14 @@ AutoTouch的坐标体系是建立在像素的基础上，请看[不同设备的�
 
 ![比如](https://i.imgur.com/imDVXXB.png)
 
+[Top](#table-of-contents)
+
 ## 扩展库
 > AutoTouch自带了一些第三方扩展库，但您也可以自己添加扩展库，只要将符合格式的 `.so`库文件放置在`/usr/local/lib/lua/5.3`，以及`.lua`文件放置在`/var/mobile/Library/AutoTouch/Library/LuaLibraries`，Respring即可启用这个库。当然为iOS平台编译扩展库是有点技术门槛的。
 
 > **警告:** **一定不要** 使用跟扩展库相同的名字作为您自己脚本的文件名，如`lcurl`, `lfs`, `lsqlite3`。
+
+[Top](#table-of-contents)
 
 ### LuaCURL
 > curl is used in command lines or scripts to transfer data. It is also used in cars, television sets, routers, printers, audio equipment, mobile phones, tablets, settop boxes, media players and is the internet transfer backbone for thousands of software applications affecting billions of humans daily.
@@ -251,14 +288,22 @@ curl.easy()
 :close()
 ```
 
+[Top](#table-of-contents)
+
 ### LuaSocket
 > LuaSocket is a Lua extension library which supported [TCP](http://w3.impa.br/~diego/software/luasocket/introduction.html#tcp), [UDP](http://w3.impa.br/~diego/software/luasocket/introduction.html#udp), [SMTP](http://w3.impa.br/~diego/software/luasocket/smtp.html), [HTTP](http://w3.impa.br/~diego/software/luasocket/http.html), [FTP](http://w3.impa.br/~diego/software/luasocket/ftp.html) protocols. Learn how to use it from the [Learn More](http://w3.impa.br/~diego/software/luasocket/introduction.html).
+
+[Top](#table-of-contents)
 
 ### LuaSec
 > LuaSec is a binding for OpenSSL library to provide TLS/SSL communication. It takes an already established TCP connection and creates a secure session between the peers.[Learn More](https://github.com/brunoos/luasec/wiki)
 
+[Top](#table-of-contents)
+
 ### LuaSqlite3
 > LuaSQLite 3 is a thin wrapper around the public domain SQLite3 database engine. [Learn More](http://lua.sqlite.org/index.cgi/doc/tip/doc/lsqlite3.wiki)
+
+[Top](#table-of-contents)
 
 ### json.lua
 > json.lua provides operation methods on json.
@@ -271,6 +316,8 @@ local json = require "json"
 local jsonString =json.encode({ 1, 2, 3, { x = 10 } }) -- Returns '[1,2,3,{"x":10}]'
 local luaTable = json.decode('[1,2,3,{"x":10}]') -- Returns { 1, 2, 3, { x = 10 } }
 ```
+
+[Top](#table-of-contents)
 
 ### Plist
 > Plist library provides a batch of methods to operate on plist files.
@@ -291,6 +338,8 @@ local luaTable = plist.load(plistString);
 -- Dump a lua table to plist data with format "xml" or "binary"
 local plistData = plist.dump(luaTable, format);
 ```
+
+[Top](#table-of-contents)
 
 ### Penlight
 > A set of pure Lua libraries focusing on input data handling (such as reading configuration files), functional programming (such as map, reduce, placeholder expressions,etc), and OS path management. 
@@ -343,10 +392,14 @@ Iterators, OOP and Functional
    * `utils`: `utils.string_lambda` converts short strings like `|x| x^2` into functions
    * `comprehension`: list comprehensions: `C'x for x=1,4'()=={1,2,3,4}`
 
+[Top](#table-of-contents)
+
 ### LuaFileSystem
 > LuaFileSystem is a Lua library developed to complement the set of functions related to file systems offered by the standard Lua distribution.
 
 > LuaFileSystem offers a portable way to access the underlying directory structure and file attributes.[Learn More](https://keplerproject.github.io/luafilesystem/index.html)
+
+[Top](#table-of-contents)
 
 ### WebSocket
 > This module provides Lua modules for [Websocket Version 13](http://tools.ietf.org/html/rfc6455) conformant clients and servers.
@@ -385,9 +438,13 @@ end,1,1):start(ev.Loop.default)
 ev.Loop.default:loop()
 ```
 
+[Top](#table-of-contents)
+
 ## 扩展函数
 
 扩展函数用于扩展Lua语言，使具备模拟人类操作手机的一些能力。还提供截屏、颜色查找、颜色匹配、图片匹配等功能。
+
+[Top](#table-of-contents)
 
 ### touchDown(id, x, y)
 > 在屏幕的(x, y)坐标按下。
@@ -423,8 +480,9 @@ end
 
 -- Tap at (100, 200)
 tap(100, 200);
-
 ```
+
+[Top](#table-of-contents)
 
 ### touchMove(id, x, y)
 > 移动手指到(x, y)坐标。
@@ -456,8 +514,9 @@ usleep(16000);
 touchMove(0, 150, 250);
 touchMove(1, 250, 350);
 touchMove(2, 350, 450);
-
 ```
+
+[Top](#table-of-contents)
 
 ### touchUp(id, x, y)
 > 从(x, y)坐标抬起手指。
@@ -494,6 +553,8 @@ touchUp(0, 150, 250);
 touchUp(1, 250, 350);
 touchUp(2, 350, 450);
 ```
+
+[Top](#table-of-contents)
 
 ### keyDown(keyType)
 > 模拟实体键按下动作。
@@ -548,6 +609,8 @@ function unlockScreen()
 end
 ```
 
+[Top](#table-of-contents)
+
 ### keyUp(keyType)
 > 模拟实体键抬起动作。
 
@@ -568,6 +631,8 @@ keyDown(KEY_TYPE.HOME_BUTTON);
 usleep(10000);
 keyUp(KEY_TYPE.HOME_BUTTON);
 ```
+
+[Top](#table-of-contents)
 
 ### getColor(x, y)
 > 在当前屏幕获取指定坐标位置像素点的颜色值。
@@ -601,6 +666,8 @@ until( color == 123456 )
 
 ```
 
+[Top](#table-of-contents)
+
 ### getColors(locations)
 > 获取屏幕多个点的颜色值。
 
@@ -623,6 +690,8 @@ for i, v in pairs(result) do
     log(string.format("Gotten color:%d", v));
 end
 ```
+
+[Top](#table-of-contents)
 
 ### findColor(color, count, region, debug, rightToLeft, bottomToTop)
 > 在当前屏幕查找所有匹配指定颜色的像素点坐标。
@@ -691,6 +760,8 @@ function findColor(color, count, region, debug, rightToLeft, bottomToTop)
 end
 ```
 
+[Top](#table-of-contents)
+
 ### findColors(colors, count, region, debug, rightToLeft, bottomToTop)
 > 查找所有匹配“指定颜色及它们的相对位置”的矩形区域，返回找到的矩形区域中匹配第一个颜色的像素的坐标。该函数具有比findImage高得多的查找效率和可用度，比如查找一个按钮，不用像findImage一样去匹配整个按钮图片，只用匹配按钮中的几个锚点的颜色和它们的相对位置即可。可以使用count参数限定希望查找结果的个数，0表示查找所有，1标识查找第1个，2表示查找前两个。region参数可以用来限定查找的区域，为{x, y, width, height}的table类型，不限定时传入nil即可。
 
@@ -745,6 +816,8 @@ for i, v in pairs(result) do
     log(string.format("Found rect at: x:%f, y:%f", v[1], v[2]));
 end
 ```
+
+[Top](#table-of-contents)
 
 ### findImage(targetImagePath, count, threshold, region, debug)
 > 在当前屏幕查找匹配指定图片的区域，以table形式返回找到的所有区域的左上角坐标。
@@ -810,6 +883,8 @@ local region = {100, 100, 300, 300};
 local result = findImage(imagePath, 2, 0.98, region, true, 2)
 ```
 
+[Top](#table-of-contents)
+
 ### screenshot(filePath, region)
 > 全屏幕或者指定区域截屏。
 
@@ -845,6 +920,8 @@ screenshot ("images/screenshot2.PNG", {100, 100, 200, 200});
 screenshot (nil, {100, 100, 200, 200});
 ```
 
+[Top](#table-of-contents)
+
 ### appRun(appIdentifier)
 > 运行一个App
 
@@ -864,6 +941,8 @@ screenshot (nil, {100, 100, 200, 200});
 appRun("com.apple.mobilesafari");
 ```
 
+[Top](#table-of-contents)
+
 ### appKill(appIdentifier)
 > 关闭一个App
 
@@ -882,6 +961,8 @@ appRun("com.apple.mobilesafari");
 -- Kill the running Safari
 appKill("com.apple.mobilesafari");
 ```
+
+[Top](#table-of-contents)
 
 ### appState(appIdentifier)
 > 获取一个App的运行状态。
@@ -906,6 +987,8 @@ alert(string.format("State of Safari: %s", state));
 -- Pop up the state of Safari: "ACTIVATED"
 ```
 
+[Top](#table-of-contents)
+
 ### rootDir()
 > AutoTouch存放本地脚本等文件的根目录，也就是: "/var/mobile/Library/AutoTouch/Scripts/".
 
@@ -925,6 +1008,8 @@ local dirPath = rootDir();
 alert(dirPath);
 -- Popup "/var/mobile/Library/AutoTouch/Scripts/"
 ```
+
+[Top](#table-of-contents)
 
 ### currentPath()
 > 获得当前运行脚本的全路径。
@@ -946,6 +1031,8 @@ alert(path);
 -- Popup "/var/mobile/Library/AutoTouch/Scripts/test.lua"
 ```
 
+[Top](#table-of-contents)
+
 ### usleep(microseconds)
 > 停顿若干个微秒，即1/1000000秒
 
@@ -965,6 +1052,8 @@ alert(path);
 usleep(1000000);
 ```
 
+[Top](#table-of-contents)
+
 ### log(content)
 > 记录日志，可在日志界面查看。
 
@@ -983,6 +1072,8 @@ usleep(1000000);
 log("play here...");
 ```
 
+[Top](#table-of-contents)
+
 ### alert(message)
 > 弹出框提示信息
 
@@ -1000,6 +1091,8 @@ log("play here...");
 ```lua
 alert("Hello World!");
 ```
+
+[Top](#table-of-contents)
 
 ### toast(message, delay)
 > toast形式展示信息若干秒。
@@ -1021,6 +1114,8 @@ toast("Hello I'm a toast!", 5); -- Show message for 5 seconds.
 toast("Hello again!"); -- Show message for 2 seconds.
 ```
 
+[Top](#table-of-contents)
+
 ### vibrate()
 > 震动一次，没有震动功能的设备无效果 ，比如iPod Touch和iPad
 
@@ -1037,6 +1132,8 @@ toast("Hello again!"); -- Show message for 2 seconds.
 -- Vibrate once.
 vibrate();
 ```
+
+[Top](#table-of-contents)
 
 ### playAudio(audioFile, times)
 > 播放指定位置的音频文件。
@@ -1058,6 +1155,8 @@ vibrate();
 playAudio("/var/audio.mp3", 0);
 ```
 
+[Top](#table-of-contents)
+
 ### stopAudio()
 > 停止播放音频。
 
@@ -1074,6 +1173,8 @@ playAudio("/var/audio.mp3", 0);
 -- Stop playing audio.
 stopAudio();
 ```
+
+[Top](#table-of-contents)
 
 ### getOrientation()
 > 获取屏幕方向。返回整型值，具体对应关系请看“屏幕方向类型”。
@@ -1094,6 +1195,8 @@ local o = getOrientation();
 alert(string.format("Screen orientation is : %d", 0))
 -- Pop up the orientation 2 of the screen, and mark the reversed screen.
 ```
+
+[Top](#table-of-contents)
 
 ### getScreenResolution()
 > 获取屏幕像素分辨率。
@@ -1116,6 +1219,8 @@ alert(string.format("Resolution of iPhone 6 Plus: width:%d, height:%d", w, h));
 -- iPhone 6 Plus’s resolution width is 1242 and resolution height is 2208.
 ```
 
+[Top](#table-of-contents)
+
 ### getSN()
 > 获取设备序列号。
 
@@ -1135,6 +1240,8 @@ local sn = getSN();
 alert(string.format("SN is : %s", sn));
 -- Popup shows the SN of the device: C15NFK32TWD2
 ```
+
+[Top](#table-of-contents)
 
 ### getVersion()
 > 获取当前AutoTouch版本号。
@@ -1156,6 +1263,8 @@ alert(string.format("Current version of AutoTouch is : %s", version));
 -- Pop up shows current version of AutoTouch: 3.5.3-4
 ```
 
+[Top](#table-of-contents)
+
 ### frontMostAppId()
 > 当前在前台运行的App的标识。
 
@@ -1175,6 +1284,8 @@ local appId = frontMostAppId();
 alert(string.format("Current front most App is : %s", appId));
 ```
 
+[Top](#table-of-contents)
+
 ### frontMostAppOrientation()
 > 当前前台运行的App的界面方向，可能是[这些值](#types-of-screen-orientations)
 
@@ -1193,6 +1304,8 @@ alert(string.format("Current front most App is : %s", appId));
 local orientation = frontMostAppOrientation();
 alert(string.format("Orientation of current front most App is : %d", orientation));
 ```
+
+[Top](#table-of-contents)
 
 ### intToRgb(intColor)
 > 将整型颜色值转换为R, G, B单独的值。
@@ -1217,6 +1330,8 @@ local r, g, b = intToRgb(0x2b2b2b);
 alert(string.format("R:%d, G:%d, B:%d", r, g, b));
 ```
 
+[Top](#table-of-contents)
+
 ### rgbToInt(r, g, b)
 > 将R, G, B色值转换为整形颜色值。
 
@@ -1240,6 +1355,8 @@ local intColor = rgbToInt(200, 255, 100);
 alert(string.format("Int type color: %d", intColor));
 ```
 
+[Top](#table-of-contents)
+
 ### copyText(text)
 > 将一段文本复制到剪贴板
 
@@ -1257,6 +1374,8 @@ alert(string.format("Int type color: %d", intColor));
 ```lua
 copyText("This is a copied text!");
 ```
+
+[Top](#table-of-contents)
 
 ### clipText()
 > 获得剪贴板中的文本
@@ -1278,6 +1397,8 @@ alert(text);
 -- Popup shows the text to be copied: "This is a copied text!";
 ```
 
+[Top](#table-of-contents)
+
 ### inputText(text)
 > 输入文本到当前选中的输入框中。inputText("\b")可以退格删除一个字符。
 > **注意:** 在AutoTouch设置 > 功能中启用此项功能。
@@ -1298,6 +1419,8 @@ inputText("Let's input some text automatically without tapping the keyboard!");
 --  Delete 3 character by inputing 3 backspaces.
 inputText("\b\b\b"); 
 ```
+
+[Top](#table-of-contents)
 
 ### dialog(controls, orientations)
 > 显示一个自定义的对话框，用法请见下面的示例。
@@ -1355,6 +1478,8 @@ end
 ```
 ![dialog](https://i.imgur.com/GN9wji7.png)
 
+[Top](#table-of-contents)
+
 ### clearDialogValues(script)
 > 清除之前记住的对话框的输入值
 
@@ -1373,6 +1498,8 @@ end
 -- There is a dialog.lua script in the scripts list
 clearDialogValues("dialog.lua");
 ```
+
+[Top](#table-of-contents)
 
 ### openURL(urlString)
 > 打开一个App的URL scheme. 请见[Always-Updated List of iOS App URL Scheme Names](https://ios.gadgethacks.com/news/always-updated-list-ios-app-url-scheme-names-0184033/) and example: [Google Maps URL Scheme for iOS](https://developers.google.com/maps/documentation/urls/ios-urlscheme)
@@ -1397,6 +1524,8 @@ openURL("tel://+1123456")
 openURL("clashofclans://")
 ```
 
+[Top](#table-of-contents)
+
 ### isLicensed()
 > 检查当前AutoTouch是否已授权
 
@@ -1417,6 +1546,8 @@ if isLicensed() then
 end
 ```
 
+[Top](#table-of-contents)
+
 ### setAutoLaunch(scriptPath, on)
 > 对一个脚本开启或关闭开机自动启动
 
@@ -1435,6 +1566,8 @@ end
 ```lua
 setAutoLaunch("/Records/test.lua", on);
 ```
+
+[Top](#table-of-contents)
 
 ### listAutoLaunch()
 > 列出所有开机启动的脚本
@@ -1457,6 +1590,8 @@ for i, v in pairs(scripts) do
 end
 ```
 
+[Top](#table-of-contents)
+
 ### stop()
 > 停止当前脚本的执行
 
@@ -1473,6 +1608,8 @@ end
 -- 退出当前脚本执行
 stop();
 ```
+
+[Top](#table-of-contents)
 
 ### ocr(region, languages, threshold, whitelist, blacklist, timeout, tessdataParentDir, debug)
 > 基于`tesseract ocr`实现的文字识别。
@@ -1519,6 +1656,31 @@ local result = ocr({100, 100, 300, 300}, 'eng+fra', 220, '0123456789 ', '.......
 local result = ocr({100, 100, 300, 300}, 'eng+fra', 220, nil, nil, 5, './', true)
 ```
 
+[Top](#table-of-contents)
+
+### appInfo(appIdentifier)
+> 获取指定App的displayName,executablePath,bundleContainerPath,dataContainerPath信息。
+
+`参数`
+
+| 参数     | 类型   |  说明  |
+| -------- | :-----:| ----  |
+| appIdentifier     |  字符串  |  应用标识，如"com.apple.mobilesafari"。您可以从[这里](https://offcornerdev.com/bundleid.html)查找应用标识。 |
+
+`返回值`
+
+| 返回值     | 类型   |  说明  |
+| -------- | :-----:| ----  |
+| info     |  表  |  App信息的table  |
+
+`示例`
+```lua
+local result = appInfo("com.microsoft.Office.Outlook")
+alert(table.tostring(result))
+```
+
+[Top](#table-of-contents)
+
 ## HTTP APIs
 > AutoTouch也提供了一些HTTP接口，您可以用HTTP请求的方式在局域网远程调用，这些接口也就是`Web Server`使用的接口。
 
@@ -1561,6 +1723,8 @@ HTTP GET http://192.168.1.99:8080/control/start_playing?path=/scriptPath
 }
 ```
 
+[Top](#table-of-contents)
+
 ### 停止运行一个脚本
 > GET /control/stop_playing?path=/scriptPath
 
@@ -1599,6 +1763,8 @@ HTTP GET http://192.168.1.99:8080/control/start_playing?path=/scriptPath
     "info": "Script doesn't exist."
 }
 ```
+
+[Top](#table-of-contents)
 
 ### 列出指定目录下的全部脚本
 > GET /files?path=/Records
@@ -1643,6 +1809,8 @@ HTTP GET http://192.168.1.99:8080/files?path=/Records
 }
 ```
 
+[Top](#table-of-contents)
+
 ### 创建一个新文件夹
 > GET /file/newFolder?path=/Test
 
@@ -1680,6 +1848,8 @@ HTTP GET http://192.168.1.99:8080/file/newFolder?path=/Test
     "status": "success"
 }
 ```
+
+[Top](#table-of-contents)
 
 ### 创建一个新文件
 > GET /file/new?path=/newFilePath
@@ -1720,6 +1890,8 @@ HTTP GET http://192.168.1.99:8080/file/new?path=/newFilePath
 }
 ```
 
+[Top](#table-of-contents)
+
 ### 删除一个文件
 > GET /file/delete?path=/filePathToDelete
 
@@ -1758,6 +1930,8 @@ HTTP GET http://192.168.1.99:8080/file/delete?path=/filePathToDelete
     "info": "Invalid file path"
 }
 ```
+
+[Top](#table-of-contents)
 
 ### 重命名一个文件或文件夹
 > GET /file/rename?path=/oldFilePath&newPath=newFilePath
@@ -1799,7 +1973,11 @@ HTTP GET http://192.168.1.99:8080/file/rename?path=/oldFilePath&newPath=newFileP
 }
 ```
 
+[Top](#table-of-contents)
+
 ## 固定值
+
+[Top](#table-of-contents)
 
 ### Types of physical keys
 
@@ -1809,6 +1987,8 @@ HTTP GET http://192.168.1.99:8080/file/rename?path=/oldFilePath&newPath=newFileP
 | KEY_TYPE.VOLUME_DOWN_BUTTON | Volume – Button |
 | KEY_TYPE.VOLUME_UP_BUTTON | Volume + Button |
 | KEY_TYPE.POWER_BUTTON | Power Button |
+
+[Top](#table-of-contents)
 
 ### Types of dialog controls
 
@@ -1821,6 +2001,8 @@ HTTP GET http://192.168.1.99:8080/file/rename?path=/oldFilePath&newPath=newFileP
 | CONTROLLER_TYPE.BUTTON | Button |
 | CONTROLLER_TYPE.REMEMBER | Switch for remember user inputs |
 
+[Top](#table-of-contents)
+
 ### Types of screen orientations
 
 | 值     |  说明  |
@@ -1830,3 +2012,5 @@ HTTP GET http://192.168.1.99:8080/file/rename?path=/oldFilePath&newPath=newFileP
 | ORIENTATION_TYPE.PORTRAIT_UPSIDE_DOWN | Upside-down portrait screen. Home button on the top. Practical value is 2. |
 | ORIENTATION_TYPE.LANDSCAPE_LEFT | Landscape left screen. Home Key is in the left. Practical value is 3. |
 | ORIENTATION_TYPE.LANDSCAPE_RIGHT | Landscape right screen. Home key is in the right. Practical value is 4. |
+
+[Top](#table-of-contents)

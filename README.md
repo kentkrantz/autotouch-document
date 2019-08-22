@@ -1,6 +1,6 @@
 # AutoTouch Document
 
-`Applicable to version 5.1.5 or higher`
+`Applicable to version 5.2.3 or higher`
 
 > - AutoTouch is a "Macro" tool used to record and playback human touching and pressing on the mobile device.
 > - It simulates touching and keys pressing.
@@ -87,6 +87,7 @@ Table of Contents
          * [listAutoLaunch()](#listautolaunch)
          * [stop()](#stop)
          * [ocr(region, languages, threshold, whitelist, blacklist, timeout, tessdataParentDir, debug)](#ocrregion-languages-threshold-whitelist-blacklist-timeout-tessdataparentdir-debug)
+         * [appInfo(appIdentifier)](#appinfoappidentifier)
       * [HTTP APIs](#http-apis)
          * [Play a script](#play-a-script)
          * [Stop playing a script](#stop-playing-a-script)
@@ -1646,6 +1647,29 @@ local result = ocr({100, 100, 300, 300}, 'eng+fra', 220, '0123456789 ', '.......
 
 -- `./` means under current directory, it will find `tessdata` folder in current directory.
 local result = ocr({100, 100, 300, 300}, 'eng+fra', 220, nil, nil, 5, './', true)
+```
+
+[Top](#table-of-contents)
+
+### appInfo(appIdentifier)
+> Get the speficied App's displayName,executablePath,bundleContainerPath,dataContainerPath.
+
+`Parameters`
+
+| Parameter     | Type   |  Specification  |
+| -------- | :-----:| ----  |
+| appIdentifier     |  String  |  App identifier，such as "com.apple.mobilesafari", Get identifiers from [here](https://offcornerdev.com/bundleid.html). |
+
+`Return`
+
+| Return     | Type  |  Specification  |
+| -------- | :-----:| ----  |
+| info     |  table  |  App info table  |
+
+`Examples`
+```lua
+local result = appInfo("com.microsoft.Office.Outlook")
+alert(table.tostring(result))
 ```
 
 [Top](#table-of-contents)
