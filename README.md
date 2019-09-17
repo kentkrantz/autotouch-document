@@ -1,6 +1,6 @@
 # AutoTouch Document
 
-`Applicable to version 5.2.3 or higher`
+`Applicable to version 5.2.6 or higher`
 
 > - AutoTouch is a "Macro" tool used to record and playback human touching and pressing on the mobile device.
 > - It simulates touching and keys pressing.
@@ -88,6 +88,8 @@ Table of Contents
          * [stop()](#stop)
          * [ocr(region, languages, threshold, whitelist, blacklist, timeout, tessdataParentDir, debug)](#ocrregion-languages-threshold-whitelist-blacklist-timeout-tessdataparentdir-debug)
          * [appInfo(appIdentifier)](#appinfoappidentifier)
+         * [setTimer(scriptPath, fireTime, repeat, interval)](#settimerscriptpath-firetime-repeat-interval)
+         * [removeTimer(scriptPath)](#removetimerscriptpath)
       * [HTTP APIs](#http-apis)
          * [Play a script](#play-a-script)
          * [Stop playing a script](#stop-playing-a-script)
@@ -1670,6 +1672,57 @@ local result = ocr({100, 100, 300, 300}, 'eng+fra', 220, nil, nil, 5, './', true
 ```lua
 local result = appInfo("com.microsoft.Office.Outlook")
 alert(table.tostring(result))
+```
+
+[Top](#table-of-contents)
+
+### setTimer(scriptPath, fireTime, repeat, interval)
+> Set timer for a script.
+
+`Parameters`
+
+| Parameter     | Type   |  Specification  | Optional | Default |
+| -------- | :-----:| ----  | :----:  | :----:  |
+| filePath     |   string   |  Relative path of a script inside script directory of AutoTouch, such as "/Records/test.lua". | NO | |
+| fireTime     |   string or integer   |  When should the timer trigger. If this parameter is an integer, it means you want it trigger after n seconds from now on, if it is a string, it should be a datetime with format "2019-09-17 08:12:52" which means the timer will trigger at this time. | NO | |
+| repeat     |   boolean   |  If the timer should run repleatly. | NO | |
+| interval     |   integer   |  Repeat interval in seconds. | NO | |
+
+`Return`
+
+| Return     | Type  |  Specification  |
+| -------- | :-----:| ----  |
+| done    |  boolean  |  If it is successful.  |
+
+`Examples`
+```lua
+-- trigger after 1000 seconds
+local done = setTimer("/Records/test.lua", 1000, false, 0);
+
+-- trigger at 2019-09-17 08:12:52 and repeat every 10000 seconds
+local done = setTimer("/Records/test.lua", "2019-09-17 08:12:52", true, 10000);
+```
+
+[Top](#table-of-contents)
+
+### removeTimer(scriptPath)
+> Remove timer of a script.
+
+`Parameters`
+
+| Parameter     | Type   |  Specification  | Optional | Default |
+| -------- | :-----:| ----  | :----:  | :----:  |
+| filePath     |   string   |  Relative path of a script inside script directory of AutoTouch, such as "/Records/test.lua". | NO | |
+
+`Return`
+
+| Return     | Type  |  Specification  |
+| -------- | :-----:| ----  |
+| done    |  boolean  |  If it is successful.  |
+
+`Examples`
+```lua
+local done = removeTimer("/Records/test.lua");
 ```
 
 [Top](#table-of-contents)
