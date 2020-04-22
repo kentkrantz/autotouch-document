@@ -2,7 +2,7 @@
 
 ### [用户许可协议](/zh-Hans/agreement)
 
-`该文档适用于5.2.6或以上版本`
+`该文档适用于6.1.7或以上版本`
 
 > - AutoTouch是一个用来录制和回放触摸操作的“宏”工具。
 > - 它可以模拟手指在屏幕上的触摸操作，和按键操作。
@@ -92,6 +92,7 @@
          * [appInfo(appIdentifier)](#appinfoappidentifier)
          * [setTimer(scriptPath, fireTime, repeat, interval)](#settimerscriptpath-firetime-repeat-interval)
          * [removeTimer(scriptPath)](#removetimerscriptpath)
+         * [keepAutoTouchAwake(keepAwake)](#keepautotouchawakekeepawake)
       * [HTTP APIs](#http-apis)
          * [运行一个脚本](#运行一个脚本)
          * [停止运行一个脚本](#停止运行一个脚本)
@@ -1731,6 +1732,24 @@ local done = removeTimer("/Records/test.lua");
 ```
 
 [Top](#table-of-contents)
+
+### keepAutoTouchAwake(keepAwake)
+> 保持AutoTouch唤醒，防止iOS idle sleep.
+
+`Parameters`
+
+| Parameter     | Type   |  Specification  | Optional | Default |
+| -------- | :-----:| ----  | :----:  | :----:  |
+| keepAwake     |   boolean   |  Keep AutoTouch awake or not | NO | |
+
+`Return`
+
+None
+
+`Examples`
+```lua
+keepAutoTouchAwake(true);
+```
 
 [Top](#table-of-contents)
 

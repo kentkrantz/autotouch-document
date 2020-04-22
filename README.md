@@ -1,6 +1,6 @@
 # AutoTouch Document
 
-`Applicable to version 5.2.6 or higher`
+`Applicable to version 6.1.7 or higher`
 
 > - AutoTouch is a "Macro" tool used to record and playback human touching and pressing on the mobile device.
 > - It simulates touching and keys pressing.
@@ -90,6 +90,7 @@ Table of Contents
          * [appInfo(appIdentifier)](#appinfoappidentifier)
          * [setTimer(scriptPath, fireTime, repeat, interval)](#settimerscriptpath-firetime-repeat-interval)
          * [removeTimer(scriptPath)](#removetimerscriptpath)
+         * [keepAutoTouchAwake(keepAwake)](#keepautotouchawakekeepawake)
       * [HTTP APIs](#http-apis)
          * [Play a script](#play-a-script)
          * [Stop playing a script](#stop-playing-a-script)
@@ -1723,6 +1724,26 @@ local done = setTimer("/Records/test.lua", "2019-09-17 08:12:52", true, 10000);
 `Examples`
 ```lua
 local done = removeTimer("/Records/test.lua");
+```
+
+[Top](#table-of-contents)
+
+### keepAutoTouchAwake(keepAwake)
+> Keep AutoTouch awake aginst iOS idle sleep.
+
+`Parameters`
+
+| Parameter     | Type   |  Specification  | Optional | Default |
+| -------- | :-----:| ----  | :----:  | :----:  |
+| keepAwake     |   boolean   |  Keep AutoTouch awake or not | NO | |
+
+`Return`
+
+None
+
+`Examples`
+```lua
+keepAutoTouchAwake(true);
 ```
 
 [Top](#table-of-contents)
