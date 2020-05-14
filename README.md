@@ -1,4 +1,5 @@
-# AutoTouch Document
+AutoTouch Document <!-- omit in toc -->
+=====
 
 `Applicable to version 6.1.7 or higher`
 
@@ -9,100 +10,97 @@
 > - It needs Jailbreak environment.
 > - It provides a Script Store to sell and buy scripts.
 
-### [中文文档](/zh-Hans/doc)
+## [JavaScript Document](/js/faq) <!-- omit in toc -->
 
-### [QA](/QA)
+## [JSBridge Document](/js/JSBridge) <!-- omit in toc -->
+
+### [HTTP APIs](/http-api) <!-- omit in toc -->
+
+### [FAQ](/faq) <!-- omit in toc -->
 
 Table of Contents
 =================
 
-   * [Usage](#usage)
-      * [How to install?](#how-to-install)
-      * [How to use Activator?](#how-to-use-activator)
-      * [How to record?](#how-to-record)
-      * [How to play script?](#how-to-play-script)
-      * [How to take screenshot?](#how-to-take-screenshot)
-      * [How to write a script?](#how-to-write-a-script)
-      * [How to use the "Function Helper" while script coding?](#how-to-use-the-function-helper-while-script-coding)
-      * [How to write and manage scripts on the computer?](#how-to-write-and-manage-scripts-on-the-computer)
-      * [How to use Package to orgainize the script project?](#how-to-use-package-to-orgainize-the-script-project)
-      * [How to encrypt the scripts?](#how-to-encrypt-the-scripts)
-      * [How to sell your script in Script Store?](#how-to-sell-your-script-in-script-store)
-      * [How to download and buy scripts from Script Store?](#how-to-download-and-buy-scripts-from-script-store)
-      * [How to buy AutoTouch license?](#how-to-buy-autotouch-license)
-   * [Script](#script)
-      * [Basis](#basis)
-      * [Develop Tool](#develop-tool)
-      * [Coordinate, Size and Orientation System](#coordinate-size-and-orientation-system)
-      * [Extension Libraries](#extension-libraries)
-         * [LuaCURL](#luacurl)
-         * [LuaSocket](#luasocket)
-         * [LuaSec](#luasec)
-         * [LuaSqlite3](#luasqlite3)
-         * [json.lua](#jsonlua)
-         * [Plist](#plist)
-         * [Penlight](#penlight)
-         * [LuaFileSystem](#luafilesystem)
-         * [WebSocket](#websocket)
-      * [Extension Functions](#extension-functions)
-         * [touchDown(id, x, y)](#touchdownid-x-y)
-         * [touchMove(id, x, y)](#touchmoveid-x-y)
-         * [touchUp(id, x, y)](#touchupid-x-y)
-         * [keyDown(keyType)](#keydownkeytype)
-         * [keyUp(keyType)](#keyupkeytype)
-         * [getColor(x, y)](#getcolorx-y)
-         * [getColors(locations)](#getcolorslocations)
-         * [findColor(color, count, region, debug, rightToLeft, bottomToTop)](#findcolorcolor-count-region-debug-righttoleft-bottomtotop)
-         * [findColors(colors, count, region, debug, rightToLeft, bottomToTop)](#findcolorscolors-count-region-debug-righttoleft-bottomtotop)
-         * [findImage(targetImagePath, count, threshold, region, debug, method)](#findimagetargetimagepath-count-threshold-region-debug-method)
-         * [screenshot(filePath, region)](#screenshotfilepath-region)
-         * [appRun(appIdentifier)](#apprunappidentifier)
-         * [appKill(appIdentifier)](#appkillappidentifier)
-         * [appState(appIdentifier)](#appstateappidentifier)
-         * [rootDir()](#rootdir)
-         * [currentPath()](#currentpath)
-         * [usleep(microseconds)](#usleepmicroseconds)
-         * [log(content)](#logcontent)
-         * [alert(message)](#alertmessage)
-         * [toast(message, delay)](#toastmessage-delay)
-         * [vibrate()](#vibrate)
-         * [playAudio(audioFile, times)](#playaudioaudiofile-times)
-         * [stopAudio()](#stopaudio)
-         * [getOrientation()](#getorientation)
-         * [getScreenResolution()](#getscreenresolution)
-         * [getSN()](#getsn)
-         * [getVersion()](#getversion)
-         * [frontMostAppId()](#frontmostappid)
-         * [frontMostAppOrientation()](#frontmostapporientation)
-         * [intToRgb(intColor)](#inttorgbintcolor)
-         * [rgbToInt(r, g, b)](#rgbtointr-g-b)
-         * [copyText(text)](#copytexttext)
-         * [clipText()](#cliptext)
-         * [inputText(text)](#inputtexttext)
-         * [dialog(controls, orientations)](#dialogcontrols-orientations)
-         * [clearDialogValues(script)](#cleardialogvaluesscript)
-         * [openURL(urlString)](#openurlurlstring)
-         * [isLicensed()](#islicensed)
-         * [setAutoLaunch(scriptPath, on)](#setautolaunchscriptpath-on)
-         * [listAutoLaunch()](#listautolaunch)
-         * [stop()](#stop)
-         * [ocr(region, languages, threshold, whitelist, blacklist, timeout, tessdataParentDir, debug)](#ocrregion-languages-threshold-whitelist-blacklist-timeout-tessdataparentdir-debug)
-         * [appInfo(appIdentifier)](#appinfoappidentifier)
-         * [setTimer(scriptPath, fireTime, repeat, interval)](#settimerscriptpath-firetime-repeat-interval)
-         * [removeTimer(scriptPath)](#removetimerscriptpath)
-         * [keepAutoTouchAwake(keepAwake)](#keepautotouchawakekeepawake)
-      * [HTTP APIs](#http-apis)
-         * [Play a script](#play-a-script)
-         * [Stop playing a script](#stop-playing-a-script)
-         * [List files in a directory](#list-files-in-a-directory)
-         * [Create a new directory](#create-a-new-directory)
-         * [Create a new file](#create-a-new-file)
-         * [Delete a file](#delete-a-file)
-         * [Rename a file or directory](#rename-a-file-or-directory)
-      * [Constants](#constants)
-         * [Types of physical keys](#types-of-physical-keys)
-         * [Types of dialog controls](#types-of-dialog-controls)
-         * [Types of screen orientations](#types-of-screen-orientations)
+- [Table of Contents](#table-of-contents)
+- [Usage](#usage)
+  - [How to install?](#how-to-install)
+  - [How to use Activator?](#how-to-use-activator)
+  - [How to record?](#how-to-record)
+  - [How to play script?](#how-to-play-script)
+  - [How to take screenshot?](#how-to-take-screenshot)
+  - [How to write a script?](#how-to-write-a-script)
+  - [How to use the "Function Helper" while script coding?](#how-to-use-the-%22function-helper%22-while-script-coding)
+  - [How to write and manage scripts on the computer?](#how-to-write-and-manage-scripts-on-the-computer)
+  - [How to use Package to orgainize the script project?](#how-to-use-package-to-orgainize-the-script-project)
+  - [How to encrypt the scripts?](#how-to-encrypt-the-scripts)
+  - [How to sell your script in Script Store?](#how-to-sell-your-script-in-script-store)
+  - [How to download and buy scripts from Script Store?](#how-to-download-and-buy-scripts-from-script-store)
+  - [How to buy AutoTouch license?](#how-to-buy-autotouch-license)
+- [Script](#script)
+  - [Basis](#basis)
+  - [Develop Tool](#develop-tool)
+  - [Coordinate, Size and Orientation System](#coordinate-size-and-orientation-system)
+  - [Extension Libraries](#extension-libraries)
+    - [LuaCURL](#luacurl)
+    - [LuaSocket](#luasocket)
+    - [LuaSec](#luasec)
+    - [LuaSqlite3](#luasqlite3)
+    - [json.lua](#jsonlua)
+    - [Plist](#plist)
+    - [Penlight](#penlight)
+    - [LuaFileSystem](#luafilesystem)
+    - [WebSocket](#websocket)
+  - [Extension Functions](#extension-functions)
+    - [touchDown(id, x, y)](#touchdownid-x-y)
+    - [touchMove(id, x, y)](#touchmoveid-x-y)
+    - [touchUp(id, x, y)](#touchupid-x-y)
+    - [keyDown(keyType)](#keydownkeytype)
+    - [keyUp(keyType)](#keyupkeytype)
+    - [getColor(x, y)](#getcolorx-y)
+    - [getColors(locations)](#getcolorslocations)
+    - [findColor(color, count, region, debug, rightToLeft, bottomToTop)](#findcolorcolor-count-region-debug-righttoleft-bottomtotop)
+    - [findColors(colors, count, region, debug, rightToLeft, bottomToTop)](#findcolorscolors-count-region-debug-righttoleft-bottomtotop)
+    - [findImage(targetImagePath, count, threshold, region, debug, method)](#findimagetargetimagepath-count-threshold-region-debug-method)
+    - [screenshot(filePath, region)](#screenshotfilepath-region)
+    - [appRun(appIdentifier)](#apprunappidentifier)
+    - [appKill(appIdentifier)](#appkillappidentifier)
+    - [appState(appIdentifier)](#appstateappidentifier)
+    - [rootDir()](#rootdir)
+    - [currentPath()](#currentpath)
+    - [usleep(microseconds)](#usleepmicroseconds)
+    - [log(content)](#logcontent)
+    - [alert(message)](#alertmessage)
+    - [toast(message, delay)](#toastmessage-delay)
+    - [vibrate()](#vibrate)
+    - [playAudio(audioFile, times)](#playaudioaudiofile-times)
+    - [stopAudio()](#stopaudio)
+    - [getOrientation()](#getorientation)
+    - [getScreenResolution()](#getscreenresolution)
+    - [getSN()](#getsn)
+    - [getVersion()](#getversion)
+    - [frontMostAppId()](#frontmostappid)
+    - [frontMostAppOrientation()](#frontmostapporientation)
+    - [intToRgb(intColor)](#inttorgbintcolor)
+    - [rgbToInt(r, g, b)](#rgbtointr-g-b)
+    - [copyText(text)](#copytexttext)
+    - [clipText()](#cliptext)
+    - [inputText(text)](#inputtexttext)
+    - [dialog(controls, orientations)](#dialogcontrols-orientations)
+    - [clearDialogValues(script)](#cleardialogvaluesscript)
+    - [openURL(urlString)](#openurlurlstring)
+    - [isLicensed()](#islicensed)
+    - [setAutoLaunch(scriptPath, on)](#setautolaunchscriptpath-on)
+    - [listAutoLaunch()](#listautolaunch)
+    - [stop()](#stop)
+    - [ocr(region, languages, threshold, whitelist, blacklist, timeout, tessdataParentDir, debug)](#ocrregion-languages-threshold-whitelist-blacklist-timeout-tessdataparentdir-debug)
+    - [appInfo(appIdentifier)](#appinfoappidentifier)
+    - [setTimer(scriptPath, fireTime, repeat, interval)](#settimerscriptpath-firetime-repeat-interval)
+    - [removeTimer(scriptPath)](#removetimerscriptpath)
+    - [keepAutoTouchAwake(keepAwake)](#keepautotouchawakekeepawake)
+  - [Constants](#constants)
+    - [Types of physical keys](#types-of-physical-keys)
+    - [Types of dialog controls](#types-of-dialog-controls)
+    - [Types of screen orientations](#types-of-screen-orientations)
 
 # Usage
 
@@ -485,11 +483,11 @@ tap(100, 200);
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| id    | Integer   |   Finger ID. is used to mark a finger in single-touch or multi-touch. |
-| x     |   Float   |   x-coordinate on the screen   |
-| y     |    Float    |  y-coordinate on the screen  |
+| Parameter |  Type   | Specification                                                       |
+| --------- | :-----: | ------------------------------------------------------------------- |
+| id        | Integer | Finger ID. is used to mark a finger in single-touch or multi-touch. |
+| x         |  Float  | x-coordinate on the screen                                          |
+| y         |  Float  | y-coordinate on the screen                                          |
 
 `Return`
 
@@ -520,11 +518,11 @@ touchMove(2, 350, 450);
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| id    | Integer   |   Finger ID. is used to mark a finger in single-touch or multi-touch. |
-| x     |   Float   |   x-coordinate on the screen   |
-| y     |    Float    |  y-coordinate on the screen  |
+| Parameter |  Type   | Specification                                                       |
+| --------- | :-----: | ------------------------------------------------------------------- |
+| id        | Integer | Finger ID. is used to mark a finger in single-touch or multi-touch. |
+| x         |  Float  | x-coordinate on the screen                                          |
+| y         |  Float  | y-coordinate on the screen                                          |
 
 `Return`
 
@@ -558,9 +556,9 @@ touchUp(2, 350, 450);
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| keyType     |   Integer   |   Physical key identification. Now you can use [these physical keys](#types-of-physical-keys).   |
+| Parameter |  Type   | Specification                                                                                |
+| --------- | :-----: | -------------------------------------------------------------------------------------------- |
+| keyType   | Integer | Physical key identification. Now you can use [these physical keys](#types-of-physical-keys). |
 
 `Return`
 
@@ -613,9 +611,9 @@ end
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| keyType     |   Integer   |   Physical key identification. Now you can use [these physical keys](#types-of-physical-keys).   |
+| Parameter |  Type   | Specification                                                                                |
+| --------- | :-----: | -------------------------------------------------------------------------------------------- |
+| keyType   | Integer | Physical key identification. Now you can use [these physical keys](#types-of-physical-keys). |
 
 `Return`
 
@@ -636,16 +634,16 @@ keyUp(KEY_TYPE.HOME_BUTTON);
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| x     |   Float   |   x-coordinate on the screen   |
-| y     |    Float    |  y-coordinate on the screen  |
+| Parameter | Type  | Specification              |
+| --------- | :---: | -------------------------- |
+| x         | Float | x-coordinate on the screen |
+| y         | Float | y-coordinate on the screen |
 
 `Return`
 
-| Return     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| color     |   Integer   |   Integer color value of the pixel point   |
+| Return |  Type   | Specification                          |
+| ------ | :-----: | -------------------------------------- |
+| color  | Integer | Integer color value of the pixel point |
 
 `Examples`
 ```lua
@@ -670,15 +668,15 @@ until( color == 123456 )
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| locations     |   table   |   A grouo of coordinates, just as { {x1,y1}, {x2,y2}, {x3,y4} }   |
+| Parameter | Type  | Specification                                                 |
+| --------- | :---: | ------------------------------------------------------------- |
+| locations | table | A grouo of coordinates, just as { {x1,y1}, {x2,y2}, {x3,y4} } |
 
 `Return`
 
-| Return     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| colors     |   table   |   Colors gotten with corresponding order.  |
+| Return | Type  | Specification                           |
+| ------ | :---: | --------------------------------------- |
+| colors | table | Colors gotten with corresponding order. |
 
 `Examples`
 ```lua
@@ -706,9 +704,9 @@ end
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| locations     |   table   |  Coordinates of matched pixel points. For example: { {x1, y1}, {x2, y2}, ... }  |
+| Return    | Type  | Specification                                                                 |
+| --------- | :---: | ----------------------------------------------------------------------------- |
+| locations | table | Coordinates of matched pixel points. For example: { {x1, y1}, {x2, y2}, ... } |
 
 `Example`
 ```lua
@@ -781,9 +779,9 @@ end
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| locations     |   table   |  The coordinate of the first color matched in the found rectangular area, including { {x1, y1}, {x2, y2}, ...}  |
+| Return    | Type  | Specification                                                                                                 |
+| --------- | :---: | ------------------------------------------------------------------------------------------------------------- |
+| locations | table | The coordinate of the first color matched in the found rectangular area, including { {x1, y1}, {x2, y2}, ...} |
 
 `Examples`
 ```lua
@@ -835,9 +833,9 @@ end
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| center locations     |   table   |  Center coordinates of the matching areas.  |
+| Return           | Type  | Specification                             |
+| ---------------- | :---: | ----------------------------------------- |
+| center locations | table | Center coordinates of the matching areas. |
 
 `Examples`
 ```lua
@@ -924,9 +922,9 @@ screenshot (nil, {100, 100, 200, 200});
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| appIdentifier     |   string   |  Application identifier, including "com.apple.mobilesafari". You can find the identifier from [this service](https://offcornerdev.com/bundleid.html) |
+| Parameter     |  Type  | Specification                                                                                                                                       |
+| ------------- | :----: | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| appIdentifier | string | Application identifier, including "com.apple.mobilesafari". You can find the identifier from [this service](https://offcornerdev.com/bundleid.html) |
 
 `Return`
 
@@ -945,9 +943,9 @@ appRun("com.apple.mobilesafari");
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| appIdentifier     |   string   |  Application identifier, including "com.apple.mobilesafari". You can find the identifier from [this service](https://offcornerdev.com/bundleid.html) |
+| Parameter     |  Type  | Specification                                                                                                                                       |
+| ------------- | :----: | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| appIdentifier | string | Application identifier, including "com.apple.mobilesafari". You can find the identifier from [this service](https://offcornerdev.com/bundleid.html) |
 
 `Return`
 
@@ -966,15 +964,15 @@ appKill("com.apple.mobilesafari");
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| appIdentifier     |   string   |  Application identifier, including "com.apple.mobilesafari". You can find the identifier from [this service](https://offcornerdev.com/bundleid.html) |
+| Parameter     |  Type  | Specification                                                                                                                                       |
+| ------------- | :----: | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| appIdentifier | string | Application identifier, including "com.apple.mobilesafari". You can find the identifier from [this service](https://offcornerdev.com/bundleid.html) |
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| state     |   string   |  State of Character string type: "NOT RUNNING", "ACTIVATED", "DEACTIVATED"。 |
+| Return |  Type  | Specification                                                               |
+| ------ | :----: | --------------------------------------------------------------------------- |
+| state  | string | State of Character string type: "NOT RUNNING", "ACTIVATED", "DEACTIVATED"。 |
 
 `Example`
 ```lua
@@ -995,9 +993,9 @@ None
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| dir     |   string   |  Default directory address of the saved script. |
+| Return |  Type  | Specification                                  |
+| ------ | :----: | ---------------------------------------------- |
+| dir    | string | Default directory address of the saved script. |
 
 `Examples`
 ```lua
@@ -1017,9 +1015,9 @@ None
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| path     |   string   |  Full path of current script. |
+| Return |  Type  | Specification                |
+| ------ | :----: | ---------------------------- |
+| path   | string | Full path of current script. |
 
 `Examples`
 ```lua
@@ -1035,9 +1033,9 @@ alert(path);
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| microseconds     |   Integer   |  The number of paused microseconds. |
+| Parameter    |  Type   | Specification                      |
+| ------------ | :-----: | ---------------------------------- |
+| microseconds | Integer | The number of paused microseconds. |
 
 `Return`
 
@@ -1056,9 +1054,9 @@ usleep(1000000);
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| content     |   string   |  The log content to be recorded. |
+| Parameter |  Type  | Specification                   |
+| --------- | :----: | ------------------------------- |
+| content   | string | The log content to be recorded. |
 
 `Return`
 
@@ -1076,9 +1074,9 @@ log("play here...");
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| message     |   string   |  Content to be showed. |
+| Parameter |  Type  | Specification         |
+| --------- | :----: | --------------------- |
+| message   | string | Content to be showed. |
 
 `Return`
 
@@ -1096,10 +1094,10 @@ alert("Hello World!");
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| message     |   string   |  Content to be showed. |
-| delay     |   integer   |  How long time to keep showing, default is 2 seconds. |
+| Parameter |  Type   | Specification                                        |
+| --------- | :-----: | ---------------------------------------------------- |
+| message   | string  | Content to be showed.                                |
+| delay     | integer | How long time to keep showing, default is 2 seconds. |
 
 `Return`
 
@@ -1137,10 +1135,10 @@ vibrate();
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| audioFile     |   string   |  Absolute path of audio document. |
-| times     |   integer   |  Number of repeated plays. 0 represents infinite repeat. |
+| Parameter |  Type   | Specification                                           |
+| --------- | :-----: | ------------------------------------------------------- |
+| audioFile | string  | Absolute path of audio document.                        |
+| times     | integer | Number of repeated plays. 0 represents infinite repeat. |
 
 `Return`
 
@@ -1182,9 +1180,9 @@ None
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| orientation     |   Integer   |  Screen orientation may be [these values](#types-of-screen-orientations) |
+| Return      |  Type   | Specification                                                           |
+| ----------- | :-----: | ----------------------------------------------------------------------- |
+| orientation | Integer | Screen orientation may be [these values](#types-of-screen-orientations) |
 
 `Examples`
 ```lua
@@ -1204,10 +1202,10 @@ None
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| width     |   Integer   |  Width of screen resolution. |
-| height     |   Integer   |  Height of screen resolution. |
+| Return |  Type   | Specification                |
+| ------ | :-----: | ---------------------------- |
+| width  | Integer | Width of screen resolution.  |
+| height | Integer | Height of screen resolution. |
 
 `Examples`
 ```lua
@@ -1227,9 +1225,9 @@ None
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| SN     |   string   |  Serial Number of the device. |
+| Return |  Type  | Specification                |
+| ------ | :----: | ---------------------------- |
+| SN     | string | Serial Number of the device. |
 
 `Examples`
 ```lua
@@ -1249,9 +1247,9 @@ None
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| version     |   string   |  Version of AutoTouch. |
+| Return  |  Type  | Specification         |
+| ------- | :----: | --------------------- |
+| version | string | Version of AutoTouch. |
 
 `Examples`
 ```lua
@@ -1271,9 +1269,9 @@ None
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| App Identifier     |   string   |  App Identifier of current front most App. |
+| Return         |  Type  | Specification                             |
+| -------------- | :----: | ----------------------------------------- |
+| App Identifier | string | App Identifier of current front most App. |
 
 `Examples`
 ```lua
@@ -1292,9 +1290,9 @@ None
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| Orientation     |   integer   |  Orientation of current front most App. |
+| Return      |  Type   | Specification                          |
+| ----------- | :-----: | -------------------------------------- |
+| Orientation | integer | Orientation of current front most App. |
 
 `Examples`
 ```lua
@@ -1309,17 +1307,17 @@ alert(string.format("Orientation of current front most App is : %d", orientation
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| intColor   |   Integer   | Integer color value |
+| Parameter |  Type   | Specification       |
+| --------- | :-----: | ------------------- |
+| intColor  | Integer | Integer color value |
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| R   |   Integer   | Red color value. |
-| G   |   Integer   | Green color value. |
-| B   |   Integer   | Blue color value. |
+| Return |  Type   | Specification      |
+| ------ | :-----: | ------------------ |
+| R      | Integer | Red color value.   |
+| G      | Integer | Green color value. |
+| B      | Integer | Blue color value.  |
 
 `Examples`
 ```lua
@@ -1334,17 +1332,17 @@ alert(string.format("R:%d, G:%d, B:%d", r, g, b));
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| R   |   Integer   | Red color value. |
-| G   |   Integer   | Green color value. |
-| B   |   Integer   | Blue color value. |
+| Parameter |  Type   | Specification      |
+| --------- | :-----: | ------------------ |
+| R         | Integer | Red color value.   |
+| G         | Integer | Green color value. |
+| B         | Integer | Blue color value.  |
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| intColor   |   Integer   | Integer color value |
+| Return   |  Type   | Specification       |
+| -------- | :-----: | ------------------- |
+| intColor | Integer | Integer color value |
 
 `Examples`
 ```lua
@@ -1359,9 +1357,9 @@ alert(string.format("Int type color: %d", intColor));
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| text     |   string   |  Text to be copied. |
+| Parameter |  Type  | Specification      |
+| --------- | :----: | ------------------ |
+| text      | string | Text to be copied. |
 
 `Return`
 
@@ -1383,9 +1381,9 @@ None
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| text     |   string   | Text copied in the clipboard. |
+| Return |  Type  | Specification                 |
+| ------ | :----: | ----------------------------- |
+| text   | string | Text copied in the clipboard. |
 
 `Examples`
 ```lua
@@ -1402,9 +1400,9 @@ alert(text);
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| text     |   string   |  Text to be input. |
+| Parameter |  Type  | Specification     |
+| --------- | :----: | ----------------- |
+| text      | string | Text to be input. |
 
 `Return`
 
@@ -1424,16 +1422,16 @@ inputText("\b\b\b");
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  | Optional | Default |
-| -------- | :-----:| ----  | :----:  | :----:  |
-| controls     |   table   |  Array of self-defined controls. You can now use [these dialog box controls](#types-of-dialog-controls).  | NO | |
-| orientations |  table    | Orientations that dialog can be, see [Types of orientations](#types-of-screen-orientations). | YES | auto |
+| Parameter    | Type  | Specification                                                                                           | Optional | Default |
+| ------------ | :---: | ------------------------------------------------------------------------------------------------------- | :------: | :-----: |
+| controls     | table | Array of self-defined controls. You can now use [these dialog box controls](#types-of-dialog-controls). |    NO    |         |
+| orientations | table | Orientations that dialog can be, see [Types of orientations](#types-of-screen-orientations).            |   YES    |  auto   |
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| Flag of tapped button    |   integer  |  |
+| Return                |  Type   | Specification |
+| --------------------- | :-----: | ------------- |
+| Flag of tapped button | integer |               |
 
 `Examples`
 ```lua
@@ -1481,9 +1479,9 @@ end
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| script     |   string   | script path. eg. there is a dialog.lua script in the scripts list, use it like this: clearDialogValues("dialog.lua");  |
+| Parameter |  Type  | Specification                                                                                                         |
+| --------- | :----: | --------------------------------------------------------------------------------------------------------------------- |
+| script    | string | script path. eg. there is a dialog.lua script in the scripts list, use it like this: clearDialogValues("dialog.lua"); |
 
 `Return`
 
@@ -1502,9 +1500,9 @@ clearDialogValues("dialog.lua");
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| urlString     |   string   |  Target to open. |
+| Parameter |  Type  | Specification   |
+| --------- | :----: | --------------- |
+| urlString | string | Target to open. |
 
 `Return`
 
@@ -1531,9 +1529,9 @@ None
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| licensed     |   boolean   | If current device is licensed. |
+| Return   |  Type   | Specification                  |
+| -------- | :-----: | ------------------------------ |
+| licensed | boolean | If current device is licensed. |
 
 `Examples`
 ```lua
@@ -1549,10 +1547,10 @@ end
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| filePath     |   string   |  Relative path of a script inside script directory of AutoTouch, such as "/Records/test.lua". |
-| on     |   boolean   |  Switch auto launch on or off, true means on, false means off. |
+| Parameter |  Type   | Specification                                                                                |
+| --------- | :-----: | -------------------------------------------------------------------------------------------- |
+| filePath  | string  | Relative path of a script inside script directory of AutoTouch, such as "/Records/test.lua". |
+| on        | boolean | Switch auto launch on or off, true means on, false means off.                                |
 
 `Return`
 
@@ -1574,9 +1572,9 @@ None
 
 `Return`
 
-| Return     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| scripts     |   table   |   Relative path List of auto launch scripts.  |
+| Return  | Type  | Specification                              |
+| ------- | :---: | ------------------------------------------ |
+| scripts | table | Relative path List of auto launch scripts. |
 
 `Examples`
 ```lua
@@ -1691,9 +1689,9 @@ alert(table.tostring(result))
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| done    |  boolean  |  If it is successful.  |
+| Return |  Type   | Specification        |
+| ------ | :-----: | -------------------- |
+| done   | boolean | If it is successful. |
 
 `Examples`
 ```lua
@@ -1711,15 +1709,15 @@ local done = setTimer("/Records/test.lua", "2019-09-17 08:12:52", true, 10000);
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  | Optional | Default |
-| -------- | :-----:| ----  | :----:  | :----:  |
-| filePath     |   string   |  Relative path of a script inside script directory of AutoTouch, such as "/Records/test.lua". | NO | |
+| Parameter |  Type  | Specification                                                                                | Optional | Default |
+| --------- | :----: | -------------------------------------------------------------------------------------------- | :------: | :-----: |
+| filePath  | string | Relative path of a script inside script directory of AutoTouch, such as "/Records/test.lua". |    NO    |         |
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| done    |  boolean  |  If it is successful.  |
+| Return |  Type   | Specification        |
+| ------ | :-----: | -------------------- |
+| done   | boolean | If it is successful. |
 
 `Examples`
 ```lua
@@ -1733,9 +1731,9 @@ local done = removeTimer("/Records/test.lua");
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  | Optional | Default |
-| -------- | :-----:| ----  | :----:  | :----:  |
-| keepAwake     |   boolean   |  Keep AutoTouch awake or not | NO | |
+| Parameter |  Type   | Specification               | Optional | Default |
+| --------- | :-----: | --------------------------- | :------: | :-----: |
+| keepAwake | boolean | Keep AutoTouch awake or not |    NO    |         |
 
 `Return`
 
@@ -1748,336 +1746,42 @@ keepAutoTouchAwake(true);
 
 [Top](#table-of-contents)
 
-## HTTP APIs
-> There is a series of HTTP APIs for AutoTouch controlling in Local Area Netowork, they are the same APIs `Web Server` in AutoTouch Settings is using.
-
-[Top](#table-of-contents)
-
-### Play a script
-> GET /control/start_playing?path=/scriptPath
-
-`Parameters`
-
-| Parameter     |  Specification  |
-| -------- | ----  |
-| path     | Script path.  |
-
-`Return`
-
-Successful:
-```json
-{
-    "status": "success"
-}
-```
-
-Failed:
-```json
-{
-    "status": "fail",
-    "info": ""
-}
-```
-
-`Examples`
-
-```
-HTTP GET http://192.168.1.99:8080/control/start_playing?path=/scriptPath
-```
-
-```json
-{
-    "status": "fail",
-    "info": "Script doesn't exist."
-}
-```
-
-[Top](#table-of-contents)
-
-### Stop playing a script
-> GET /control/stop_playing?path=/scriptPath
-
-`Parameters`
-
-| Parameter     |  Specification  |
-| -------- | ----  |
-| path     | Script path.  |
-
-`Return`
-
-Successful:
-```json
-{
-    "status": "success"
-}
-```
-
-Failed:
-```json
-{
-    "status": "fail",
-    "info": ""
-}
-```
-
-`Examples`
-
-```
-HTTP GET http://192.168.1.99:8080/control/start_playing?path=/scriptPath
-```
-
-```json
-{
-    "status": "fail",
-    "info": "Script doesn't exist."
-}
-```
-
-[Top](#table-of-contents)
-
-### List files in a directory
-> GET /files?path=/Records
-
-`Parameters`
-
-| Parameter     |  Specification  |
-| -------- | ----  |
-| path     | Directory path to list.  |
-
-`Return`
-
-```json
-{
-    "files": [
-        {
-            "filePath": "",
-            "fileSize": "",
-            "iconName": ""
-        },
-        ...
-    ]
-}
-```
-
-`Examples`
-
-```
-HTTP GET http://192.168.1.99:8080/files?path=/Records
-```
-
-```json
-{
-    "files": [
-        {
-            "filePath": "/Records/2019-03-10: 12:00:00.lua",
-            "fileSize": "12kb",
-            "iconName": "script"
-        },
-        ...
-    ]
-}
-```
-
-[Top](#table-of-contents)
-
-### Create a new directory
-> GET /file/newFolder?path=/Test
-
-`Parameters`
-
-| Parameter     |  Specification  |
-| -------- | ----  |
-| path     | New Directory path to create.  |
-
-`Return`
-
-Successful:
-```json
-{
-    "status": "success"
-}
-```
-
-Failed:
-```json
-{
-    "status": "fail",
-    "info": ""
-}
-```
-
-`Examples`
-
-```
-HTTP GET http://192.168.1.99:8080/file/newFolder?path=/Test
-```
-
-```json
-{
-    "status": "success"
-}
-```
-
-[Top](#table-of-contents)
-
-### Create a new file
-> GET /file/new?path=/newFilePath
-
-`Parameters`
-
-| Parameter     |  Specification  |
-| -------- | ----  |
-| path     | New file path to make.  |
-
-`Return`
-
-Successful:
-```json
-{
-    "status": "success"
-}
-```
-
-Failed:
-```json
-{
-    "status": "fail",
-    "info": ""
-}
-```
-
-`Examples`
-
-```
-HTTP GET http://192.168.1.99:8080/file/new?path=/newFilePath
-```
-
-```json
-{
-    "status": "fail",
-    "info": "Invalid file path"
-}
-```
-
-[Top](#table-of-contents)
-
-### Delete a file
-> GET /file/delete?path=/filePathToDelete
-
-`Parameters`
-
-| Parameter     |  Specification  |
-| -------- | ----  |
-| path     | File path to delete.  |
-
-`Return`
-
-Successful:
-```json
-{
-    "status": "success"
-}
-```
-
-Failed:
-```json
-{
-    "status": "fail",
-    "info": ""
-}
-```
-
-`Examples`
-
-```
-HTTP GET http://192.168.1.99:8080/file/delete?path=/filePathToDelete
-```
-
-```json
-{
-    "status": "fail",
-    "info": "Invalid file path"
-}
-```
-
-[Top](#table-of-contents)
-
-### Rename a file or directory
-> GET /file/rename?path=/oldFilePath&newPath=newFilePath
-
-`Parameters`
-
-| Parameter     |  Specification  |
-| -------- | ----  |
-| path     | Old path.  |
-| newPath     | New path.  |
-
-`Return`
-
-Successful:
-```json
-{
-    "status": "success"
-}
-```
-
-Failed:
-```json
-{
-    "status": "fail",
-    "info": ""
-}
-```
-
-`Examples`
-
-```
-HTTP GET http://192.168.1.99:8080/file/rename?path=/oldFilePath&newPath=newFilePath
-```
-
-```json
-{
-    "status": "fail",
-    "info": "Invalid file path"
-}
-```
-
-[Top](#table-of-contents)
+-----
 
 ## Constants
 
 ### Types of physical keys
 
-| Value     |  Specification  |
-| -------- | ----  |
-| KEY_TYPE.HOME_BUTTON | Home Button |
+| Value                       | Specification   |
+| --------------------------- | --------------- |
+| KEY_TYPE.HOME_BUTTON        | Home Button     |
 | KEY_TYPE.VOLUME_DOWN_BUTTON | Volume – Button |
-| KEY_TYPE.VOLUME_UP_BUTTON | Volume + Button |
-| KEY_TYPE.POWER_BUTTON | Power Button |
+| KEY_TYPE.VOLUME_UP_BUTTON   | Volume + Button |
+| KEY_TYPE.POWER_BUTTON       | Power Button    |
 
 [Top](#table-of-contents)
 
 ### Types of dialog controls
 
-| Value     |  Specification  |
-| -------- | ----  |
-| CONTROLLER_TYPE.LABEL | Text label |
-| CONTROLLER_TYPE.INPUT | Input box |
-| CONTROLLER_TYPE.PICKER | Picker |
-| CONTROLLER_TYPE.SWITCH | Switch |
-| CONTROLLER_TYPE.BUTTON | Button |
+| Value                    | Specification                   |
+| ------------------------ | ------------------------------- |
+| CONTROLLER_TYPE.LABEL    | Text label                      |
+| CONTROLLER_TYPE.INPUT    | Input box                       |
+| CONTROLLER_TYPE.PICKER   | Picker                          |
+| CONTROLLER_TYPE.SWITCH   | Switch                          |
+| CONTROLLER_TYPE.BUTTON   | Button                          |
 | CONTROLLER_TYPE.REMEMBER | Switch for remember user inputs |
 
 [Top](#table-of-contents)
 
 ### Types of screen orientations
 
-| Value     |  Specification  |
-| -------- | ----  |
-| ORIENTATION_TYPE.UNKNOWN   | Unknown orientation. Practical value is 0. |
-| ORIENTATION_TYPE.PORTRAIT | Portrait screen. Home button is at the bottom. Practical value is 1. |
+| Value                                 | Specification                                                              |
+| ------------------------------------- | -------------------------------------------------------------------------- |
+| ORIENTATION_TYPE.UNKNOWN              | Unknown orientation. Practical value is 0.                                 |
+| ORIENTATION_TYPE.PORTRAIT             | Portrait screen. Home button is at the bottom. Practical value is 1.       |
 | ORIENTATION_TYPE.PORTRAIT_UPSIDE_DOWN | Upside-down portrait screen. Home button on the top. Practical value is 2. |
-| ORIENTATION_TYPE.LANDSCAPE_LEFT | Landscape left screen. Home Key is in the left. Practical value is 3. |
-| ORIENTATION_TYPE.LANDSCAPE_RIGHT | Landscape right screen. Home key is in the right. Practical value is 4. |
+| ORIENTATION_TYPE.LANDSCAPE_LEFT       | Landscape left screen. Home Key is in the left. Practical value is 3.      |
+| ORIENTATION_TYPE.LANDSCAPE_RIGHT      | Landscape right screen. Home key is in the right. Practical value is 4.    |
 
 [Top](#table-of-contents)
