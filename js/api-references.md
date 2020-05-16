@@ -38,8 +38,8 @@ Table of Contents
     - [copyText(text)](#copytexttext)
     - [clipText()](#cliptext)
     - [inputText(text)](#inputtexttext)
-    - [dialog(controls, orientations)](#dialogcontrols-orientations)
-    - [clearDialogValues(script)](#cleardialogvaluesscript)
+    - [dialog(params)](#dialogparams)
+    - [clearDialogValues(scriptPath)](#cleardialogvaluesscriptpath)
     - [openURL(urlString)](#openurlurlstring)
     - [license()](#license)
     - [setAutoLaunch(scriptPath, on)](#setautolaunchscriptpath-on)
@@ -980,58 +980,62 @@ at.inputText("\b\b\b")
 
 ------
 
-### dialog(controls, orientations)
+### dialog(params)
 > Pop up self-defined dialog box to accept the user input. Please refer to the example for specific usage.
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  | Optional | Default |
-| -------- | :-----:| ----  | :----:  | :----:  |
-| controls     |   table   |  Array of self-defined controls. You can now use [these dialog box controls](#types-of-dialog-controls).  | NO | |
-| orientations |  table    | Orientations that dialog can be, see [Types of orientations](#types-of-screen-orientations). | YES | auto |
+> `params` is an `object` which contains:
+
+| Parameter    | Type  | Specification                                                                                           | Optional | Default |
+| ------------ | :---: | ------------------------------------------------------------------------------------------------------- | :------: | :-----: |
+| controls     | table | Array of self-defined controls. You can now use [these dialog box controls](#types-of-dialog-controls). |    NO    |         |
+| orientations | table | Orientations that dialog can be, see [Types of orientations](#types-of-screen-orientations).            |   YES    |  auto   |
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| Flag of tapped button    |   integer  |  |
+| Return                |  Type   | Specification |
+| --------------------- | :-----: | ------------- |
+| Flag of tapped button | integer |               |
 
 `Examples`
-```lua
-local label = {type=CONTROLLER_TYPE.LABEL, text="Would you mind to provide some personal informations?"}
-local nameInput = {type=CONTROLLER_TYPE.INPUT, title="Name:", key="Name", value="Bob"}
-local positionPicker = {type=CONTROLLER_TYPE.PICKER, title="Position:", key="Position", value="CEO", options={"CEO", "CTO", "CFO", "CXO"} }
-local developerSwitch = {type=CONTROLLER_TYPE.SWITCH, title="A Developer:", key="ADeveloper", value=1}
+```js
+const label = { type: CONTROLLER_TYPE.LABEL, text: "Would you mind to provide some personal informations?" }
+const nameInput = { type: CONTROLLER_TYPE.INPUT, title: "Name:", key: "Name", value: "Bob" }
+const positionPicker = { type: CONTROLLER_TYPE.PICKER, title: "Position:", key: "Position", value: "CEO", options: ["CEO", "CTO", "CFO", "CXO"] }
+const developerSwitch = { type: CONTROLLER_TYPE.SWITCH, title: "A Developer:", key: "ADeveloper", value: 1 }
 
--- It's an option for users to determine weather the inputs should be remembered, if you use this control in the dialog.
-local remember = {type=CONTROLLER_TYPE.REMEMBER, on=false}
+// It's an option for users to determine weather the inputs should be remembered, if you use this control in the dialog.
+const remember = { type: CONTROLLER_TYPE.REMEMBER, on: false }
 
---[[ Define buttons:
+/*
+Define buttons:
 type = CONTROLLER_TYPE.BUTTON
 title = Button text
 color = Button background color, it's optional, the default value is 0x428BCA
 width = Button width upon percentage of the dialog width, it's optional, the default value is 0.5, max value is 1.0.
 flag = Integer type of button flag for identifying which button is tapped.
-collectInputs = Boolean type specifying wheather the dialog should collect the inputs while this button is tapped. ]]--
-local btn1 = {type=CONTROLLER_TYPE.BUTTON, title="Button 1", color=0x71C69E, width=0.8, flag=1, collectInputs=false}
-local btn2 = {type=CONTROLLER_TYPE.BUTTON, title="Button 2", color=0xFF5733, flag=2, collectInputs=true}
-local btn3 = {type=CONTROLLER_TYPE.BUTTON, title="Button 3", color=0xFFB7D0, width=1.0, flag=3, collectInputs=false}
-local btn4 = {type=CONTROLLER_TYPE.BUTTON, title="Button 4", width=1.0, flag=4, collectInputs=true}
+collectInputs = Boolean type specifying wheather the dialog should collect the inputs while this button is tapped.
+*/
+const btn1 = { type: CONTROLLER_TYPE.BUTTON, title: "Button 1", color: 0x71C69E, width: 0.8, flag: 1, collectInputs: true }
+const btn2 = { type: CONTROLLER_TYPE.BUTTON, title: "Button 2", color: 0xFF5733, flag: 2, collectInputs: true }
+const btn3 = { type: CONTROLLER_TYPE.BUTTON, title: "Button 3", color: 0xFFB7D0, width: 1.0, flag: 3, collectInputs: false }
+const btn4 = { type: CONTROLLER_TYPE.BUTTON, title: "Button 4", width: 1.0, flag: 4, collectInputs: true }
 
-local controls = {label, nameInput, positionPicker, developerSwitch, btn1, btn2, remember, btn3, btn4}
+const controls = [label, nameInput, positionPicker, developerSwitch, btn1, btn2, remember, btn3, btn4]
 
--- Pop up the dialog. After popping, the script will suspend waiting for user input until any button is tapped, then returns the flag of tapped button.
+// Pop up the dialog. After popping, the script will suspend waiting for user input until any button is tapped, then returns the flag of tapped button.
 
--- What orientations the dialog could be, it's optional
-local orientations = { ORIENTATION_TYPE.LANDSCAPE_LEFT, ORIENTATION_TYPE.LANDSCAPE_RIGHT };
+// What orientations the dialog could be, it's optional
+const orientations = [INTERFACE_ORIENTATION_TYPE.LANDSCAPE_LEFT, INTERFACE_ORIENTATION_TYPE.LANDSCAPE_RIGHT];
 
-local result = dialog(controls, orientations)
+const result = at.dialog({ controls, orientations });
 
-if (result == 1) then
-    alert(string.format("name:%s, birthday:%s, gender:%d", nameInput.value, positionPicker.value, developerSwitch.value))
-else
-    alert(string.format("Dialog returned: %s", result))
-end
+if (result == 1) {
+    alert("name:%s, birthday:%s, gender:%d", nameInput.value, positionPicker.value, developerSwitch.value)
+} else {
+    alert("Dialog returned: %s", result)
+}
 ```
 ![dialog](https://i.imgur.com/GN9wji7.png)
 
@@ -1039,14 +1043,14 @@ end
 
 ------
 
-### clearDialogValues(script)
+### clearDialogValues(scriptPath)
 > Clear the remembered values of the dialog created by the function dialog.
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| script     |   string   | script path. eg. there is a dialog.lua script in the scripts list, use it like this: clearDialogValues("dialog.lua")  |
+| Parameter  |  Type  | Specification                                                                                                                                 |
+| ---------- | :----: | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| scriptPath | string | script relative path or absolute path. eg. there is a dialog.lua script in the scripts list, use it like this: clearDialogValues("dialog.js") |
 
 `Return`
 
@@ -1054,8 +1058,8 @@ None
 
 `Examples`
 ```lua
--- There is a dialog.lua script in the scripts list
-clearDialogValues("dialog.lua")
+-- There is a dialog.js script in the scripts list
+clearDialogValues("dialog.js")
 ```
 
 [Top](#table-of-contents)
@@ -1067,9 +1071,9 @@ clearDialogValues("dialog.lua")
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| urlString     |   string   |  Target to open. |
+| Parameter |  Type  | Specification   |
+| --------- | :----: | --------------- |
+| urlString | string | Target to open. |
 
 `Return`
 
@@ -1207,26 +1211,52 @@ at.stop()
 | Recognized Text     |   String   |  Recognized Text.  |
 
 `Examples`
-```lua
--- Example:
-local result = ocr({100, 100, 300, 300}, 'eng', 220)
+```js
+const { ocr } = at
 
--- Example:
-local result = ocr({100, 100, 300, 300}, 'eng+fra', 220, '0123456789 ', '..........', 5, null, true)
+// Example:
+const result = ocr({
+    region: {100, 100, 300, 300}, 
+    languages: 'eng', 
+    threshold: 220
+})
 
--- Example:
--- Find English+France at the specified region with threshold 220, using the traindata in `tessdata` folder at the current directory.
--- Like this example, you can put the traindata inside your package project, so you can encrypt and pack them to a single bot.
+// Example:
+const result = ocr({
+    region: {100, 100, 300, 300}, // Optional
+    languages: 'eng+fra', // Optional
+    threshold: 220, // Optional
+    whitelist: '0123456789 ', // Optional
+    blacklist: '..........', // Optional
+    timeout: 5, // Optional
+    tessdataParentDir: null, // Optional
+    debug: true // Optional
+})
 
---+TestOrcProject.at
---+----tesseract
---+--------eng.traindata
---+--------fra.traindata
---+----main.lua
---+----worker.lua
+// Example:
+// Find English+France at the specified region with threshold 220, using the traindata in `tessdata` folder at the current directory.
+// Like this example, you can put the traindata inside your package project, so you can encrypt and pack them to a single bot.
 
--- `./` means under current directory, it will find `tessdata` folder in current directory.
-local result = ocr({100, 100, 300, 300}, 'eng+fra', 220, null, null, 5, './', true)
+/*
++TestOrcProject.at
++----tesseract
++--------eng.traindata
++--------fra.traindata
++----main.lua
++----worker.lua
+*/
+
+//  `./` means under current directory, it will find `tessdata` folder in current directory.
+const result = ocr({
+    region: {100, 100, 300, 300}, // Optional
+    languages: 'eng+fra', // Optional
+    threshold: 220, // Optional
+    whitelist: null, // Optional
+    blacklist: null, // Optional
+    timeout: 5, // Optional
+    tessdataParentDir: './', // Optional
+    debug: true // Optional
+})
 ```
 
 [Top](#table-of-contents)

@@ -27,15 +27,11 @@ Table of Contents
   - [How to trigger a script with timer?](#how-to-trigger-a-script-with-timer)
   - [How to keep AutoTouch awake while screen is locked down?](#how-to-keep-autotouch-awake-while-screen-is-locked-down)
   - [How to copy, paste, input text?](#how-to-copy-paste-input-text)
+  - [How to show a dialog?](#how-to-show-a-dialog)
+  - [How to use ocr for text recognition?](#how-to-use-ocr-for-text-recognition)
   - [Other stuff](#other-stuff)
   - [Some utils](#some-utils)
-    - [dialog(controls, orientations)](#dialogcontrols-orientations)
-    - [clearDialogValues(script)](#cleardialogvaluesscript)
-    - [ocr(region, languages, threshold, whitelist, blacklist, timeout, tessdataParentDir, debug)](#ocrregion-languages-threshold-whitelist-blacklist-timeout-tessdataparentdir-debug)
   - [Constants](#constants)
-  - [Types of physical keys](#types-of-physical-keys)
-  - [Types of dialog controls](#types-of-dialog-controls)
-  - [Types of screen orientations](#types-of-screen-orientations)
 
 
 ## How to start?
@@ -630,6 +626,118 @@ inputText("\b\b\b")
 
 ------
 
+## How to show a dialog?
+
+`Relative Extended Functions`
+> * [`dialog()`](/js/api-references.md#dialog)<br/>
+> * [`clearDialogValues()`](/js/api-references.md#clearDialogValues)
+
+`Examples`
+```js
+const label = { type: CONTROLLER_TYPE.LABEL, text: "Would you mind to provide some personal informations?" }
+const nameInput = { type: CONTROLLER_TYPE.INPUT, title: "Name:", key: "Name", value: "Bob" }
+const positionPicker = { type: CONTROLLER_TYPE.PICKER, title: "Position:", key: "Position", value: "CEO", options: ["CEO", "CTO", "CFO", "CXO"] }
+const developerSwitch = { type: CONTROLLER_TYPE.SWITCH, title: "A Developer:", key: "ADeveloper", value: 1 }
+
+// It's an option for users to determine weather the inputs should be remembered, if you use this control in the dialog.
+const remember = { type: CONTROLLER_TYPE.REMEMBER, on: false }
+
+/*
+Define buttons:
+type = CONTROLLER_TYPE.BUTTON
+title = Button text
+color = Button background color, it's optional, the default value is 0x428BCA
+width = Button width upon percentage of the dialog width, it's optional, the default value is 0.5, max value is 1.0.
+flag = Integer type of button flag for identifying which button is tapped.
+collectInputs = Boolean type specifying wheather the dialog should collect the inputs while this button is tapped.
+*/
+const btn1 = { type: CONTROLLER_TYPE.BUTTON, title: "Button 1", color: 0x71C69E, width: 0.8, flag: 1, collectInputs: false }
+const btn2 = { type: CONTROLLER_TYPE.BUTTON, title: "Button 2", color: 0xFF5733, flag: 2, collectInputs: true }
+const btn3 = { type: CONTROLLER_TYPE.BUTTON, title: "Button 3", color: 0xFFB7D0, width: 1.0, flag: 3, collectInputs: false }
+const btn4 = { type: CONTROLLER_TYPE.BUTTON, title: "Button 4", width: 1.0, flag: 4, collectInputs: true }
+
+const controls = [label, nameInput, positionPicker, developerSwitch, btn1, btn2, remember, btn3, btn4]
+
+// Pop up the dialog. After popping, the script will suspend waiting for user input until any button is tapped, then returns the flag of tapped button.
+
+// What orientations the dialog could be, it's optional
+const orientations = [INTERFACE_ORIENTATION_TYPE.LANDSCAPE_LEFT, INTERFACE_ORIENTATION_TYPE.LANDSCAPE_RIGHT];
+
+const result = at.dialog({ controls, orientations });
+
+if (result == 1) {
+    alert("name:%s, birthday:%s, gender:%d", nameInput.value, positionPicker.value, developerSwitch.value)
+} else {
+    alert("Dialog returned: %s", result)
+}
+
+// clear the remembered dialog values
+clearDialogValues("dialog.js");
+```
+![dialog](https://i.imgur.com/GN9wji7.png)
+
+[Top](#table-of-contents)
+
+-----
+
+## How to use ocr for text recognition?
+
+`Relative Extended Functions`
+> * [`ocr()`](/js/api-references.md#ocr)
+
+`Examples`
+```js
+const { ocr } = at
+
+// Example:
+const result = ocr({
+    region: {100, 100, 300, 300}, 
+    languages: 'eng', 
+    threshold: 220
+})
+
+// Example:
+const result = ocr({
+    region: {100, 100, 300, 300}, // Optional
+    languages: 'eng+fra', // Optional
+    threshold: 220, // Optional
+    whitelist: '0123456789 ', // Optional
+    blacklist: '..........', // Optional
+    timeout: 5, // Optional
+    tessdataParentDir: null, // Optional
+    debug: true // Optional
+})
+
+// Example:
+// Find English+France at the specified region with threshold 220, using the traindata in `tessdata` folder at the current directory.
+// Like this example, you can put the traindata inside your package project, so you can encrypt and pack them to a single bot.
+
+/*
++TestOrcProject.at
++----tesseract
++--------eng.traindata
++--------fra.traindata
++----main.lua
++----worker.lua
+*/
+
+//  `./` means under current directory, it will find `tessdata` folder in current directory.
+const result = ocr({
+    region: {100, 100, 300, 300}, // Optional
+    languages: 'eng+fra', // Optional
+    threshold: 220, // Optional
+    whitelist: null, // Optional
+    blacklist: null, // Optional
+    timeout: 5, // Optional
+    tessdataParentDir: './', // Optional
+    debug: true // Optional
+})
+```
+
+[Top](#table-of-contents)
+
+-----
+
 ## Other stuff
 
 `Relative Extended Functions`
@@ -728,168 +836,4 @@ alert(`Hex format of color rgb(${r}, ${g}, ${b}) is ${intColor.toString(16)}`)
 
 ------
 
-### dialog(controls, orientations)
-> Pop up self-defined dialog box to accept the user input. Please refer to the example for specific usage.
-
-`Parameters`
-
-| Parameter     | Type   |  Specification  | Optional | Default |
-| -------- | :-----:| ----  | :----:  | :----:  |
-| controls     |   table   |  Array of self-defined controls. You can now use [these dialog box controls](#types-of-dialog-controls).  | NO | |
-| orientations |  table    | Orientations that dialog can be, see [Types of orientations](#types-of-screen-orientations). | YES | auto |
-
-`Return`
-
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| Flag of tapped button    |   integer  |  |
-
-`Examples`
-```lua
-local label = {type=CONTROLLER_TYPE.LABEL, text="Would you mind to provide some personal informations?"}
-local nameInput = {type=CONTROLLER_TYPE.INPUT, title="Name:", key="Name", value="Bob"}
-local positionPicker = {type=CONTROLLER_TYPE.PICKER, title="Position:", key="Position", value="CEO", options={"CEO", "CTO", "CFO", "CXO"} }
-local developerSwitch = {type=CONTROLLER_TYPE.SWITCH, title="A Developer:", key="ADeveloper", value=1}
-
--- It's an option for users to determine weather the inputs should be remembered, if you use this control in the dialog.
-local remember = {type=CONTROLLER_TYPE.REMEMBER, on=false}
-
---[[ Define buttons:
-type = CONTROLLER_TYPE.BUTTON
-title = Button text
-color = Button background color, it's optional, the default value is 0x428BCA
-width = Button width upon percentage of the dialog width, it's optional, the default value is 0.5, max value is 1.0.
-flag = Integer type of button flag for identifying which button is tapped.
-collectInputs = Boolean type specifying wheather the dialog should collect the inputs while this button is tapped. ]]--
-local btn1 = {type=CONTROLLER_TYPE.BUTTON, title="Button 1", color=0x71C69E, width=0.8, flag=1, collectInputs=false}
-local btn2 = {type=CONTROLLER_TYPE.BUTTON, title="Button 2", color=0xFF5733, flag=2, collectInputs=true}
-local btn3 = {type=CONTROLLER_TYPE.BUTTON, title="Button 3", color=0xFFB7D0, width=1.0, flag=3, collectInputs=false}
-local btn4 = {type=CONTROLLER_TYPE.BUTTON, title="Button 4", width=1.0, flag=4, collectInputs=true}
-
-local controls = {label, nameInput, positionPicker, developerSwitch, btn1, btn2, remember, btn3, btn4}
-
--- Pop up the dialog. After popping, the script will suspend waiting for user input until any button is tapped, then returns the flag of tapped button.
-
--- What orientations the dialog could be, it's optional
-local orientations = { ORIENTATION_TYPE.LANDSCAPE_LEFT, ORIENTATION_TYPE.LANDSCAPE_RIGHT };
-
-local result = dialog(controls, orientations)
-
-if (result == 1) then
-    alert(string.format("name:%s, birthday:%s, gender:%d", nameInput.value, positionPicker.value, developerSwitch.value))
-else
-    alert(string.format("Dialog returned: %s", result))
-end
-```
-![dialog](https://i.imgur.com/GN9wji7.png)
-
-[Top](#table-of-contents)
-
-### clearDialogValues(script)
-> Clear the remembered values of the dialog created by the function dialog.
-
-`Parameters`
-
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| script     |   string   | script path. eg. there is a dialog.lua script in the scripts list, use it like this: clearDialogValues("dialog.lua")  |
-
-`Return`
-
-None
-
-`Examples`
-```lua
--- There is a dialog.lua script in the scripts list
-clearDialogValues("dialog.lua")
-```
-
-[Top](#table-of-contents)
-
-### ocr(region, languages, threshold, whitelist, blacklist, timeout, tessdataParentDir, debug)
-> Text recognition from the screen with library `tesseract ocr`
-
-`Parameters`
-
-| Parameter     | Type   |  Specification  | Optional | Default |
-| -------- | :-----:| ----  | :----:  | :----:  |
-| region    |  table    | What region you want to recognize text at the screen. | YES | Whole screen |
-| languages    |  String  | Languages you want to recognize, by default AutoTouch has included `eng.traineddata` at `/var/mobile/Library/AutoTouch/Library/tessadata`, you may download other languages you needed to the same dir from [https://github.com/tesseract-ocr/tessdata/tree/3.04.00](https://github.com/tesseract-ocr/tessdata/tree/3.04.00). Somewhat you may even train your own data for `tesseract orc` and put it at `tessadata` dir. | YES | "eng" |
-| threshold    |  Integer  | Threshold the image, Adjust this value to improve the accurancy. Value range is from 0 to 255.  | YES | 100 |
-| whitelist    |  String  | What characters you want to recognize in the region, such as "0123456789" will find numbers only. | YES | NULL |
-| blacklist    |  String  | What characters you do not want to recognize from the region. | YES | NULL |
-| timeout    |  Integer  | Timeout in seconds. | YES | 3 |
-| tessdataParentDir    |  String  | Parent directory path of the `tessdata` directory, google to know more about `tessdata` of `tesseract ocr`. If this parameter starts with "/", it will be treated as an absolute path, otherwise it will be treated as a relative path. The real `traineddata` files will be at `tessdata` dir inside `tessdataParentDir`. **ATTENSION** this parameter is the **parent dir** of the `tessdata` folder!!! And the folder containers traineddata files must be named `tessdata`.  | YES | `/var/mobile/Library/AutoTouch/Library/` |
-| debug    |  boolean  | If pass debug=true, it will produce a image ends with "-Debug.PNG" marked the matching areas. | YES | false |
-
-`Return`
-
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| Recognized Text     |   String   |  Recognized Text.  |
-
-`Examples`
-```lua
--- Example:
-local result = ocr({100, 100, 300, 300}, 'eng', 220)
-
--- Example:
-local result = ocr({100, 100, 300, 300}, 'eng+fra', 220, '0123456789 ', '..........', 5, nil, true)
-
--- Example:
--- Find English+France at the specified region with threshold 220, using the traindata in `tessdata` folder at the current directory.
--- Like this example, you can put the traindata inside your package project, so you can encrypt and pack them to a single bot.
-
---+TestOrcProject.at
---+----tesseract
---+--------eng.traindata
---+--------fra.traindata
---+----main.lua
---+----worker.lua
-
--- `./` means under current directory, it will find `tessdata` folder in current directory.
-local result = ocr({100, 100, 300, 300}, 'eng+fra', 220, nil, nil, 5, './', true)
-```
-
-
-[Top](#table-of-contents)
-
------
-
-## Constants
-
-## Types of physical keys
-
-| Value     |  Specification  |
-| -------- | ----  |
-| KEY_TYPE.HOME_BUTTON | Home Button |
-| KEY_TYPE.VOLUME_DOWN_BUTTON | Volume – Button |
-| KEY_TYPE.VOLUME_UP_BUTTON | Volume + Button |
-| KEY_TYPE.POWER_BUTTON | Power Button |
-
-[Top](#table-of-contents)
-
-## Types of dialog controls
-
-| Value     |  Specification  |
-| -------- | ----  |
-| CONTROLLER_TYPE.LABEL | Text label |
-| CONTROLLER_TYPE.INPUT | Input box |
-| CONTROLLER_TYPE.PICKER | Picker |
-| CONTROLLER_TYPE.SWITCH | Switch |
-| CONTROLLER_TYPE.BUTTON | Button |
-| CONTROLLER_TYPE.REMEMBER | Switch for remember user inputs |
-
-[Top](#table-of-contents)
-
-## Types of screen orientations
-
-| Value     |  Specification  |
-| -------- | ----  |
-| ORIENTATION_TYPE.UNKNOWN   | Unknown orientation. Practical value is 0. |
-| ORIENTATION_TYPE.PORTRAIT | Portrait screen. Home button is at the bottom. Practical value is 1. |
-| ORIENTATION_TYPE.PORTRAIT_UPSIDE_DOWN | Upside-down portrait screen. Home button on the top. Practical value is 2. |
-| ORIENTATION_TYPE.LANDSCAPE_LEFT | Landscape left screen. Home Key is in the left. Practical value is 3. |
-| ORIENTATION_TYPE.LANDSCAPE_RIGHT | Landscape right screen. Home key is in the right. Practical value is 4. |
-
-[Top](#table-of-contents)
+## [Constants](/js/api-references#types-of-physical-keys)
