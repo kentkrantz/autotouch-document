@@ -29,6 +29,7 @@ Table of Contents
   - [How to copy, paste, input text?](#how-to-copy-paste-input-text)
   - [How to show a dialog?](#how-to-show-a-dialog)
   - [How to use ocr for text recognition?](#how-to-use-ocr-for-text-recognition)
+  - [How to execute a shell command?](#how-to-execute-a-shell-command)
   - [Other stuff](#other-stuff)
   - [Some utils](#some-utils)
   - [Constants](#constants)
@@ -732,6 +733,21 @@ const result = ocr({
     tessdataParentDir: './', // Optional
     debug: true // Optional
 })
+```
+
+[Top](#table-of-contents)
+
+------
+
+## How to execute a shell command?
+
+`Relative Extended Functions`
+> * [`exec()`](/js/api-references.md#exec)
+
+`Examples`
+```js
+const result = at.exec('ls -l')
+console.log(result)
 ```
 
 [Top](#table-of-contents)

@@ -50,6 +50,7 @@ Table of Contents
     - [setTimer(scriptPath, fireTime, repeat, interval)](#settimerscriptpath-firetime-repeat-interval)
     - [removeTimer(scriptPath)](#removetimerscriptpath)
     - [keepAutoTouchAwake(keepAwake)](#keepautotouchawakekeepawake)
+    - [exec(command)](#execcommand)
 - [Constants](#constants)
     - [Types of physical keys](#types-of-physical-keys)
     - [Types of dialog controls](#types-of-dialog-controls)
@@ -1330,9 +1331,9 @@ local done = setTimer("/Records/test.lua", "2019-09-17 08:12:52", true, 10000)
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| done    |  boolean  |  If it is successful.  |
+| Return |  Type   | Specification        |
+| ------ | :-----: | -------------------- |
+| done   | boolean | If it is successful. |
 
 `Examples`
 ```lua
@@ -1359,6 +1360,31 @@ None
 `Examples`
 ```lua
 keepAutoTouchAwake(true)
+```
+
+[Top](#table-of-contents)
+
+------
+
+### exec(command)
+> Run a shell command
+
+`Parameters`
+
+| Parameter |  Type  | Specification | Optional | Default |
+| --------- | :----: | ------------- | :------: | :-----: |
+| command   | String | Shell command |    NO    |         |
+
+`Return`
+
+| Return |  Type  | Specification |
+| ------ | :----: | ------------- |
+| result | String | Result.       |
+
+`Examples`
+```js
+const result = at.exec('ls -l')
+console.log(result)
 ```
 
 [Top](#table-of-contents)
