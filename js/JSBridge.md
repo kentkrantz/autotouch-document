@@ -3,31 +3,7 @@ JSBridge Document <!-- omit in toc -->
 
 `Applicable to version 7.0.0 or higher`
 
-Table of Contents
-=================
-- [Table of Contents](#table-of-contents)
-  - [What is `JSBridge`?](#what-is-jsbridge)
-  - [How to begin with `JSBridge`?](#how-to-begin-with-jsbridge)
-  - [Usage and Examples](#usage-and-examples)
-    - [How to make an `UIAlertView`?](#how-to-make-an-uialertview)
-    - [How to make an `UIWindow`?](#how-to-make-an-uiwindow)
-    - [How to open an app or an URL?](#how-to-open-an-app-or-an-url)
-    - [How to show an image?](#how-to-show-an-image)
-    - [How to define a class for Objective-C?](#how-to-define-a-class-for-objective-c)
-      - [Override existing instance methods](#override-existing-instance-methods)
-      - [Override existing class static methods](#override-existing-class-static-methods)
-      - [Override `Category` methods](#override-category-methods)
-      - [Use `super()`](#use-super)
-      - [get/set properties](#getset-properties)
-      - [Add new methods](#add-new-methods)
-    - [How to use `struct` of Objctive-C?](#how-to-use-struct-of-objctive-c)
-    - [How to use `selector` of Objective-C?](#how-to-use-selector-of-objective-c)
-    - [How to use `nil` of Objective-C?](#how-to-use-nil-of-objective-c)
-    - [Use `NSArray`, `NSString`, `NSDictionary` of Objective-C](#use-nsarray-nsstring-nsdictionary-of-objective-c)
-    - [How to use `block` of Objective-C?](#how-to-use-block-of-objective-c)
-    - [`__weak`, `__strong`](#weak-strong)
-    - [`GCD`](#gcd)
-    - [Constants, enum, macro, global variables](#constants-enum-macro-global-variables)
+-----
 
 ## What is `JSBridge`?
 > `JSBridge` is a mechanism implementated the ability to call `classes`, `methods`, `variables` of `Objective-C` from `JavaScript`.

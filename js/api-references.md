@@ -3,64 +3,9 @@ Extended JavaScript Functions <!-- omit in toc -->
 
 `Applicable to version 7.0.0 or higher`
 
-Table of Contents
-=================
-
-- [Table of Contents](#table-of-contents)
-- [Extended Functions](#extended-functions)
-    - [console.log()](#consolelog)
-    - [alert()](#alert)
-    - [usleep(microseconds)](#usleepmicroseconds)
-    - [touchDown(id, x, y)](#touchdownid-x-y)
-    - [touchMove(id, x, y)](#touchmoveid-x-y)
-    - [touchUp(id, x, y)](#touchupid-x-y)
-    - [keyDown(keyType)](#keydownkeytype)
-    - [keyUp(keyType)](#keyupkeytype)
-    - [getColor(x, y)](#getcolorx-y)
-    - [getColors(locations)](#getcolorslocations)
-    - [findColor(params)](#findcolorparams)
-    - [findColors(params)](#findcolorsparams)
-    - [findImage](#findimage)
-    - [screenshot(savePath, region)](#screenshotsavepath-region)
-    - [appRun(appIdentifier)](#apprunappidentifier)
-    - [appKill(appIdentifier)](#appkillappidentifier)
-    - [appState(appIdentifier)](#appstateappidentifier)
-    - [rootDir()](#rootdir)
-    - [toast(message, delay)](#toastmessage-delay)
-    - [vibrate()](#vibrate)
-    - [getDeviceOrientation()](#getdeviceorientation)
-    - [getSN()](#getsn)
-    - [getVersion()](#getversion)
-    - [frontMostAppId()](#frontmostappid)
-    - [frontMostAppOrientation()](#frontmostapporientation)
-    - [intToRgb(intColor)](#inttorgbintcolor)
-    - [rgbToInt(r, g, b)](#rgbtointr-g-b)
-    - [copyText(text)](#copytexttext)
-    - [clipText()](#cliptext)
-    - [inputText(text)](#inputtexttext)
-    - [dialog(params)](#dialogparams)
-    - [clearDialogValues(scriptPath)](#cleardialogvaluesscriptpath)
-    - [openURL(urlString)](#openurlurlstring)
-    - [license()](#license)
-    - [setAutoLaunch(scriptPath, on)](#setautolaunchscriptpath-on)
-    - [listAutoLaunch()](#listautolaunch)
-    - [stop()](#stop)
-    - [ocr(region, languages, threshold, whitelist, blacklist, timeout, tessdataParentDir, debug)](#ocrregion-languages-threshold-whitelist-blacklist-timeout-tessdataparentdir-debug)
-    - [appInfo(appIdentifier)](#appinfoappidentifier)
-    - [setTimer(scriptPath, fireTime, repeat, interval)](#settimerscriptpath-firetime-repeat-interval)
-    - [removeTimer(scriptPath)](#removetimerscriptpath)
-    - [keepAutoTouchAwake(keepAwake)](#keepautotouchawakekeepawake)
-    - [exec(command)](#execcommand)
-- [Constants](#constants)
-    - [Types of physical keys](#types-of-physical-keys)
-    - [Types of dialog controls](#types-of-dialog-controls)
-    - [Types of device orientations](#types-of-device-orientations)
-    - [Types of app interface orientations](#types-of-app-interface-orientations)
-
 ------
 
-Extended Functions
-=================
+# Extended Functions
 
 ### console.log()
 > Log message to `Log View`
@@ -99,7 +44,7 @@ console.log('I am a log of something interesting: %j', something)
 console.log(`I am a log of something interesting: ${ JSON.stringify(something )}`)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -130,7 +75,7 @@ alert('I am a log of something interesting: %j', something)
 alert(`I am a log of something interesting: ${ JSON.stringify(something )}`)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -157,7 +102,7 @@ const { usleep } = at
 usleep(1000000)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -185,7 +130,7 @@ const { touchDown } = at;
 touchDown(0, 100, 200)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -209,7 +154,7 @@ None
 at.touchMove(0, 200, 200)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -233,7 +178,7 @@ None
 at.touchUp(0, 100, 200)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -256,7 +201,7 @@ None
 at.keyDown(KEY_TYPE.HOME_BUTTON)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -278,7 +223,7 @@ None
 at.keyUp(KEY_TYPE.HOME_BUTTON)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -310,7 +255,7 @@ alert('Got color ${color} at point 100, 200')
 // Go on to do next
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -350,7 +295,7 @@ if (error) {
 }
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -398,7 +343,7 @@ const findColor = function (params) {
 }
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -481,7 +426,7 @@ if (error) {
 const [result] = findColors(params)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -544,7 +489,7 @@ const [result] = findColors({
 })
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -590,7 +535,7 @@ const region = { x: 0, y: 0, width: 300, height: 500 }
 screenshot(savePath, region)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -613,7 +558,7 @@ None
 at.appRun("com.apple.mobilesafari")
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -636,7 +581,7 @@ None
 at.appKill("com.apple.mobilesafari")
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -663,7 +608,7 @@ alert('State of Safari: %s', state))
 -- Pop up the state of Safari: "ACTIVATED"
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -686,7 +631,7 @@ None
 alert(`The root dir of AutoTouch is ${rootDir()}`)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -710,7 +655,7 @@ at.toast("Hello I'm a toast!", 5) -- Show message for 5 seconds.
 at.toast("Hello again!") -- Show message for 2 seconds.
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -731,7 +676,7 @@ None
 at.vibrate()
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -754,7 +699,7 @@ alert(`Device orientation is : ${at.getDeviceOrientation()}`)
 // Pop up the orientation of the device
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -778,7 +723,7 @@ alert(`Serial Number of this device is ${sn}`)
 // Popup shows the SN of the device: C15NFK32TWD2
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -802,7 +747,7 @@ alert(`Current version of AutoTouch is : ${version}`)
 // Pop up shows current version of AutoTouch: 3.5.3-4
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -825,7 +770,7 @@ const appId = at.frontMostAppId()
 alert(`Current front most App is : ${appId}`)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -848,7 +793,7 @@ const orientation = at.frontMostAppOrientation()
 alert(`Orientation of current front most App is : ${orientation}`)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -877,7 +822,7 @@ const r, g, b = intToRgb(0x2b2b2b)
 alert(`red: ${r}, green: ${g}, blue: ${b}`)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -906,7 +851,7 @@ const intColor = rgbToInt(200, 255, 100)
 alert(`integer value of rgb(200, 255, 100) is ${intColor}`)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -928,7 +873,7 @@ None
 at.copyText('This is a copied text!')
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -952,7 +897,7 @@ alert(text)
 // Popup shows the text to be copied: "This is a copied text!";
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -977,7 +922,7 @@ at.inputText("Let's input some text automatically without tapping the keyboard!"
 at.inputText("\b\b\b") 
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -1040,7 +985,7 @@ if (result == 1) {
 ```
 ![dialog](https://i.imgur.com/GN9wji7.png)
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -1063,7 +1008,7 @@ None
 clearDialogValues("dialog.js")
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -1092,7 +1037,7 @@ openURL("tel://+1123456")
 openURL("clashofclans://")
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -1114,7 +1059,7 @@ None
 alert(`AutoTouch license of current device is ${at.license()}!`)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -1137,7 +1082,7 @@ None
 at.setAutoLaunch("/Records/test.lua", true)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -1164,7 +1109,7 @@ if (scripts) {
 }
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -1185,7 +1130,7 @@ None
 at.stop()
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -1260,7 +1205,7 @@ const result = ocr({
 })
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -1285,7 +1230,7 @@ local result = appInfo("com.microsoft.Office.Outlook")
 alert(table.tostring(result))
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -1316,7 +1261,7 @@ local done = setTimer("/Records/test.lua", 1000, false, 0)
 local done = setTimer("/Records/test.lua", "2019-09-17 08:12:52", true, 10000)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -1340,7 +1285,7 @@ local done = setTimer("/Records/test.lua", "2019-09-17 08:12:52", true, 10000)
 local done = removeTimer("/Records/test.lua")
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -1362,7 +1307,7 @@ None
 keepAutoTouchAwake(true)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -1387,7 +1332,7 @@ const result = at.exec('ls -l')
 console.log(result)
 ```
 
-[Top](#table-of-contents)
+[Top](#extended-functions)
 
 ------
 
@@ -1436,4 +1381,4 @@ Constants
 | ORIENTATION_TYPE.LANDSCAPE_LEFT       | Landscape left screen. Home Key is in the left. Practical value is string 3.   |
 | ORIENTATION_TYPE.LANDSCAPE_RIGHT      | Landscape right screen. Home key is in the right. Practical value is string 4. |
 
-[Top](#table-of-contents)
+[Top](#extended-functions)

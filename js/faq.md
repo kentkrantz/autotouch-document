@@ -3,37 +3,15 @@ JavaScript Document <!-- omit in toc -->
 
 `Applicable to version 7.0.0 or higher`
 
+-----
+
 ## [JSBridge Document](/js/JSBridge) <!-- omit in toc -->
 
 ## [Extended JavaScript Functions References](/js/api-references) <!-- omit in toc -->
 
 ## [HTTP APIs](/http-api) <!-- omit in toc -->
 
-Table of Contents
-=================
-
-- [Table of Contents](#table-of-contents)
-  - [How to start?](#how-to-start)
-  - [How to import extended functions of AutoTouch before using?](#how-to-import-extended-functions-of-autotouch-before-using)
-  - [How to use another module?](#how-to-use-another-module)
-  - [How to log or alert a message ?](#how-to-log-or-alert-a-message)
-  - [How to simulate touches?](#how-to-simulate-touches)
-  - [How to simulate physical button pressing?](#how-to-simulate-physical-button-pressing)
-  - [How to get color of a point on the screen?](#how-to-get-color-of-a-point-on-the-screen)
-  - [How to find locations of specified colors from the screen?](#how-to-find-locations-of-specified-colors-from-the-screen)
-  - [How to find areas matching the specified image from the screen?](#how-to-find-areas-matching-the-specified-image-from-the-screen)
-  - [How to run or stop an app?](#how-to-run-or-stop-an-app)
-  - [How to set a script auto luanch?](#how-to-set-a-script-auto-luanch)
-  - [How to trigger a script with timer?](#how-to-trigger-a-script-with-timer)
-  - [How to keep AutoTouch awake while screen is locked down?](#how-to-keep-autotouch-awake-while-screen-is-locked-down)
-  - [How to copy, paste, input text?](#how-to-copy-paste-input-text)
-  - [How to show a dialog?](#how-to-show-a-dialog)
-  - [How to use ocr for text recognition?](#how-to-use-ocr-for-text-recognition)
-  - [How to execute a shell command?](#how-to-execute-a-shell-command)
-  - [Other stuff](#other-stuff)
-  - [Some utils](#some-utils)
-  - [Constants](#constants)
-
+-----
 
 ## How to start?
 > Learn `JavaScript` for an hour before coding with `AutoTouch`, this document doesn't teach you `JavaScript`.<br/>
@@ -57,7 +35,7 @@ at.toast('message')
 at.screenshot()
 ```
 
-[Top](#table-of-contents)
+[Top](#how-to-start)
 
 ------
 
@@ -101,7 +79,7 @@ const { run } = require("./worker")
 run()
 ```
 
-[Top](#table-of-contents)
+[Top](#how-to-start)
 
 ------
 
@@ -143,7 +121,7 @@ alert('I am a log of something interesting: %j', something)
 alert(`I am a log of something interesting: ${ JSON.stringify(something )}`)
 ```
 
-[Top](#table-of-contents)
+[Top](#how-to-start)
 
 ------
 
@@ -194,7 +172,7 @@ function tap(x, y) {
 tap(100, 200)
 ```
 
-[Top](#table-of-contents)
+[Top](#how-to-start)
 
 ------
 
@@ -249,7 +227,7 @@ function unlockScreen() {
 }
 ```
 
-[Top](#table-of-contents)
+[Top](#how-to-start)
 
 ------
 
@@ -309,7 +287,7 @@ if (error) {
 }
 ```
 
-[Top](#table-of-contents)
+[Top](#how-to-start)
 
 ------
 
@@ -405,7 +383,7 @@ function callback(result, error) {
 findColorsAsync(params, callback)
 ```
 
-[Top](#table-of-contents)
+[Top](#how-to-start)
 
 ------
 
@@ -486,7 +464,7 @@ function callback(result, error) {
 findImageAsync(params, callback)
 ```
 
-[Top](#table-of-contents)
+[Top](#how-to-start)
 
 ------
 
@@ -522,7 +500,7 @@ const result = appInfo("com.microsoft.Office.Outlook")
 alert('Informations of Outlook are: %j', result)
 ```
 
-[Top](#table-of-contents)
+[Top](#how-to-start)
 
 ------
 
@@ -552,7 +530,7 @@ if (!autoLaunchScripts) {
 autoLaunchScripts.forEach(item => console.log(`Got a auto launch script: ${item}`))
 ```
 
-[Top](#table-of-contents)
+[Top](#how-to-start)
 
 ------
 
@@ -578,7 +556,7 @@ setTimer("/Records/test.lua", "2019-09-17 08:12:52", true, 10000)
 removeTimer("/Records/test.lua")
 ```
 
-[Top](#table-of-contents)
+[Top](#how-to-start)
 
 ------
 
@@ -593,7 +571,7 @@ removeTimer("/Records/test.lua")
 keepAutoTouchAwake(true)
 ```
 
-[Top](#table-of-contents)
+[Top](#how-to-start)
 
 -----
 
@@ -623,7 +601,7 @@ inputText("Let's input some text automatically without tapping the keyboard!")
 inputText("\b\b\b") 
 ```
 
-[Top](#table-of-contents)
+[Top](#how-to-start)
 
 ------
 
@@ -677,7 +655,7 @@ clearDialogValues("dialog.js");
 ```
 ![dialog](https://i.imgur.com/GN9wji7.png)
 
-[Top](#table-of-contents)
+[Top](#how-to-start)
 
 -----
 
@@ -735,7 +713,7 @@ const result = ocr({
 })
 ```
 
-[Top](#table-of-contents)
+[Top](#how-to-start)
 
 ------
 
@@ -750,7 +728,7 @@ const result = at.exec('ls -l')
 console.log(result)
 ```
 
-[Top](#table-of-contents)
+[Top](#how-to-start)
 
 -----
 
@@ -821,7 +799,7 @@ openURL("tel://+1123456")
 openURL("clashofclans://")
 ```
 
-[Top](#table-of-contents)
+[Top](#how-to-start)
 
 ------
 
@@ -848,7 +826,7 @@ alert(`Integer value of rgb(${r}, ${g}, ${b}) is ${intColor}`)
 alert(`Hex format of color rgb(${r}, ${g}, ${b}) is ${intColor.toString(16)}`)
 ```
 
-[Top](#table-of-contents)
+[Top](#how-to-start)
 
 ------
 

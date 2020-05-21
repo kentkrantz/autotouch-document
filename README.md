@@ -10,6 +10,8 @@ AutoTouch Document <!-- omit in toc -->
 > - It needs Jailbreak environment.
 > - It provides a Script Store to sell and buy scripts.
 
+-----
+
 ## [JavaScript Document](/js/faq) <!-- omit in toc -->
 
 ## [JSBridge Document](/js/JSBridge) <!-- omit in toc -->
@@ -18,89 +20,7 @@ AutoTouch Document <!-- omit in toc -->
 
 ### [FAQ](/faq) <!-- omit in toc -->
 
-Table of Contents
-=================
-
-- [Table of Contents](#table-of-contents)
-- [Usage](#usage)
-  - [How to install?](#how-to-install)
-  - [How to use Activator?](#how-to-use-activator)
-  - [How to record?](#how-to-record)
-  - [How to play script?](#how-to-play-script)
-  - [How to take screenshot?](#how-to-take-screenshot)
-  - [How to write a script?](#how-to-write-a-script)
-  - [How to use the "Function Helper" while script coding?](#how-to-use-the-%22function-helper%22-while-script-coding)
-  - [How to write and manage scripts on the computer?](#how-to-write-and-manage-scripts-on-the-computer)
-  - [How to use Package to orgainize the script project?](#how-to-use-package-to-orgainize-the-script-project)
-  - [How to encrypt the scripts?](#how-to-encrypt-the-scripts)
-  - [How to sell your script in Script Store?](#how-to-sell-your-script-in-script-store)
-  - [How to download and buy scripts from Script Store?](#how-to-download-and-buy-scripts-from-script-store)
-  - [How to buy AutoTouch license?](#how-to-buy-autotouch-license)
-- [Script](#script)
-  - [Basis](#basis)
-  - [Develop Tool](#develop-tool)
-  - [Coordinate, Size and Orientation System](#coordinate-size-and-orientation-system)
-  - [Extension Libraries](#extension-libraries)
-    - [LuaCURL](#luacurl)
-    - [LuaSocket](#luasocket)
-    - [LuaSec](#luasec)
-    - [LuaSqlite3](#luasqlite3)
-    - [json.lua](#jsonlua)
-    - [Plist](#plist)
-    - [Penlight](#penlight)
-    - [LuaFileSystem](#luafilesystem)
-    - [WebSocket](#websocket)
-  - [Extension Functions](#extension-functions)
-    - [touchDown(id, x, y)](#touchdownid-x-y)
-    - [touchMove(id, x, y)](#touchmoveid-x-y)
-    - [touchUp(id, x, y)](#touchupid-x-y)
-    - [keyDown(keyType)](#keydownkeytype)
-    - [keyUp(keyType)](#keyupkeytype)
-    - [getColor(x, y)](#getcolorx-y)
-    - [getColors(locations)](#getcolorslocations)
-    - [findColor(color, count, region, debug, rightToLeft, bottomToTop)](#findcolorcolor-count-region-debug-righttoleft-bottomtotop)
-    - [findColors(colors, count, region, debug, rightToLeft, bottomToTop)](#findcolorscolors-count-region-debug-righttoleft-bottomtotop)
-    - [findImage(targetImagePath, count, threshold, region, debug, method)](#findimagetargetimagepath-count-threshold-region-debug-method)
-    - [screenshot(filePath, region)](#screenshotfilepath-region)
-    - [appRun(appIdentifier)](#apprunappidentifier)
-    - [appKill(appIdentifier)](#appkillappidentifier)
-    - [appState(appIdentifier)](#appstateappidentifier)
-    - [rootDir()](#rootdir)
-    - [currentPath()](#currentpath)
-    - [usleep(microseconds)](#usleepmicroseconds)
-    - [log(content)](#logcontent)
-    - [alert(message)](#alertmessage)
-    - [toast(message, delay)](#toastmessage-delay)
-    - [vibrate()](#vibrate)
-    - [playAudio(audioFile, times)](#playaudioaudiofile-times)
-    - [stopAudio()](#stopaudio)
-    - [getOrientation()](#getorientation)
-    - [getScreenResolution()](#getscreenresolution)
-    - [getSN()](#getsn)
-    - [getVersion()](#getversion)
-    - [frontMostAppId()](#frontmostappid)
-    - [frontMostAppOrientation()](#frontmostapporientation)
-    - [intToRgb(intColor)](#inttorgbintcolor)
-    - [rgbToInt(r, g, b)](#rgbtointr-g-b)
-    - [copyText(text)](#copytexttext)
-    - [clipText()](#cliptext)
-    - [inputText(text)](#inputtexttext)
-    - [dialog(controls, orientations)](#dialogcontrols-orientations)
-    - [clearDialogValues(script)](#cleardialogvaluesscript)
-    - [openURL(urlString)](#openurlurlstring)
-    - [isLicensed()](#islicensed)
-    - [setAutoLaunch(scriptPath, on)](#setautolaunchscriptpath-on)
-    - [listAutoLaunch()](#listautolaunch)
-    - [stop()](#stop)
-    - [ocr(region, languages, threshold, whitelist, blacklist, timeout, tessdataParentDir, debug)](#ocrregion-languages-threshold-whitelist-blacklist-timeout-tessdataparentdir-debug)
-    - [appInfo(appIdentifier)](#appinfoappidentifier)
-    - [setTimer(scriptPath, fireTime, repeat, interval)](#settimerscriptpath-firetime-repeat-interval)
-    - [removeTimer(scriptPath)](#removetimerscriptpath)
-    - [keepAutoTouchAwake(keepAwake)](#keepautotouchawakekeepawake)
-  - [Constants](#constants)
-    - [Types of physical keys](#types-of-physical-keys)
-    - [Types of dialog controls](#types-of-dialog-controls)
-    - [Types of screen orientations](#types-of-screen-orientations)
+-----
 
 # Usage
 
@@ -109,7 +29,7 @@ Table of Contents
 > - You can also add the official repo: [https://apt.autotouch.net](https://apt.autotouch.net) to Cydia and install AutoTouch there.
 > - There is also a beta repo: [https://beta.autotouch.net](https://beta.autotouch.net) which contains more fresh but not so stable packages.
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ## How to use Activator?
 > - By default AutoTouch uses volume decrease button holding or pressing to control everything, untill you install Activator by hand.
@@ -118,7 +38,7 @@ Table of Contents
 > - AutoTouch will automatically detect Activator and use it as the default control method.
 > - Customize the actions you want to use to control AutoTouch by Activator.
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ## How to record?
 > - At the interface where you want to start recording , hold volume decrease button (or other main control action set with Activator by youself, this point will not be repeated below) to call out the control panel.
@@ -128,7 +48,7 @@ Table of Contents
 > - Hold on volume decrease button (or other Activator action) again to stop the recording.
 > - Then, there will be a Lua script named with create time in the script list. You can edit, rename or playback it.
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ## How to play script?
 > - Hold on volume decrease button to call out the control panel.
@@ -138,20 +58,20 @@ Table of Contents
 > - Hold volume decrease button to forcedly stop the playing, or quit the `Hold mode` status.
 > - Long pressing volume down button will stop the playing forcely.
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ## How to take screenshot?
 > - Press "Snap" button on the control panel to take screenshot, or just use iOS's screenshot method with which you are able to edit it directly.
 > - The screenshot will be saved as PNG image into "AutoTouch" album of iOS Photo Library, then it might be used to speficy parameters of getColors, findColors or findImage.
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ## How to write a script?
 > - Press "+" button on top right of the local script list, choose “Create a script” to open the script editor.
 > - Write the code there.
 > - Press "save" button to save the script.
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ## How to use the "Function Helper" while script coding?
 > - There are "Extensions", "Indent" and "Statements" buttons on top of the keyboard in the script editor. You can conveniently insert extended functions, indent or common statement of Lua Language.
@@ -160,19 +80,19 @@ Table of Contents
 > 
 >   ![Function Helper](https://i.imgur.com/ng2QWrz.png)
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ## How to write and manage scripts on the computer?
 > - Turn on  Web Server at AutoTouch setting and visit the told URL from browser on computer. Manage scripts there.
 > - You can also turn on WebDAV Server and connect the told address with  WebDAV client on computer. 
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ## How to use Package to orgainize the script project?
 > - You can create a Package as script project to contain different scripts, files and images etc. Package must have a main.lua file as the entrance of the execution. A Package in fact is a directory named with .at extension such as xxx.at.
 > - Package can be encrypted to xxx.ate which is also execuate-able and can be released to Script Store.
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ## How to encrypt the scripts?
 > - Tap accessory button of a package or script in the local script list, choose "Encrypt".
@@ -180,7 +100,7 @@ Table of Contents
 > - Press "Confirm" to complete the encryption. A encrypted file with the same name but ended with .lua.e or .ate will be generated in the script list then.
 > - You can play the encrypted scripts, or release them to Script Store.
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ## How to sell your script in Script Store?
 > - Visit https://m.autotouch.net from browser on computer.
@@ -190,13 +110,13 @@ Table of Contents
 > - Wait for the approvement.
 > - You should setup the Digital Rights Management in the script by yourself, AutoTouch Script Store can not help you by now.
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ## How to download and buy scripts from Script Store?
 > - You can directly download all scripts from the store.
 > - You need to contact the author to buy the decription password. Do be careful not to be cheated, AutoTouch can do nothing to protect your money provenly.
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ## How to buy AutoTouch license?
 > - Tap License on AutoTouch settings to enter the license management view.
@@ -209,19 +129,19 @@ Table of Contents
 > - It allows only one time activation a day, you may do it again after 24 hours if you need.
 ![License View](https://i.imgur.com/CB0Fnfm.jpg)
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 # Script
 
 ## Basis
 You can learn how to use Lua language from here:《[Lua Official Reference Manual](http://www.lua.org/manual/5.3/)》
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ## Develop Tool
 [LuaStudio](http://luastudio.net/) is aprofessional development environment for debugging Lua script in your applications. It's familiar and fast and you'll wonder how you ever worked without it.
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ## Coordinate, Size and Orientation System
 AutoTouch uses pixel based Native Resolution as the coordinate and size system. Resolutions of different iOS devices are [here](https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/Displays/Displays.html), for example, screen size of iPhone X is 1125 x 2436.
@@ -230,14 +150,14 @@ Origin point (0, 0) is alwasy at left-top of the **Application Interface**, rega
 
 ![For example](https://i.imgur.com/imDVXXB.png)
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ## Extension Libraries
 > AutoTouch has some extension libraries built in, while you can also add extension libraries by yourself, just put `.so` files at `/usr/local/lib/lua/5.3` and `.lua` files at `/var/mobile/Library/AutoTouch/Library/LuaLibraries`.
 
 > **ATTENSION:** **DO NOT** use script filename same as the libraries' name, such as `lcurl`, `lfs`, `lsqlite3`.
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### LuaCURL
 > curl is used in command lines or scripts to transfer data. It is also used in cars, television sets, routers, printers, audio equipment, mobile phones, tablets, settop boxes, media players and is the internet transfer backbone for thousands of software applications affecting billions of humans daily.
@@ -281,22 +201,22 @@ curl.easy()
 :close()
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### LuaSocket
 > LuaSocket is a Lua extension library which supported [TCP](http://w3.impa.br/~diego/software/luasocket/introduction.html#tcp), [UDP](http://w3.impa.br/~diego/software/luasocket/introduction.html#udp), [SMTP](http://w3.impa.br/~diego/software/luasocket/smtp.html), [HTTP](http://w3.impa.br/~diego/software/luasocket/http.html), [FTP](http://w3.impa.br/~diego/software/luasocket/ftp.html) protocols. Learn how to use it from the [Learn More](http://w3.impa.br/~diego/software/luasocket/introduction.html).
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### LuaSec
 > LuaSec is a binding for OpenSSL library to provide TLS/SSL communication. It takes an already established TCP connection and creates a secure session between the peers.[Learn More](https://github.com/brunoos/luasec/wiki)
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### LuaSqlite3
 > LuaSQLite 3 is a thin wrapper around the public domain SQLite3 database engine. [Learn More](http://lua.sqlite.org/index.cgi/doc/tip/doc/lsqlite3.wiki)
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### json.lua
 > json.lua provides operation methods on json.
@@ -310,7 +230,7 @@ local jsonString =json.encode({ 1, 2, 3, { x = 10 } }) -- Returns '[1,2,3,{"x":1
 local luaTable = json.decode('[1,2,3,{"x":10}]') -- Returns { 1, 2, 3, { x = 10 } }
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### Plist
 > Plist library provides a batch of methods to operate on plist files.
@@ -332,7 +252,7 @@ local luaTable = plist.load(plistString);
 local plistData = plist.dump(luaTable, format);
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### Penlight
 > A set of pure Lua libraries focusing on input data handling (such as reading configuration files), functional programming (such as map, reduce, placeholder expressions,etc), and OS path management. 
@@ -385,14 +305,14 @@ Iterators, OOP and Functional
    * `utils`: `utils.string_lambda` converts short strings like `|x| x^2` into functions
    * `comprehension`: list comprehensions: `C'x for x=1,4'()=={1,2,3,4}`
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### LuaFileSystem
 > LuaFileSystem is a Lua library developed to complement the set of functions related to file systems offered by the standard Lua distribution.
 
 > LuaFileSystem offers a portable way to access the underlying directory structure and file attributes.[Learn More](https://keplerproject.github.io/luafilesystem/index.html)
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### WebSocket
 > This module provides Lua modules for [Websocket Version 13](http://tools.ietf.org/html/rfc6455) conformant clients and servers.
@@ -431,13 +351,13 @@ end,1,1):start(ev.Loop.default)
 ev.Loop.default:loop()
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ## Extension Functions
 
 Extension functions are used to extend Lua language. Thus, the device can simulate some human abilities of operating the mobile phone. Moreover, extension functions also support functions including: screenshot, color searching, color matching, and picture matching.
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### touchDown(id, x, y)
 > Press the coordinate (x,y) on the screen.
@@ -476,7 +396,7 @@ tap(100, 200);
 
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### touchMove(id, x, y)
 > Move the finger to coordinate (x,y).
@@ -511,7 +431,7 @@ touchMove(2, 350, 450);
 
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### touchUp(id, x, y)
 > Lift the finger from coordinate (x,y)
@@ -549,7 +469,7 @@ touchUp(1, 250, 350);
 touchUp(2, 350, 450);
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### keyDown(keyType)
 > Simulate the pressing of physical key.
@@ -604,7 +524,7 @@ function unlockScreen()
 end
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### keyUp(keyType)
 > Simulate the lifting of physical key.
@@ -627,7 +547,7 @@ usleep(10000);
 keyUp(KEY_TYPE.HOME_BUTTON);
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### getColor(x, y)
 > Get the color value of the pixel point of the specified coordinate on current screen.
@@ -661,7 +581,7 @@ until( color == 123456 )
 
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### getColors(locations)
 > Get the color values of the pixel points of the specified coordinates on current screen.
@@ -686,7 +606,7 @@ for i, v in pairs(result) do
 end
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### findColor(color, count, region, debug, rightToLeft, bottomToTop)
 > Search the coordinates of the pixel points matching the specified color on current screen.
@@ -755,7 +675,7 @@ function findColor(color, count, region, debug, rightToLeft, bottomToTop)
 end
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### findColors(colors, count, region, debug, rightToLeft, bottomToTop)
 > Search all rectangular areas matching “specified color and their corresponding location and return the coordinate of the pixel point matching the first color in the rectangular area. This function has the search efficiency and availability far beyond findImage. For example, you need not match the whole key picture, but only match the anchors’ color and their corresponding location on the key. You can specify the number of the results by count parameter. 0 refers to all, 1 refers to the first one, and 2 refers to the first tow. region parameter can specify the search area, which is the table type {x,y,width, height}. You only input nil if no data is specified. 
@@ -813,7 +733,7 @@ for i, v in pairs(result) do
 end
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### findImage(targetImagePath, count, threshold, region, debug, method)
 > Search areas matching the specified image on current screen and return the center coordinates. It supports any format of target images. It also provides a debug mode which will produce an image marked the matching areas.
@@ -878,7 +798,7 @@ local region = {100, 100, 300, 300};
 local result = findImage(imagePath, 2, 0.98, region, true, 2)
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### screenshot(filePath, region)
 > Take a screenshot for the whole screen or specified area.
@@ -915,7 +835,7 @@ screenshot ("images/screenshot2.PNG", {100, 100, 200, 200});
 screenshot (nil, {100, 100, 200, 200});
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### appRun(appIdentifier)
 > Run specified application.
@@ -936,7 +856,7 @@ None
 appRun("com.apple.mobilesafari");
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### appKill(appIdentifier)
 > Kill specified application.
@@ -957,7 +877,7 @@ None
 appKill("com.apple.mobilesafari");
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### appState(appIdentifier)
 > Get the running state of the specified application
@@ -982,7 +902,7 @@ alert(string.format("State of Safari: %s", state));
 -- Pop up the state of Safari: "ACTIVATED"
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### rootDir()
 > Get the default directory address of the saved script. This is the default saving address of scripts and screenshots: "/var/mobile/Library/AutoTouch/Scripts/".
@@ -1004,7 +924,7 @@ alert(dirPath);
 -- Popup "/var/mobile/Library/AutoTouch/Scripts/"
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### currentPath()
 > Get full path of current executing script.
@@ -1026,7 +946,7 @@ alert(path);
 -- Popup "/var/mobile/Library/AutoTouch/Scripts/test.lua"
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### usleep(microseconds)
 > Sleep several microseconds (1/1000000 second)
@@ -1047,7 +967,7 @@ None
 usleep(1000000);
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### log(content)
 > Record log, can be seen in the log interface.
@@ -1067,7 +987,7 @@ None
 log("play here...");
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### alert(message)
 > Pop up the dialog box to show specified content.
@@ -1087,7 +1007,7 @@ None
 alert("Hello World!");
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### toast(message, delay)
 > Show messages with Toast style and delay for some seconds.
@@ -1109,7 +1029,7 @@ toast("Hello I'm a toast!", 5); -- Show message for 5 seconds.
 toast("Hello again!"); -- Show message for 2 seconds.
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### vibrate()
 > Vibrate once。
@@ -1128,7 +1048,7 @@ None
 vibrate();
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### playAudio(audioFile, times)
 > Play audio document at specified location.
@@ -1150,7 +1070,7 @@ None
 playAudio("/var/audio.mp3", 0);
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### stopAudio()
 > Stop playing audio.
@@ -1169,7 +1089,7 @@ None
 stopAudio();
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### getOrientation()
 > Get orientation of the screen. Return the integer value. Please refer to the “Orientation Type of Screen” for specific correspondence relation.
@@ -1191,7 +1111,7 @@ alert(string.format("Screen orientation is : %d", 0))
 -- Pop up the orientation 2 of the screen, and mark the reversed screen.
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### getScreenResolution()
 > Get screen resolution bese on pixels.
@@ -1214,7 +1134,7 @@ alert(string.format("Resolution of iPhone 6 Plus: width:%d, height:%d", w, h));
 -- iPhone 6 Plus’s resolution width is 1242 and resolution height is 2208.
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### getSN()
 > Get Serial Number of the device.
@@ -1236,7 +1156,7 @@ alert(string.format("SN is : %s", sn));
 -- Popup shows the SN of the device: C15NFK32TWD2
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### getVersion()
 > Get version of AutoTouch.
@@ -1258,7 +1178,7 @@ alert(string.format("Current version of AutoTouch is : %s", version));
 -- Pop up shows current version of AutoTouch: 3.5.3-4
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### frontMostAppId()
 > Get identifier of current front most App.
@@ -1279,7 +1199,7 @@ local appId = frontMostAppId();
 alert(string.format("Current front most App is : %s", appId));
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### frontMostAppOrientation()
 > Get orientation of current front most App. See the [Types of orientations](#types-of-screen-orientations)
@@ -1300,7 +1220,7 @@ local orientation = frontMostAppOrientation();
 alert(string.format("Orientation of current front most App is : %d", orientation));
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### intToRgb(intColor)
 > Transit integer color to independent values of R,G,B.
@@ -1325,7 +1245,7 @@ local r, g, b = intToRgb(0x2b2b2b);
 alert(string.format("R:%d, G:%d, B:%d", r, g, b));
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### rgbToInt(r, g, b)
 > Transit values of R,G,B to integer color value.
@@ -1350,7 +1270,7 @@ local intColor = rgbToInt(200, 255, 100);
 alert(string.format("Int type color: %d", intColor));
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### copyText(text)
 > Copy specified text to clipboard.
@@ -1370,7 +1290,7 @@ None
 copyText("This is a copied text!");
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### clipText()
 > Get the text in the clipboard.
@@ -1392,7 +1312,7 @@ alert(text);
 -- Popup shows the text to be copied: "This is a copied text!";
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### inputText(text)
 > Input text to the input box selected now. You can delete a character backspace by inputText("\b").
@@ -1415,7 +1335,7 @@ inputText("Let's input some text automatically without tapping the keyboard!");
 inputText("\b\b\b"); 
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### dialog(controls, orientations)
 > Pop up self-defined dialog box to accept the user input. Please refer to the example for specific usage.
@@ -1472,7 +1392,7 @@ end
 ```
 ![dialog](https://i.imgur.com/GN9wji7.png)
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### clearDialogValues(script)
 > Clear the remembered values of the dialog created by the function dialog.
@@ -1493,7 +1413,7 @@ None
 clearDialogValues("dialog.lua");
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### openURL(urlString)
 > Open url, or open other apps' url scheme. Look at [Always-Updated List of iOS App URL Scheme Names](https://ios.gadgethacks.com/news/always-updated-list-ios-app-url-scheme-names-0184033/) and example: [Google Maps URL Scheme for iOS](https://developers.google.com/maps/documentation/urls/ios-urlscheme)
@@ -1518,7 +1438,7 @@ openURL("tel://+1123456")
 openURL("clashofclans://")
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### isLicensed()
 > Check if the current device is running licensed AutoTouch
@@ -1540,7 +1460,7 @@ if isLicensed() then
 end
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### setAutoLaunch(scriptPath, on)
 > Switch on/off a script as auto launch.
@@ -1561,7 +1481,7 @@ None
 setAutoLaunch("/Records/test.lua", true);
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### listAutoLaunch()
 > List all auto launch scripts
@@ -1584,7 +1504,7 @@ for i, v in pairs(scripts) do
 end
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### stop()
 > SStop the current script execution.
@@ -1603,7 +1523,7 @@ None
 stop();
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### ocr(region, languages, threshold, whitelist, blacklist, timeout, tessdataParentDir, debug)
 > Text recognition from the screen with library `tesseract ocr`
@@ -1650,7 +1570,7 @@ local result = ocr({100, 100, 300, 300}, 'eng+fra', 220, '0123456789 ', '.......
 local result = ocr({100, 100, 300, 300}, 'eng+fra', 220, nil, nil, 5, './', true)
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### appInfo(appIdentifier)
 > Get the speficied App's displayName,executablePath,bundleContainerPath,dataContainerPath.
@@ -1673,7 +1593,7 @@ local result = appInfo("com.microsoft.Office.Outlook")
 alert(table.tostring(result))
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### setTimer(scriptPath, fireTime, repeat, interval)
 > Set timer for a script.
@@ -1702,7 +1622,7 @@ local done = setTimer("/Records/test.lua", 1000, false, 0);
 local done = setTimer("/Records/test.lua", "2019-09-17 08:12:52", true, 10000);
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### removeTimer(scriptPath)
 > Remove timer of a script.
@@ -1724,7 +1644,7 @@ local done = setTimer("/Records/test.lua", "2019-09-17 08:12:52", true, 10000);
 local done = removeTimer("/Records/test.lua");
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### keepAutoTouchAwake(keepAwake)
 > Keep AutoTouch awake aginst iOS idle sleep.
@@ -1744,7 +1664,7 @@ None
 keepAutoTouchAwake(true);
 ```
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 -----
 
@@ -1759,7 +1679,7 @@ keepAutoTouchAwake(true);
 | KEY_TYPE.VOLUME_UP_BUTTON   | Volume + Button |
 | KEY_TYPE.POWER_BUTTON       | Power Button    |
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### Types of dialog controls
 
@@ -1772,7 +1692,7 @@ keepAutoTouchAwake(true);
 | CONTROLLER_TYPE.BUTTON   | Button                          |
 | CONTROLLER_TYPE.REMEMBER | Switch for remember user inputs |
 
-[Top](#table-of-contents)
+[Top](#usage)
 
 ### Types of screen orientations
 
@@ -1784,4 +1704,4 @@ keepAutoTouchAwake(true);
 | ORIENTATION_TYPE.LANDSCAPE_LEFT       | Landscape left screen. Home Key is in the left. Practical value is 3.      |
 | ORIENTATION_TYPE.LANDSCAPE_RIGHT      | Landscape right screen. Home key is in the right. Practical value is 4.    |
 
-[Top](#table-of-contents)
+[Top](#usage)
