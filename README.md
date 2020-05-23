@@ -12,6 +12,8 @@ AutoTouch Document <!-- omit in toc -->
 
 -----
 
+## [Release Notes](https://releasenotes.autotouch.net) <!-- omit in toc -->
+
 ## [JavaScript Document](/js/faq) <!-- omit in toc -->
 
 ## [JSBridge Document](/js/JSBridge) <!-- omit in toc -->

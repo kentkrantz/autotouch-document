@@ -1,7 +1,7 @@
 JSBridge Document <!-- omit in toc -->
 =====
 
-`Applicable to version 7.0.0 or higher`
+`Applicable to version 7.0.4 or higher`
 
 -----
 
@@ -11,7 +11,7 @@ JSBridge Document <!-- omit in toc -->
 ## How to begin with `JSBridge`?
 > * Learn `Objective-C` and `iOS` development for an hour before coding with `JSBridge`.
 > * Whenever you want to make something, Google the `Objective-C` implementation first.
-> * Use `use()` method to refer a `class` of `Objective-C` in `iOS`.
+> * Use `use_jsbridge()` method to refer a `class` of `Objective-C` in `iOS`.
 > * Use `.thisIsAMethod()` to call a method of `Objective-C`, e.g. `[alertView show]` => `alertView.show()`.
 > * Use underline `_` to join method of `Objective-c` with multiple arguments, e.g. `[UIView animateWithDuration:duration animations:animations]` => `UIView.animateWithDuration_animations(duration, animations)`
 > * Use `.setProperty(value)` instead of `.property = value` to set value to a property.
@@ -33,15 +33,15 @@ alertView.message = @"This is UIAlertView of iOS which is called through JSBridg
 `Implement it with JSBridge`
 ```js
 // Import required classes of iOS/Objective-C
-const UIAlertView = use('UIAlertView')
-// You can also use it directly like this: `use('UIAlertView').alloc().init()`
+const UIAlertView = use_jsbridge('UIAlertView')
+// You can also use it directly like this: `use_jsbridge('UIAlertView').alloc().init()`
 
 //-------------------------------------------------------------------------------
 // !!!!!!!!ANYTHING relative to UI should be in dispatch_async_main block!!!!!!!!
 //-------------------------------------------------------------------------------
 dispatch_async_main(function () {
     // Show an alert view of iOS
-    var alertView = use('UIAlertView').alloc().init();
+    var alertView = use_jsbridge('UIAlertView').alloc().init();
 
     alertView.setTitle('What is this?');
     alertView.setMessage('This is UIAlertView of iOS which is called through JSBridge, you can use JSBridge to call any class/methods/variables of iOS, it makes anything possible!');
@@ -71,8 +71,8 @@ window.backgroundColor = [UICOlor redColor]; // this line equals to `[window set
 //-------------------------------------------------------------------------------
 dispatch_async_main(function () {
     const frame = { x: 0, y: 0, width: 300, height: 300 }
-    const window = use('UIWindow').alloc().initWithFrame(frame)
-    const color = use('UIColor').redColor()
+    const window = use_jsbridge('UIWindow').alloc().initWithFrame(frame)
+    const color = use_jsbridge('UIColor').redColor()
     window.setBackgroundColor(color)
     window.setWindowLevel(1000)
     window.makeKeyAndVisible()
@@ -99,8 +99,8 @@ NSString *urlString = @"https://autotouch.net";
 `Implement it with JSBridge`
 ```js
 // Open Map app with `JSBridge`
-const url = use('NSURL').URLWithString('maps://');
-use('UIApplication').sharedApplication().openURL(url);
+const url = use_jsbridge('NSURL').URLWithString('maps://');
+use_jsbridge('UIApplication').sharedApplication().openURL(url);
 ```
 
 -----
@@ -118,16 +118,16 @@ window.backgroundColor = [UICOlor redColor]; // this line equals to `[window set
 
 `Implement it with JSBridge`
 ```js
-const UIWindow = use('UIWindow')
-const UIImageView = use('UIImageView')
-const UIImage = use('UIImage')
+const UIWindow = use_jsbridge('UIWindow')
+const UIImageView = use_jsbridge('UIImageView')
+const UIImage = use_jsbridge('UIImage')
 //-------------------------------------------------------------------------------
 // !!!!!!!!ANYTHING relative to UI should be in dispatch_async_main block!!!!!!!!
 //-------------------------------------------------------------------------------
 dispatch_async_main(function () {
     // You need an UIWindow first
     const frame = { x: 0, y: 0, width: 300, height: 300 }
-    const window = use('UIWindow').alloc().initWithFrame(frame)
+    const window = use_jsbridge('UIWindow').alloc().initWithFrame(frame)
     const color = UIColor.redColor()
     window.setBackgroundColor(color)
     window.setWindowLevel(1000)
@@ -447,7 +447,7 @@ defineClass("MyViewController: UIViewController<UIScrollViewDelegate, UITextView
 // JavaScript
 defineClass("MyViewController: UIViewController <UIAlertViewDelegate>", {
   viewDidAppear: function(animated) {
-    var alertView = use('UIAlertView')
+    var alertView = use_jsbridge('UIAlertView')
       .alloc()
       .initWithTitle_message_delegate_cancelButtonTitle_otherButtonTitles(
         "Alert",
@@ -544,7 +544,7 @@ defineStruct({
   keys: ['a', 'b', 'c', 'd']
 })
 
-const DemoClass = use('DemoClass')
+const DemoClass = use_jsbridge('DemoClass')
 DemoClass.passStruct({a:1, b:2, c:4.2, d:1})
 const s = DemoClass.returnStruct()
 ```
@@ -577,8 +577,8 @@ self.performSelector_withObject("viewWillAppear:", 1)
 ```
 ```js
 // JavaScript
-use('TestObject').testNull(nsnull) //return 1
-use('TestObject').testNull(null) //return 0
+use_jsbridge('TestObject').testNull(nsnull) //return 1
+use_jsbridge('TestObject').testNull(null) //return 0
 ```
 
 ```js
@@ -609,7 +609,7 @@ if (!rawData){} // Use this to check null
 
 ```js
 // JavaScript
-const DemoObject = use('DemoObject')
+const DemoObject = use_jsbridge('DemoObject')
 const ocStr = DemoObject.data().objectAtIndex(0)
 ocStr.appendString("Something")
 
@@ -622,7 +622,7 @@ console.log(dict.objectForKey('name'))
 
 ```js
 // JavaScript
-var data = use('DemoObject').data().toJS()
+var data = use_jsbridge('DemoObject').data().toJS()
 // data instanceof Array === true
 data.push("Ok")
 
@@ -648,7 +648,7 @@ console.log(dict['name'])
 
 ```js
 // JavaScript
-use('DemoObject').request(block("NSString *, BOOL", function(ctn, succ) {
+use_jsbridge('DemoObject').request(block("NSString *, BOOL", function(ctn, succ) {
   if (succ) log(ctn)
 }))
 ```
@@ -673,13 +673,13 @@ typedef void (^JSBlock)(NSDictionary *dict);
 
 ```js
 // JavaScript
-const blk = use('DemoObject').genBlock();
+const blk = use_jsbridge('DemoObject').genBlock();
 blk({v: "0.0.1"});
 
 //-------------------
-var blk = use('DemoObject').genBlock();
+var blk = use_jsbridge('DemoObject').genBlock();
 blk({v: "0.0.1"});
-use('DemoObject').execBlock(block("id", blk));
+use_jsbridge('DemoObject').execBlock(block("id", blk));
 ```
 
 ```objc
@@ -702,7 +702,7 @@ defineClass('TestObject', {
 defineClass("MyViewController", {
   viewDidLoad: function() {
     var slf = self;
-    use("TestObject").callBlock(block(function(){
+    use_jsbridge("TestObject").callBlock(block(function(){
       //`self` is not available here, use `slf` instead.
       slf.doSomething();
     });
@@ -814,5 +814,5 @@ static NSString *name;
 
 ```js
 // JavaScript
-const name = use('TestObject').name()
+const name = use_jsbridge('TestObject').name()
 ```
