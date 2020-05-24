@@ -1,0 +1,31 @@
+{
+  "name": "autotouch-documents",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/autotouch-community/autotouch-documents.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/autotouch-community/autotouch-documents/issues"
+  },
+  "homepage": "https://github.com/autotouch-community/autotouch-documents#readme",
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.5.0",
+    "@vuepress/plugin-google-analytics": "1.5.0",
+    "@vuepress/plugin-medium-zoom": "1.5.0",
+    "vue-toasted": "^1.1.25",
+    "vuepress": "^1.5.0",
+    "vuepress-plugin-flowchart": "^1.4.2"
+  }
+}

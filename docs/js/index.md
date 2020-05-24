@@ -1,15 +1,6 @@
-JavaScript Document <!-- omit in toc -->
-=====
+# JavaScript Guide
 
 `Applicable to version 7.0.0 or higher`
-
------
-
-## [JSBridge Document](/js/JSBridge) <!-- omit in toc -->
-
-## [Extended JavaScript Functions References](/js/api-references) <!-- omit in toc -->
-
-## [HTTP APIs](/http-api) <!-- omit in toc -->
 
 -----
 
@@ -830,4 +821,4 @@ alert(`Hex format of color rgb(${r}, ${g}, ${b}) is ${intColor.toString(16)}`)
 
 ------
 
-## [Constants](/js/api-references#types-of-physical-keys)
+## [Constants](/js/api-references.html#constants)

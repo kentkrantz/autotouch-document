@@ -1,11 +1,8 @@
-Extended JavaScript Functions <!-- omit in toc -->
-=====
+# Extended Functions
 
 `Applicable to version 7.0.0 or higher`
 
-------
-
-# Extended Functions
+## Functions
 
 ### console.log()
 > Log message to `Log View`

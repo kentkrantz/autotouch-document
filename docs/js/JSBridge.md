@@ -1,5 +1,4 @@
-JSBridge Document <!-- omit in toc -->
-=====
+# JSBridge
 
 `Applicable to version 7.0.4 or higher`
 
@@ -22,7 +21,7 @@ JSBridge Document <!-- omit in toc -->
 ### How to make an `UIAlertView`?
 
 `Original implementation with Objective-C`
-```objc
+```objectivec
 UIAlertView *alertView = [[UIAlertView alloc] init];
 alertView.title = @"What is this?"
 alertView.message = @"This is UIAlertView of iOS which is called through JSBridge, you can use JSBridge to call any class/methods/variables of iOS, it makes anything possible!";
@@ -56,7 +55,7 @@ dispatch_async_main(function () {
 ### How to make an `UIWindow`?
 
 `Original implementation with Objective-C`
-```objc
+```objectivec
 CGRect frame = CGRectMake(0, 0, 300, 300);
 UIWindow *window = [[UIWindow alloc] initWithFrame:frame];
 window.backgroundColor = [UICOlor redColor]; // this line equals to `[window setBackgroundColor:[UICOlor redColor]];` In Objective-c 
@@ -84,7 +83,7 @@ dispatch_async_main(function () {
 ### How to open an app or an URL?
 
 `Original implementation with Objective-C`
-```objc
+```objectivec
 NSString *urlString = @"https://autotouch.net";
 // open Preferences: `NSString *urlString = @"prefs:root=General&path=About"`
 // open Music App: `NSString *urlString = @"musics://"`
@@ -108,7 +107,7 @@ use_jsbridge('UIApplication').sharedApplication().openURL(url);
 ### How to show an image?
 
 `Original implementation with Objective-C`
-```objc
+```objectivec
 CGRect frame = CGRectMake(0, 0, 300, 300);
 UIWindow *window = [[UIWindow alloc] initWithFrame:frame];
 window.backgroundColor = [UICOlor redColor]; // this line equals to `[window setBackgroundColor:[UICOlor redColor]];` In Objective-c 
@@ -158,7 +157,7 @@ dispatch_async_main(function () {
 @param `instanceMethods`: instance methods you want to override or add  
 @param `classMethods`: class methods you want to override or add  
 
-```objc
+```objectivec
 // Objective-C
 @implementation MyTestObject
 + (void)shareInstance
@@ -187,7 +186,7 @@ defineClass("MyTableViewController", [
 
 > Use single underline `_` to join multiple param names of the original method:
 
-```objc
+```objectivec
 // Objective-C
 @implementation MyTableViewController
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -206,7 +205,7 @@ defineClass("MyTableViewController", [], {
 
 > Use double underlines `__` to replace single underline `_` in the original method name of Objective-C:
 
-```objc
+```objectivec
 // Objective-C
 @implementation MyTableViewController
 - (NSArray *) _dataSource {
@@ -224,7 +223,7 @@ defineClass("MyTableViewController", [], {
 
 > Call original method by adding prefix `ORIG` to the method name.
 
-```objc
+```objectivec
 // Objective-C
 @implementation MyTableViewController
 - (void) viewDidLoad {
@@ -246,7 +245,7 @@ defineClass("MyTableViewController", [], {
 #### Override existing class static methods
 > Same rules as instance methods
 
-```objc
+```objectivec
 // Objective-C
 @implementation MyTestObject
 + (void)shareInstance
@@ -274,7 +273,7 @@ defineClass("MyTableViewController", [
 #### Override `Category` methods
 > Same rules as overriding instand methods and class methods
 
-```objc
+```objectivec
 // OBJC
 @implementation UIView (custom)
 - (void)methodA {
@@ -314,7 +313,7 @@ defineClass("MyTableViewController", {
 
 > Use `get` and `set` to get / set existing property
 
-```objc
+```objectivec
 // Objective-C
 @interface MyTableViewController
 @property (nonatomic) NSArray *data;
@@ -340,7 +339,7 @@ defineClass("MyTableViewController", {
 
 > Use `getProp()` and `setProp_forKey()` to get / set new property
 
-```objc
+```objectivec
 // Objective-C
 @interface MyTableViewController
 @end
@@ -381,7 +380,7 @@ defineClass("MyTableViewController", ['data', 'totalCount'], {
 
 > Use `valueForKey()` and `setValue_forKey()` to get / set private variables
 
-```objc
+```objectivec
 // Objective-C
 @implementation MyTableViewController {
      NSArray *_data;
@@ -403,7 +402,7 @@ defineClass("MyTableViewController", {
 #### Add new methods
 > You can add new methods to the existing Class, if you want to call the new method in Objective-C, all the params type is `id` type of Objective-c.
 
-```objc
+```objectivec
 // Objective-C
 @implementation MyTableViewController
 - (void)viewDidLoad
@@ -434,7 +433,7 @@ defineClass("MyViewController: UIViewController<UIScrollViewDelegate, UITextView
 
 > If you want to add method that defined in protocol and params or return types is not `id`, you must conforms to the protocol.
 
-```objc
+```objectivec
 // Objective-C
 @protocol UIAlertViewDelegate <NSObject>
 ...
@@ -470,7 +469,7 @@ defineClass("MyViewController: UIViewController <UIAlertViewDelegate>", {
 
 > AutoTouch has preset for structs of Obejctive-C: `CGRect`, `CGPoint`, `CGSize`, `NSRange `, you can use them directly.
 
-```objc
+```objectivec
 // Objective-C
 UIView *view = [[UIView alloc] initWithFrame:CGRectMake(20, 20, 100, 100)];
 [view setCenter:CGPointMake(10,10)];
@@ -521,7 +520,7 @@ defineStruct({
 ```
 
 `For example`
-```objc
+```objectivec
 // Objective-C
 struct DemoStruct {
   CGFloat a;
@@ -553,7 +552,7 @@ const s = DemoClass.returnStruct()
 
 ### How to use `selector` of Objective-C?
 
-```objc
+```objectivec
 // Objective-C
 [self performSelector:@selector(viewWillAppear:) withObject:@(YES)];
 ```
@@ -567,7 +566,7 @@ self.performSelector_withObject("viewWillAppear:", 1)
 > `null`, `undefined` of `JavaScript` equal `nil`, `NULL` of `Objective-C`<br/>
 > `nsnull` of `JavaScript` equals `NSNull`of `Objective-C`
 
-```objc
+```objectivec
 // Objective-C
 @implementation TestObject
 + (BOOL)testNull(NSNull *null) {
@@ -593,7 +592,7 @@ if (!rawData){} // Use this to check null
 ### Use `NSArray`, `NSString`, `NSDictionary` of Objective-C
 > You should use `NSArray`, `NSString`, `NSDictionary` of Objective-C as a common `NSObject`
 
-```objc
+```objectivec
 // Objective-C
 @implementation DemoObject
 + (NSArray *)data
@@ -636,7 +635,7 @@ console.log(dict['name'])
 
 ### How to use `block` of Objective-C?
 
-```objc
+```objectivec
 // Objective-C
 @implementation DemoObject
 + (void)request:(void(^)(NSString *content, BOOL success))callback
@@ -653,7 +652,7 @@ use_jsbridge('DemoObject').request(block("NSString *, BOOL", function(ctn, succ)
 }))
 ```
 
-```objc
+```objectivec
 // Objective-C
 @implementation DemoObject
 typedef void (^JSBlock)(NSDictionary *dict);
@@ -682,7 +681,7 @@ blk({v: "0.0.1"});
 use_jsbridge('DemoObject').execBlock(block("id", blk));
 ```
 
-```objc
+```objectivec
 // Objective-C
 + (void)requestUrl:(NSString *)url withCallback:(void(^)(id data))callback;
 ```
@@ -712,7 +711,7 @@ defineClass("MyViewController", {
 
 ### `__weak`, `__strong`
 
-```objc
+```objectivec
 // Objective-C
 - (void)test {
     __weak id weakSelf = self;
@@ -739,7 +738,7 @@ self.setCompleteBlock(block(function(){
 
 ### `GCD`
 
-```objc
+```objectivec
 // Objective-C
 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
   // do something
@@ -770,7 +769,7 @@ dispatch_async_global_queue(function(){
 
 > You can't use Contants and enums of Objective-C directly in JavaScript
 
-```objc
+```objectivec
 // Objective-C
 [btn addTarget:self action:@selector(handleBtn) forControlEvents:UIControlEventTouchUpInside];
 ```
@@ -788,7 +787,7 @@ btn.addTarget_action_forControlEvents(self, "handleBtn", UIControlEventTouchUpIn
 
 > Macro of Objective-C
 
-```objc
+```objectivec
 // Objective-C
 #define TABBAR_HEIGHT 40
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.height
@@ -802,7 +801,7 @@ view.setWidth_height(UIScreen.mainScreen().bounds().height, 40);
 
 > Get global variable defined in an Objective-C class
 
-```objc
+```objectivec
 // Objective-C
 static NSString *name;
 @implementation TestObject

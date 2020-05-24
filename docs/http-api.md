@@ -1,4 +1,4 @@
-# HTTP APIs of AutoTouch
+# HTTP APIs
 
 `Applicable to version 6.1.8 or higher`
 
