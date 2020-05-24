@@ -45,6 +45,15 @@ module.exports = {
                         '/http-api'
                     ]
                 },
+                {
+                    title: 'Release Notes',
+                    path: '/release-notes',
+                    collapsable: true,
+                    sidebarDepth: 3,
+                    children: [
+                        '/release-notes/'
+                    ]
+                },
             ]
         }
     },
