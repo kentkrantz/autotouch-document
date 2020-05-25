@@ -7,8 +7,6 @@
 # HTTP APIs
 > There is a series of HTTP APIs for AutoTouch controlling in Local Area Netowork, they are the same APIs `Web Server` in AutoTouch Settings is using.
 
-[Top](#http-apis)
-
 ## Play a script
 > GET /control/start_playing?path=/scriptPath
 
@@ -48,8 +46,6 @@ HTTP GET http://192.168.1.99:8080/control/start_playing?path=/scriptPath
 }
 ```
 
-[Top](#http-apis)
-
 ## Stop playing a script
 > GET /control/stop_playing?path=/scriptPath
 
@@ -88,8 +84,6 @@ HTTP GET http://192.168.1.99:8080/control/start_playing?path=/scriptPath
     "info": "Script doesn't exist."
 }
 ```
-
-[Top](#http-apis)
 
 ## List files in a directory
 > GET /files?path=/Records
@@ -134,8 +128,6 @@ HTTP GET http://192.168.1.99:8080/files?path=/Records
 }
 ```
 
-[Top](#http-apis)
-
 ## Create a new directory
 > GET /file/newFolder?path=/Test
 
@@ -173,8 +165,6 @@ HTTP GET http://192.168.1.99:8080/file/newFolder?path=/Test
     "status": "success"
 }
 ```
-
-[Top](#http-apis)
 
 ## Create a new file
 > GET /file/new?path=/newFilePath
@@ -215,8 +205,6 @@ HTTP GET http://192.168.1.99:8080/file/new?path=/newFilePath
 }
 ```
 
-[Top](#http-apis)
-
 ## Delete a file
 > GET /file/delete?path=/filePathToDelete
 
@@ -255,8 +243,6 @@ HTTP GET http://192.168.1.99:8080/file/delete?path=/filePathToDelete
     "info": "Invalid file path"
 }
 ```
-
-[Top](#http-apis)
 
 ## Rename a file or directory
 > GET /file/rename?path=/oldFilePath&newPath=newFilePath

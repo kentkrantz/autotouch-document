@@ -1,8 +1,8 @@
-# Extended Functions
+# API References
 
 `Applicable to version 7.0.0 or higher`
 
-## Functions
+## JavaScript Extended Functions
 
 ### console.log()
 > Log message to `Log View`
@@ -41,8 +41,6 @@ console.log('I am a log of something interesting: %j', something)
 console.log(`I am a log of something interesting: ${ JSON.stringify(something )}`)
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### alert()
@@ -72,8 +70,6 @@ alert('I am a log of something interesting: %j', something)
 alert(`I am a log of something interesting: ${ JSON.stringify(something )}`)
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### usleep(microseconds)
@@ -98,8 +94,6 @@ at.usleep(1000000)
 const { usleep } = at
 usleep(1000000)
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -127,8 +121,6 @@ const { touchDown } = at;
 touchDown(0, 100, 200)
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### touchMove(id, x, y)
@@ -150,8 +142,6 @@ None
 ```js
 at.touchMove(0, 200, 200)
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -175,8 +165,6 @@ None
 at.touchUp(0, 100, 200)
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### keyDown(keyType)
@@ -198,8 +186,6 @@ None
 at.keyDown(KEY_TYPE.HOME_BUTTON)
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### keyUp(keyType)
@@ -219,8 +205,6 @@ None
 ```js
 at.keyUp(KEY_TYPE.HOME_BUTTON)
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -251,8 +235,6 @@ const [color] = getColor(100, 200)
 alert('Got color ${color} at point 100, 200')
 // Go on to do next
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -291,8 +273,6 @@ if (error) {
     alert('getColors result1:', result1)
 }
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -339,8 +319,6 @@ const findColor = function (params) {
 	return at.findColors(args)
 }
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -423,8 +401,6 @@ if (error) {
 const [result] = findColors(params)
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### findImage
@@ -486,8 +462,6 @@ const [result] = findColors({
 })
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### screenshot(savePath, region)
@@ -532,8 +506,6 @@ const region = { x: 0, y: 0, width: 300, height: 500 }
 screenshot(savePath, region)
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### appRun(appIdentifier)
@@ -555,8 +527,6 @@ None
 at.appRun("com.apple.mobilesafari")
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### appKill(appIdentifier)
@@ -577,8 +547,6 @@ None
 -- Kill the running Safari
 at.appKill("com.apple.mobilesafari")
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -605,8 +573,6 @@ alert('State of Safari: %s', state))
 -- Pop up the state of Safari: "ACTIVATED"
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### rootDir()
@@ -627,8 +593,6 @@ None
 // Popup "/var/mobile/Library/AutoTouch/Scripts/"
 alert(`The root dir of AutoTouch is ${rootDir()}`)
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -652,8 +616,6 @@ at.toast("Hello I'm a toast!", 5) -- Show message for 5 seconds.
 at.toast("Hello again!") -- Show message for 2 seconds.
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### vibrate()
@@ -672,8 +634,6 @@ None
 // Vibrate once.
 at.vibrate()
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -695,8 +655,6 @@ None
 alert(`Device orientation is : ${at.getDeviceOrientation()}`)
 // Pop up the orientation of the device
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -720,8 +678,6 @@ alert(`Serial Number of this device is ${sn}`)
 // Popup shows the SN of the device: C15NFK32TWD2
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### getVersion()
@@ -744,8 +700,6 @@ alert(`Current version of AutoTouch is : ${version}`)
 // Pop up shows current version of AutoTouch: 3.5.3-4
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### frontMostAppId()
@@ -767,8 +721,6 @@ const appId = at.frontMostAppId()
 alert(`Current front most App is : ${appId}`)
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### frontMostAppOrientation()
@@ -789,8 +741,6 @@ None
 const orientation = at.frontMostAppOrientation()
 alert(`Orientation of current front most App is : ${orientation}`)
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -819,8 +769,6 @@ const r, g, b = intToRgb(0x2b2b2b)
 alert(`red: ${r}, green: ${g}, blue: ${b}`)
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### rgbToInt(r, g, b)
@@ -848,8 +796,6 @@ const intColor = rgbToInt(200, 255, 100)
 alert(`integer value of rgb(200, 255, 100) is ${intColor}`)
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### copyText(text)
@@ -869,8 +815,6 @@ None
 ```js
 at.copyText('This is a copied text!')
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -894,8 +838,6 @@ alert(text)
 // Popup shows the text to be copied: "This is a copied text!";
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### inputText(text)
@@ -918,8 +860,6 @@ at.inputText("Let's input some text automatically without tapping the keyboard!"
 // Delete 3 character by inputing 3 backspaces.
 at.inputText("\b\b\b") 
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -982,8 +922,6 @@ if (result == 1) {
 ```
 ![dialog](https://i.imgur.com/GN9wji7.png)
 
-[Top](#extended-functions)
-
 ------
 
 ### clearDialogValues(scriptPath)
@@ -1004,8 +942,6 @@ None
 -- There is a dialog.js script in the scripts list
 clearDialogValues("dialog.js")
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -1034,8 +970,6 @@ openURL("tel://+1123456")
 openURL("clashofclans://")
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### license()
@@ -1055,8 +989,6 @@ None
 ```js
 alert(`AutoTouch license of current device is ${at.license()}!`)
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -1078,8 +1010,6 @@ None
 ```js
 at.setAutoLaunch("/Records/test.lua", true)
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -1106,8 +1036,6 @@ if (scripts) {
 }
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### stop()
@@ -1126,8 +1054,6 @@ None
 // Exit execution
 at.stop()
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -1202,8 +1128,6 @@ const result = ocr({
 })
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### appInfo(appIdentifier)
@@ -1226,8 +1150,6 @@ const result = ocr({
 local result = appInfo("com.microsoft.Office.Outlook")
 alert(table.tostring(result))
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -1258,8 +1180,6 @@ local done = setTimer("/Records/test.lua", 1000, false, 0)
 local done = setTimer("/Records/test.lua", "2019-09-17 08:12:52", true, 10000)
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### removeTimer(scriptPath)
@@ -1282,8 +1202,6 @@ local done = setTimer("/Records/test.lua", "2019-09-17 08:12:52", true, 10000)
 local done = removeTimer("/Records/test.lua")
 ```
 
-[Top](#extended-functions)
-
 ------
 
 ### keepAutoTouchAwake(keepAwake)
@@ -1303,8 +1221,6 @@ None
 ```lua
 keepAutoTouchAwake(true)
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -1328,8 +1244,6 @@ keepAutoTouchAwake(true)
 const result = at.exec('ls -l')
 console.log(result)
 ```
-
-[Top](#extended-functions)
 
 ------
 
@@ -1377,5 +1291,3 @@ Constants
 | ORIENTATION_TYPE.PORTRAIT_UPSIDE_DOWN | Upside-down portrait screen. Home button on the top. Practical value is 2.     |
 | ORIENTATION_TYPE.LANDSCAPE_LEFT       | Landscape left screen. Home Key is in the left. Practical value is string 3.   |
 | ORIENTATION_TYPE.LANDSCAPE_RIGHT      | Landscape right screen. Home key is in the right. Practical value is string 4. |
-
-[Top](#extended-functions)

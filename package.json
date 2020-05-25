@@ -24,6 +24,7 @@
     "@vuepress/plugin-back-to-top": "^1.5.0",
     "@vuepress/plugin-google-analytics": "1.5.0",
     "@vuepress/plugin-medium-zoom": "1.5.0",
+    "moment": "^2.26.0",
     "vue-toasted": "^1.1.25",
     "vuepress": "^1.5.0",
     "vuepress-plugin-flowchart": "^1.4.2"

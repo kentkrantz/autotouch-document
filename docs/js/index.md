@@ -26,8 +26,6 @@ at.toast('message')
 at.screenshot()
 ```
 
-[Top](#how-to-start)
-
 ------
 
 ## How to use another module?
@@ -70,7 +68,19 @@ const { run } = require("./worker")
 run()
 ```
 
-[Top](#how-to-start)
+Require a module from remote url
+```js
+// You have three ways to require a JavaScript module:
+// 1. require('relative_path'), e.g. `const worker = require('../worker')`
+// 2. require('absolute_path'), e.g. `const worker = require('/var/mobile/Library/AutoTouch/Scripts/worker')`
+// 3. require('remote_url'), e.g. `const worker = require('https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js')`
+// *Only HTTPS is supported while using remote url*
+const _ = require('https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js')
+
+const result1 = _.defaults({ 'a': 1 }, { 'a': 3, 'b': 2 })
+// → { 'a': 1, 'b': 2 }
+alert(result1)
+```
 
 ------
 
@@ -111,8 +121,6 @@ alert('I am a log of something interesting: %j', something)
 
 alert(`I am a log of something interesting: ${ JSON.stringify(something )}`)
 ```
-
-[Top](#how-to-start)
 
 ------
 
@@ -162,8 +170,6 @@ function tap(x, y) {
 // Tap at (100, 200)
 tap(100, 200)
 ```
-
-[Top](#how-to-start)
 
 ------
 
@@ -217,8 +223,6 @@ function unlockScreen() {
     touchUp(0, x, 200)
 }
 ```
-
-[Top](#how-to-start)
 
 ------
 
@@ -277,8 +281,6 @@ if (error) {
     alert('getColors result1:', result1)
 }
 ```
-
-[Top](#how-to-start)
 
 ------
 
@@ -374,8 +376,6 @@ function callback(result, error) {
 findColorsAsync(params, callback)
 ```
 
-[Top](#how-to-start)
-
 ------
 
 ## How to find areas matching the specified image from the screen?
@@ -455,8 +455,6 @@ function callback(result, error) {
 findImageAsync(params, callback)
 ```
 
-[Top](#how-to-start)
-
 ------
 
 ## How to run or stop an app?
@@ -491,11 +489,9 @@ const result = appInfo("com.microsoft.Office.Outlook")
 alert('Informations of Outlook are: %j', result)
 ```
 
-[Top](#how-to-start)
-
 ------
 
-## How to set a script auto luanch?
+## How to set a script auto launch?
 
 `Relative Extended Functions`
 > * [`setAutoLaunch()`](/js/api-references.md#setAutoLaunch)
@@ -521,8 +517,6 @@ if (!autoLaunchScripts) {
 autoLaunchScripts.forEach(item => console.log(`Got a auto launch script: ${item}`))
 ```
 
-[Top](#how-to-start)
-
 ------
 
 ## How to trigger a script with timer?
@@ -547,8 +541,6 @@ setTimer("/Records/test.lua", "2019-09-17 08:12:52", true, 10000)
 removeTimer("/Records/test.lua")
 ```
 
-[Top](#how-to-start)
-
 ------
 
 ## How to keep AutoTouch awake while screen is locked down?
@@ -561,8 +553,6 @@ removeTimer("/Records/test.lua")
 ```lua
 keepAutoTouchAwake(true)
 ```
-
-[Top](#how-to-start)
 
 -----
 
@@ -591,8 +581,6 @@ inputText("Let's input some text automatically without tapping the keyboard!")
 // Delete 3 character by inputing 3 backspaces.
 inputText("\b\b\b") 
 ```
-
-[Top](#how-to-start)
 
 ------
 
@@ -645,8 +633,6 @@ if (result == 1) {
 clearDialogValues("dialog.js");
 ```
 ![dialog](https://i.imgur.com/GN9wji7.png)
-
-[Top](#how-to-start)
 
 -----
 
@@ -704,8 +690,6 @@ const result = ocr({
 })
 ```
 
-[Top](#how-to-start)
-
 ------
 
 ## How to execute a shell command?
@@ -718,8 +702,6 @@ const result = ocr({
 const result = at.exec('ls -l')
 console.log(result)
 ```
-
-[Top](#how-to-start)
 
 -----
 
@@ -790,8 +772,6 @@ openURL("tel://+1123456")
 openURL("clashofclans://")
 ```
 
-[Top](#how-to-start)
-
 ------
 
 ## Some utils
@@ -816,8 +796,6 @@ const intColor = rgbToInt(r, g, b)
 alert(`Integer value of rgb(${r}, ${g}, ${b}) is ${intColor}`)
 alert(`Hex format of color rgb(${r}, ${g}, ${b}) is ${intColor.toString(16)}`)
 ```
-
-[Top](#how-to-start)
 
 ------
 
