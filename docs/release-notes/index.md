@@ -1,6 +1,10 @@
 # Release Notes
 -----
 
+## v7.0.5
+`2020-05-26`
+> * Fixed bug of `keyDown`, `keyUp` lost in recording.
+
 ## v7.0.4
 `2020-05-23`
 > *  **BREAKING CHANGE**: use `use_jsbridge()` instead of `use()` in `JSBridge` to import an object.
