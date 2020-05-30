@@ -1,6 +1,20 @@
 # Release Notes
 -----
 
+## v7.0.6
+`2020-05-30`
+> * New functions `recognizeText` and `findText`, `recognizeText` is a stable method for text recognition, `findText` is a method continually find specified text on the screen. Also they have a `debug` mode which could produce processing image to a `Debug` folder. Look into the `Examples` folder to learn usages. (Only available on iOS 13 and above) 
+> * Make `findColors` and `findImages` both have THREE usages: 
+>   1. execute finding a single time synchronously; 
+>   2. execute finding a single time asynchronously; 
+>   3. continually find specified colors/image on the screen same as `findText`.
+> * **BREAKING CHANGES** Exsiting for a short time, `findColorsAsync` and `findImageAsync` are gone, they have been integrated into `findColors` and `findImages`  
+> * Fixed bug of timer with license  
+(New functions are JavaScript Only)
+
+![`findText`](https://i.imgur.com/dq6luoT.png)
+![`findText`](https://i.imgur.com/0Hr5j97.png)
+
 ## v7.0.5
 `2020-05-26`
 > * Fixed bug of `keyDown`, `keyUp` lost in recording.
