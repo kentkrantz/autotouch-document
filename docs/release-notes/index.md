@@ -1,6 +1,14 @@
 # Release Notes
 -----
 
+## v7.0.7
+`2020-05-31`
+> * **BREAKING CHANGES** Merged parameters `findingTimes`, `findingTimeLong`, `findingTillTime` of `findColors`, `findImage`, `findText` to one parameter `duration` which has three formats to present the three intentions: 
+>   1. `duration: 10` means repeat finding 10 times, the value must be a number, can't be a string; 
+>   2. `duration: '60s'` means keep finding for 60 seconds, the value must be seconds + a character 's'; 
+>   3. `duration: '2020-05-30 12:00:00'` means keep finding till 2020-05-30 12:00:00. Default is `duration: 10` means repeat 10 times, the value must be a string.  
+> * Fixed bug of freezing caused by some errors interrupt playing.
+
 ## v7.0.6
 `2020-05-30`
 > * New functions `recognizeText` and `findText`, `recognizeText` is a stable method for text recognition, `findText` is a method continually find specified text on the screen. Also they have a `debug` mode which could produce processing image to a `Debug` folder. Look into the `Examples` folder to learn usages. (Only available on iOS 13 and above) 
