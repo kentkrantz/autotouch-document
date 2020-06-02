@@ -1,6 +1,12 @@
 # Release Notes
 -----
 
+## v7.0.8
+`2020-06-02`
+> * Made `toast()` support `position`, now the usage is `toast(message, position, delay)`, pls look at the `Examples`;
+> * Fixed bug of `autolaunch` with license;
+> * Fixed bug of freezing after stop playing.
+
 ## v7.0.7
 `2020-05-31`
 > * **BREAKING CHANGES** Merged parameters `findingTimes`, `findingTimeLong`, `findingTillTime` of `findColors`, `findImage`, `findText` to one parameter `duration` which has three formats to present the three intentions: 
