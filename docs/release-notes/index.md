@@ -1,6 +1,12 @@
 # Release Notes
 -----
 
+## v7.0.9
+`2020-06-03`
+> * Added `Run as Daemon` option to `Play Settings`.
+> * Fixed bug of freezing caused by stopping JS executing
+> * Some improvements
+
 ## v7.0.8
 `2020-06-02`
 > * Made `toast()` support `position`, now the usage is `toast(message, position, delay)`, pls look at the `Examples`;
