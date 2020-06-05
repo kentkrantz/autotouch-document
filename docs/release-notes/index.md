@@ -1,6 +1,10 @@
 # Release Notes
 -----
 
+## v7.0.10
+`2020-06-05`
+> * Added command tool `autotouch`, get usage by executing `autotouch` at the terminal, it supports `touchDown`, `touchMove`, `touchUp`, `keyDown`, `keyUp`, `inputText` now, tell us if you need more.
+
 ## v7.0.9
 `2020-06-03`
 > * Added `Run as Daemon` option to `Play Settings`.
