@@ -1,6 +1,13 @@
 # Release Notes
 -----
 
+## v7.0.14
+`2020-06-10`
+> * New `setInterruptAble()` method for making a point of your code interrupt-able, just place it where you want it able to be stopped by force in your code. `usleep()` has the same functionality, if you have `usleep()` there you don't need `setInterruptAble()`;
+> * New `stop()` method for `JavaScript`;
+> * New `plist` module for `JavaScript`, look at the uage in `Examples/test_plist.js`;
+> * Bug fixes.
+
 ## v7.0.10
 `2020-06-05`
 > * Added command tool `autotouch`, get usage by executing `autotouch` at the terminal, it supports `touchDown`, `touchMove`, `touchUp`, `keyDown`, `keyUp`, `inputText` now, tell us if you need more.
