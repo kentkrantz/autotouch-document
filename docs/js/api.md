@@ -4,14 +4,14 @@
 
 ## JavaScript Extended Functions
 
-### console.log()
+### console.log
 > Log message to `Log View`
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| message    | String   |    |
+| Parameter |  Type  | Specification |
+| --------- | :----: | ------------- |
+| message   | String |               |
 
 `Return`
 
@@ -43,14 +43,14 @@ console.log(`I am a log of something interesting: ${ JSON.stringify(something )}
 
 ------
 
-### alert()
+### alert
 > Popup a message
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| message    | String   |    |
+| Parameter |  Type  | Specification |
+| --------- | :----: | ------------- |
+| message   | String |               |
 
 `Return`
 
@@ -72,14 +72,14 @@ alert(`I am a log of something interesting: ${ JSON.stringify(something )}`)
 
 ------
 
-### usleep(microseconds)
+### usleep
 > Sleep several microseconds (1/1000000 second)
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| microseconds     |   Integer   |  The number of paused microseconds. |
+| Parameter    |  Type   | Specification                      |
+| ------------ | :-----: | ---------------------------------- |
+| microseconds | Integer | The number of paused microseconds. |
 
 `Return`
 
@@ -97,16 +97,16 @@ usleep(1000000)
 
 ------
 
-### touchDown(id, x, y)
+### touchDown
 > Simulate touch down at (x, y)
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| id    | Integer   |   Finger ID, which is used to mark a finger in single-touch or multi-touch, just use 1 or 2 or 3... |
-| x     |   Float   |   x-coordinate on the screen   |
-| y     |    Float    |  y-coordinate on the screen  |
+| Parameter |  Type   | Specification                                                                                     |
+| --------- | :-----: | ------------------------------------------------------------------------------------------------- |
+| id        | Integer | Finger ID, which is used to mark a finger in single-touch or multi-touch, just use 1 or 2 or 3... |
+| x         |  Float  | x-coordinate on the screen                                                                        |
+| y         |  Float  | y-coordinate on the screen                                                                        |
 
 `Return`
 
@@ -123,16 +123,16 @@ touchDown(0, 100, 200)
 
 ------
 
-### touchMove(id, x, y)
+### touchMove
 > Move the finger to coordinate (x,y).
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| id    | Integer   |   Finger ID, which is used to mark a finger in single-touch or multi-touch, just use 1 or 2 or 3... |
-| x     |   Float   |   x-coordinate on the screen   |
-| y     |    Float    |  y-coordinate on the screen  |
+| Parameter |  Type   | Specification                                                                                     |
+| --------- | :-----: | ------------------------------------------------------------------------------------------------- |
+| id        | Integer | Finger ID, which is used to mark a finger in single-touch or multi-touch, just use 1 or 2 or 3... |
+| x         |  Float  | x-coordinate on the screen                                                                        |
+| y         |  Float  | y-coordinate on the screen                                                                        |
 
 `Return`
 
@@ -145,16 +145,16 @@ at.touchMove(0, 200, 200)
 
 ------
 
-### touchUp(id, x, y)
+### touchUp
 > Lift the finger from coordinate (x,y)
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| id    | Integer   |   Finger ID. is used to mark a finger in single-touch or multi-touch. |
-| x     |   Float   |   x-coordinate on the screen   |
-| y     |    Float    |  y-coordinate on the screen  |
+| Parameter |  Type   | Specification                                                       |
+| --------- | :-----: | ------------------------------------------------------------------- |
+| id        | Integer | Finger ID. is used to mark a finger in single-touch or multi-touch. |
+| x         |  Float  | x-coordinate on the screen                                          |
+| y         |  Float  | y-coordinate on the screen                                          |
 
 `Return`
 
@@ -167,14 +167,14 @@ at.touchUp(0, 100, 200)
 
 ------
 
-### keyDown(keyType)
+### keyDown
 > Simulate the pressing of physical key.
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| keyType     |   Integer   |   Physical key identification. Now you can use [these physical keys](#types-of-physical-keys).   |
+| Parameter |  Type   | Specification                                                                                |
+| --------- | :-----: | -------------------------------------------------------------------------------------------- |
+| keyType   | Integer | Physical key identification. Now you can use [these physical keys](#types-of-physical-keys). |
 
 `Return`
 
@@ -188,14 +188,14 @@ at.keyDown(KEY_TYPE.HOME_BUTTON)
 
 ------
 
-### keyUp(keyType)
+### keyUp
 > Simulate the lifting of physical key.
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| keyType     |   Integer   |   Physical key identification. Now you can use [these physical keys](#types-of-physical-keys).   |
+| Parameter |  Type   | Specification                                                                                |
+| --------- | :-----: | -------------------------------------------------------------------------------------------- |
+| keyType   | Integer | Physical key identification. Now you can use [these physical keys](#types-of-physical-keys). |
 
 `Return`
 
@@ -208,15 +208,15 @@ at.keyUp(KEY_TYPE.HOME_BUTTON)
 
 ------
 
-### getColor(x, y)
+### getColor
 > Get the color value of the pixel point of the specified coordinate on current screen.
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| x     |   Float   |   x-coordinate on the screen   |
-| y     |    Float    |  y-coordinate on the screen  |
+| Parameter | Type  | Specification              |
+| --------- | :---: | -------------------------- |
+| x         | Float | x-coordinate on the screen |
+| y         | Float | y-coordinate on the screen |
 
 `Return`
 > getColor returns an array containing two elements, first is result, second is error, you should check the error in a good practice
@@ -238,20 +238,20 @@ alert('Got color ${color} at point 100, 200')
 
 ------
 
-### getColors(locations)
+### getColors
 > Get the color values of the pixel points of the specified coordinates on current screen.
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| locations     |   table   |   A grouo of coordinates, just as { {x1,y1}, {x2,y2}, {x3,y4} }   |
+| Parameter | Type  | Specification                                                 |
+| --------- | :---: | ------------------------------------------------------------- |
+| locations | table | A grouo of coordinates, just as { {x1,y1}, {x2,y2}, {x3,y4} } |
 
 `Return`
 
-| Return     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| colors     |   table   |   Colors gotten with corresponding order.  |
+| Return | Type  | Specification                           |
+| ------ | :---: | --------------------------------------- |
+| colors | table | Colors gotten with corresponding order. |
 
 `Examples`
 ```js
@@ -276,27 +276,27 @@ if (error) {
 
 ------
 
-### findColor(params)
+### findColor
 > Search the coordinates of the pixel points matching the specified color on current screen.
 
 `Parameters`
 
 > `params` is an `object` which contains:
 
-| Parameter     | Type   |  Specification  | Optional | Default |
-| -------- | :-----:| ----  | :----:  | :----:  |
-| color     |   Integer   |   Matched color value.   | NO | |
-| count     |   Integer    | How many result items you want to get? 0 means all, default is 10, the faster the speed is.  | NO | 10 |
-| region     |   table    | You only search the result in the specified area. This area is the table type including four values {x, y, width, height}. The four values respectively represent the coordinate x, coordinate y, width, and height of the rectangular area. {100,100,200,200} is an example. If you do not want to specify the area, just input null.  | NO | null |
-| debug    |  boolean  | If pass debug=true, it will produce a image ends with "-Debug.PNG" marked the matching areas. | YES | false |
-| rightToLeft    |  boolean  | Search direction, default is left to right. | YES | false |
-| bottomToTop    |  boolean  | Search direction, default is top to buttom. | YES | false |
+| Parameter   |  Type   | Specification                                                                                                                                                                                                                                                                                                                          | Optional | Default |
+| ----------- | :-----: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------: | :-----: |
+| color       | Integer | Matched color value.                                                                                                                                                                                                                                                                                                                   |    NO    |         |
+| count       | Integer | How many result items you want to get? 0 means all, default is 10, the faster the speed is.                                                                                                                                                                                                                                            |    NO    |   10    |
+| region      |  table  | You only search the result in the specified area. This area is the table type including four values {x, y, width, height}. The four values respectively represent the coordinate x, coordinate y, width, and height of the rectangular area. {100,100,200,200} is an example. If you do not want to specify the area, just input null. |    NO    |  null   |
+| debug       | boolean | If pass debug=true, it will produce a image ends with "-Debug.PNG" marked the matching areas.                                                                                                                                                                                                                                          |   YES    |  false  |
+| rightToLeft | boolean | Search direction, default is left to right.                                                                                                                                                                                                                                                                                            |   YES    |  false  |
+| bottomToTop | boolean | Search direction, default is top to buttom.                                                                                                                                                                                                                                                                                            |   YES    |  false  |
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| locations     |   table   |  Coordinates of matched pixel points. For example: { {x1, y1}, {x2, y2}, ... }  |
+| Return    | Type  | Specification                                                                 |
+| --------- | :---: | ----------------------------------------------------------------------------- |
+| locations | table | Coordinates of matched pixel points. For example: { {x1, y1}, {x2, y2}, ... } |
 
 `Example`
 ```js
@@ -322,7 +322,7 @@ const findColor = function (params) {
 
 ------
 
-### findColors(params)
+### findColors
 > * Search all rectangular areas matching “specified color and their corresponding location and return the coordinate of the pixel point matching the first color in the rectangular area. This function has the search efficiency and availability far beyond findImage. For example, you need not match the whole key picture, but only match the anchors’ color and their corresponding location on the key. You can specify the number of the results by count parameter. 0 refers to all, 1 refers to the first one, and 2 refers to the first tow. region parameter can specify the search area, which is the table type {x,y,width, height}. You only input null if no data is specified. <br/>
 > * This function can use the "HELPER" tool in the “Extension Function” of the script-editing interface to select the anchors’ colors from the screenshot and get their corresponding location to the function’s parameter automatically.<br/>
 > * The coordinate of the pixel point pointed by the arrow is the coordinate of the return value.<br/>
@@ -333,72 +333,90 @@ const findColor = function (params) {
 
 > `params` is an `object` which contains:
 
-| Parameter     | Type   |  Specification  | Optional | Default |
-| -------- | :-----:| ----  | :----:  | :----:  |
-| colors     |   table   |  Include some color and their corresponding location, such as:{ {0x00ddff,0,0}, {0x00eeff,10,10}, {0x0000ff,0,20} }. The small table in the big table includes 3 values: the first is the color value. The second and the third are the corresponding locations of the colors to the first color. The corresponding location of the first color’s table is always (0,0). {0x00ddff,0,0} is an example. The location values of the successive colors are their locations corresponding to the first color. The matched rectangular area can be found on the screen upon these colors and corresponding location relation.  | NO | |
-| count     |   Integer    | How many result items you want to get? 0 means all, default is 10, the faster the speed is.  | NO | 10 |
-| region     |   table    | You only search the result in the specified area. This area is the table type including four values {x, y, width, height}. The four values respectively represent the coordinate x, coordinate y, width, and height of the rectangular area. {100,100,200,200} is an example. If you do not want to specify the area, just input null.  | NO | null |
-| debug    |  boolean  | If pass debug=true, it will produce a image ends with "-Debug.PNG" marked the matching areas. | YES | false |
-| rightToLeft    |  boolean  | Search direction, default is left to right. | YES | false |
-| bottomToTop    |  boolean  | Search direction, default is top to buttom. | YES | false |
+| Parameter   |  Type   | Specification                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Optional | Default |
+| ----------- | :-----: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------: | :-----: |
+| colors      |  table  | Include some color and their corresponding location, such as:{ {0x00ddff,0,0}, {0x00eeff,10,10}, {0x0000ff,0,20} }. The small table in the big table includes 3 values: the first is the color value. The second and the third are the corresponding locations of the colors to the first color. The corresponding location of the first color’s table is always (0,0). {0x00ddff,0,0} is an example. The location values of the successive colors are their locations corresponding to the first color. The matched rectangular area can be found on the screen upon these colors and corresponding location relation. |    NO    |         |
+| count       | Integer | How many result items you want to get? 0 means all, default is 10, the faster the speed is.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |    NO    |   10    |
+| region      |  table  | You only search the result in the specified area. This area is the table type including four values {x, y, width, height}. The four values respectively represent the coordinate x, coordinate y, width, and height of the rectangular area. {100,100,200,200} is an example. If you do not want to specify the area, just input null.                                                                                                                                                                                                                                                                                  |    NO    |  null   |
+| debug       | boolean | If pass debug=true, it will produce a image ends with "-Debug.PNG" marked the matching areas.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |   YES    |  false  |
+| rightToLeft | boolean | Search direction, default is left to right.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |   YES    |  false  |
+| bottomToTop | boolean | Search direction, default is top to buttom.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |   YES    |  false  |
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| locations     |   table   |  The coordinate of the first color matched in the found rectangular area, including { {x1, y1}, {x2, y2}, ...}  |
+| Return    | Type  | Specification                                                                                                 |
+| --------- | :---: | ------------------------------------------------------------------------------------------------------------- |
+| locations | table | The coordinate of the first color matched in the found rectangular area, including { {x1, y1}, {x2, y2}, ...} |
 
 `Examples`
 ```js
-const { findColors } = at
-
-const [result, error] = findColors({
-    colors: [ // Required parameter
-        { color: 16661296, x: 0, y: 0 },
-        { color: 1751033, x: -53, y: 67 },
-    ]
-})
-if (error) {
-    alert('Failed to find colors, error: %s', error)
-} else {
-    result.forEach(item => console.log('>>>>>>> found colors at: %j', item))
-    alert('Got result by findColors', result)
-}
-
-// OR
-const [result, error] = findColors({
-    colors: [ // Required parameter
+// options for findColors
+const options = {
+    colors: [ // REQUIRED, colors and their relative positions
         { color: 16661296, x: 0, y: 0 },
         { color: 1751033, x: -53, y: 67 },
     ],
-    count: 3
-})
-
-// OR
-// Prepare parameters
-const params = {
-    colors: [ // Required parameter
-        { color: 16661296, x: 0, y: 0 },
-        { color: 1751033, x: -53, y: 67 },
-    ],
-    count: 3, // optional, default is 10
-    region: null, // optional, default is null, null means the whole screen
-    debug: true, // optional, default is false, true means turn on the debug mode which will produce an image showing the finding process
-    rightToLeft: false, // optiona, default is false, true means do the finding from right to left of the screen
-    bottomToTop: false // optiona, default is false, true means do the finding from bottom to top of the screen
+    count: 3, // OPTIONAL, default is 0, 0 means no limitation
+    region: null, // OPTIONAL, default is null, null means the whole screen
+    debug: true, // OPTIONAL, default is false, true means turn on the debug mode which will produce an image showing the finding process
+    rightToLeft: false, // OPTIONAL, default is false, true means do the finding from right to left of the screen
+    bottomToTop: false // OPTIONAL, default is false, true means do the finding from bottom to top of the screen
 }
 
-// Call findColors on synchronous way which WILL block here till get the result
-const [result, error] = findColors(params)
+//------------------------------------------------
+/**
+ * METHOD 1: keep doing findColors continually for specified times or specified long time or till a specified time
+ * at.findColors(params)
+ * @param {object} params - object of params
+ */
+at.findColors({
+    options, // OPTIONAL, options for text recoginition, same as function recognizeText().
+    duration: 10, // OPTIONAL, how long time you want it to keep finding? Three formats are supported: 1. `duration: 10` means repeat finding 10 times, the value must be a number, can't be a string; 2. `duration: '60s'` means keep finding for 60 seconds, the value must be seconds + a character 's'; 3. `duration: '2020-05-30 12:00:00'` means keep finding till 2020-05-30 12:00:00. Default is `duration: 10` means repeat 10 times, the value must be a string.
+    interval: 1000, // OPTIONAL, interval between loops in milliseconds, default is 1000 milliseconds.
+    exitIfFound: true, // OPTIONAL, if exit findColors if got a result successfully, default is true.
+    eachFindingCallback: () => { // OPTIONAL, will call this function after each finding loop.
+        console.log(`------Did a time of findColors at ${new Date().toLocaleString()}-------`)
+    },
+    foundCallback: result => { // OPTIONAL, will call this function while getting matched result, returns the rectangle coordinate matching the action you specified through `matchMethod`.
+        console.log(`Got result of findColors:\n${JSON.stringify(result, null, '    ')}`)
+    },
+    errorCallback: error => { // OPTIONAL, handle any error, will exit findColors if got error, if no errorCallback provide, it will alert while getting error.
+        alert(error)
+    },
+    completedCallback: () => { // OPTIONAL, callback when all finding completed
+        console.log('findImage compeleted!')
+    },
+    block: false, // OPTIONAL, you want to run findColors asynchronously or synchronously, block=true means it will run synchronously and block here till completed, default is false, doesn't block here.
+})
+
+//------------------------------------------------
+/**
+ * METHOD 2: do findColors a single time synchronously
+ * at.findColors(options)
+ * @param {object} options - find image options
+ * @returns {array} - array of [result, error]
+ */
+const [result, error] = at.findColors(options)
 if (error) {
     alert('Failed to find colors, error: %s', error)
 } else {
-    alert('Got result by findColors', result)
+    console.log('Got result by findColors synchronously', result);
 }
 
-// OR
-// You can also ignore the error checking like this
-const [result] = findColors(params)
+//------------------------------------------------
+/**
+ * METHOD 3: do findColors a single time asynchronously
+ * at.findColors(options, callback)
+ * @param {object} options - find image options
+ * @param {function} callback - callback function for handling the result or error
+ */
+at.findColors(options, (result, error) => {
+    if (error) {
+        alert('Failed to find colors, error: %s', error)
+        return
+    }
+    console.log('Got result by findColors asynchronously', result);
+})
 ```
 
 ------
@@ -412,53 +430,98 @@ const [result] = findColors(params)
 
 > `params` is an `object` which contains:
 
-| Parameter     | Type   |  Specification  | Optional | Default |
-| -------- | :-----:| ----  | :----:  | :----:  |
-| targetImagePath     |   String   |  Path of the target image to match, for example: "images/gold.PNG". Any image with valid format are supported. If the path starts with character "/", it will be treated as absolute path, if not, it will be treated as relative path. Most of the time we use relative path, speficially for .ate package.    | NO | |
-| count     |   Integer    | How many result items you want to get? 0 means all, default is 10, the faster the speed is.  | NO | 10 |
-| threshold |  float    | Searching precision, maximum value is 1 means totally the same, minimum value is -1 means non same, default is 0.9, usually 0.99 is good. Pass null if you just want to use the default value. | YES | 0.9 |
-| region    |  table    | Do searching in which region. Pass null if you just want to use the default value. | YES | Whole screen |
-| debug    |  boolean  | If pass debug=true, it will produce a image ends with "-Debug.PNG" marked the matching areas. | YES | false |
-| method    |  integer  | Searching method, default is 1, pass 2 if you want to use the more intelligent method which is able to cover size scale, orientation, color changed, it will be a little slower than method 1. | YES | 1 |
+| Parameter       |  Type   | Specification                                                                                                                                                                                                                                                                                               | Optional |   Default    |
+| --------------- | :-----: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------: | :----------: |
+| targetImagePath | String  | Path of the target image to match, for example: "images/gold.PNG". Any image with valid format are supported. If the path starts with character "/", it will be treated as absolute path, if not, it will be treated as relative path. Most of the time we use relative path, speficially for .ate package. |    NO    |              |
+| count           | Integer | How many result items you want to get? 0 means all, default is 10, the faster the speed is.                                                                                                                                                                                                                 |    NO    |      10      |
+| threshold       |  float  | Searching precision, maximum value is 1 means totally the same, minimum value is -1 means non same, default is 0.9, usually 0.99 is good. Pass null if you just want to use the default value.                                                                                                              |   YES    |     0.9      |
+| region          |  table  | Do searching in which region. Pass null if you just want to use the default value.                                                                                                                                                                                                                          |   YES    | Whole screen |
+| debug           | boolean | If pass debug=true, it will produce a image ends with "-Debug.PNG" marked the matching areas.                                                                                                                                                                                                               |   YES    |    false     |
+| method          | integer | Searching method, default is 1, pass 2 if you want to use the more intelligent method which is able to cover size scale, orientation, color changed, it will be a little slower than method 1.                                                                                                              |   YES    |      1       |
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| center locations     |   table   |  Center coordinates of the matching areas.  |
+| Return           | Type  | Specification                             |
+| ---------------- | :---: | ----------------------------------------- |
+| center locations | table | Center coordinates of the matching areas. |
 
 `Examples`
 ```js
-// import functions from the main module of AutoTouch
-const { findColors } = at
+const targetImagePath = 'images/test_finding_image.png'
+
+const region = {
+    x: 20,
+    y: 50,
+    width: 200,
+    height: 300
+}
+
+// Capture specified area from the current screen
+at.screenshot(targetImagePath, region)
 
 // Prepare parameters
-const params = {
-    colors: [ // Required parameter
-        { color: 16661296, x: 0, y: 0 },
-        { color: 1751033, x: -53, y: 67 },
-    ],
-    count: 3, // optional, default is 10
-    region: null, // optional, default is null, null means the whole screen
-    debug: true, // optional, default is false, true means turn on the debug mode which will produce an image showing the finding process
-    rightToLeft: false, // optiona, default is false, true means do the finding from right to left of the screen
-    bottomToTop: false // optiona, default is false, true means do the finding from bottom to top of the screen
+const options = {
+    targetImagePath: targetImagePath,
+    count: 3, // OPTIONAL, default is 0, 0 means no limitation
+    threshold: 0.9, // OPTIONAL, default is 0.9
+    region: null, // OPTIONAL, default is null, null means the whole screen
+    debug: true, // OPTIONAL, default is false, true means turn on the debug mode which will produce an image showing the finding process
+    method: 1, // OPTIONAL, default is 1, 2 means a more intelligent method
 }
 
-// Call findColors on synchronous way which WILL block here till get the result
-const [result, error] = findColors(params)
+//------------------------------------------------
+/**
+ * METHOD 1: keep doing findImage continually for specified times or specified long time or till a specified time
+ * at.findImage(params)
+ * @param {object} params - object of params
+ */
+at.findImage({
+    options, // OPTIONAL, options for text recoginition, same as function recognizeText().
+    duration: 10, // OPTIONAL, how long time you want it to keep finding? Three formats are supported: 1. `duration: 10` means repeat finding 10 times, the value must be a number, can't be a string; 2. `duration: '60s'` means keep finding for 60 seconds, the value must be seconds + a character 's'; 3. `duration: '2020-05-30 12:00:00'` means keep finding till 2020-05-30 12:00:00. Default is `duration: 10` means repeat 10 times, the value must be a string.
+    interval: 1000, // OPTIONAL, interval between loops in milliseconds, default is 1000 milliseconds.
+    exitIfFound: true, // OPTIONAL, if exit findImage if got a result successfully, default is true.
+    eachFindingCallback: () => { // OPTIONAL, will call this function after each finding loop.
+        console.log(`------Did a time of findImage at ${new Date().toLocaleString()}-------`)
+    },
+    foundCallback: result => { // OPTIONAL, will call this function while getting matched result, returns the rectangle coordinate matching the action you specified through `matchMethod`.
+        console.log(`Got result of findImage:\n${JSON.stringify(result, null, '    ')}`)
+    },
+    errorCallback: error => { // OPTIONAL, handle any error, will exit findImage if got error, if no errorCallback provide, it will alert while getting error.
+        alert(error)
+    },
+    completedCallback: () => { // OPTIONAL, callback when all finding completed
+        console.log('findImage compeleted!')
+    },
+    block: false, // OPTIONAL, you want to run findImage asynchronously or synchronously, block=true means it will run synchronously and block here till completed, default is false, doesn't block here.
+})
+
+//------------------------------------------------
+/**
+ * METHOD 2: do findImage a single time synchronously
+ * at.findImage(options)
+ * @param {object} options - find image options
+ * @returns {array} - array of [result, error]
+ */
+const [result, error] = at.findImage(options)
 if (error) {
-    alert('Failed to find colors, error: %s', error)
+    alert('Failed to findImage, error: %s', error)
 } else {
-    result.forEach(item => console.log('>>>>>>> found image at: %j', item))
-    alert('Got result by findColors', result)
+    console.log('Got result by findImage synchronously', result);
 }
-// You can also ignore the error checking like this
-const [result] = findColors({
-    colors: [ // Required parameter
-        { color: 16661296, x: 0, y: 0 },
-        { color: 1751033, x: -53, y: 67 },
-    ]
+
+//------------------------------------------------
+/**
+ * METHOD 3: do findImage a single time asynchronously
+ * at.findImage(options, callback)
+ * @param {object} options - find image options
+ * @param {function} callback - callback function for handling the result or error
+ */
+at.findImage(options, (result, error) => {
+    if (error) {
+        alert('Failed to findImage, error: %s', error)
+        return
+    }
+    console.log('Got result by findImage asynchronously', result);
 })
 ```
 
@@ -472,10 +535,10 @@ const [result] = findColors({
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  | Optional | Default |
-| -------- | :-----:| ----  | :-----: | :-----: |
-| savePath     |   string   | Where to save the image. | YES | "AutoTouch" album of iOS Photo Library |
-| region     |   table    | You make a screenshot of the specified area. This area is the table type including four values {x, y, width, height}. The four values respectively represent the coordinate x, coordinate y, width, and height of the rectangular area. {100,100,200,200} is an example. If you do not want to specify the area, just input null. | YES | null |
+| Parameter |  Type  | Specification                                                                                                                                                                                                                                                                                                                     | Optional |                Default                 |
+| --------- | :----: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------: | :------------------------------------: |
+| savePath  | string | Where to save the image.                                                                                                                                                                                                                                                                                                          |   YES    | "AutoTouch" album of iOS Photo Library |
+| region    | table  | You make a screenshot of the specified area. This area is the table type including four values {x, y, width, height}. The four values respectively represent the coordinate x, coordinate y, width, and height of the rectangular area. {100,100,200,200} is an example. If you do not want to specify the area, just input null. |   YES    |                  null                  |
 
 `Return`
 
@@ -508,14 +571,14 @@ screenshot(savePath, region)
 
 ------
 
-### appRun(appIdentifier)
+### appRun
 > Run specified application.
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| appIdentifier     |   string   |  Application identifier, including "com.apple.mobilesafari". You can find the identifier from [this service](https://offcornerdev.com/bundleid.html) |
+| Parameter     |  Type  | Specification                                                                                                                                       |
+| ------------- | :----: | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| appIdentifier | string | Application identifier, including "com.apple.mobilesafari". You can find the identifier from [this service](https://offcornerdev.com/bundleid.html) |
 
 `Return`
 
@@ -529,14 +592,14 @@ at.appRun("com.apple.mobilesafari")
 
 ------
 
-### appKill(appIdentifier)
+### appKill
 > Kill specified application.
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| appIdentifier     |   string   |  Application identifier, including "com.apple.mobilesafari". You can find the identifier from [this service](https://offcornerdev.com/bundleid.html) |
+| Parameter     |  Type  | Specification                                                                                                                                       |
+| ------------- | :----: | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| appIdentifier | string | Application identifier, including "com.apple.mobilesafari". You can find the identifier from [this service](https://offcornerdev.com/bundleid.html) |
 
 `Return`
 
@@ -550,20 +613,20 @@ at.appKill("com.apple.mobilesafari")
 
 ------
 
-### appState(appIdentifier)
+### appState
 > Get the running state of the specified application
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| appIdentifier     |   string   |  Application identifier, including "com.apple.mobilesafari". You can find the identifier from [this service](https://offcornerdev.com/bundleid.html) |
+| Parameter     |  Type  | Specification                                                                                                                                       |
+| ------------- | :----: | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| appIdentifier | string | Application identifier, including "com.apple.mobilesafari". You can find the identifier from [this service](https://offcornerdev.com/bundleid.html) |
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| state     |   string   |  State of Character string type: "NOT RUNNING", "ACTIVATED", "DEACTIVATED"。 |
+| Return |  Type  | Specification                                                               |
+| ------ | :----: | --------------------------------------------------------------------------- |
+| state  | string | State of Character string type: "NOT RUNNING", "ACTIVATED", "DEACTIVATED"。 |
 
 `Example`
 ```lua
@@ -584,9 +647,9 @@ None
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| dir     |   string   |  Default directory address of the saved script. |
+| Return |  Type  | Specification                                  |
+| ------ | :----: | ---------------------------------------------- |
+| dir    | string | Default directory address of the saved script. |
 
 `Examples`
 ```js
@@ -601,10 +664,10 @@ alert(`The root dir of AutoTouch is ${rootDir()}`)
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| message     |   string   |  Content to be showed. |
-| delay     |   integer   |  How long time to keep showing, default is 2 seconds. |
+| Parameter |  Type   | Specification                                        |
+| --------- | :-----: | ---------------------------------------------------- |
+| message   | string  | Content to be showed.                                |
+| delay     | integer | How long time to keep showing, default is 2 seconds. |
 
 `Return`
 
@@ -646,9 +709,9 @@ None
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| orientation     |   String   |  Screen orientation may be [these values](#types-of-device-orientations) |
+| Return      |  Type  | Specification                                                           |
+| ----------- | :----: | ----------------------------------------------------------------------- |
+| orientation | String | Screen orientation may be [these values](#types-of-device-orientations) |
 
 `Examples`
 ```js
@@ -667,9 +730,9 @@ None
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| SN     |   string   |  Serial Number of the device. |
+| Return |  Type  | Specification                |
+| ------ | :----: | ---------------------------- |
+| SN     | string | Serial Number of the device. |
 
 `Examples`
 ```js
@@ -689,9 +752,9 @@ None
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| version     |   string   |  Version of AutoTouch. |
+| Return  |  Type  | Specification         |
+| ------- | :----: | --------------------- |
+| version | string | Version of AutoTouch. |
 
 `Examples`
 ```js
@@ -711,9 +774,9 @@ None
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| App Identifier     |   string   |  App Identifier of current front most App. |
+| Return         |  Type  | Specification                             |
+| -------------- | :----: | ----------------------------------------- |
+| App Identifier | string | App Identifier of current front most App. |
 
 `Examples`
 ```js
@@ -732,9 +795,9 @@ None
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| Orientation     |   integer   |  Orientation of current front most App. |
+| Return      |  Type   | Specification                          |
+| ----------- | :-----: | -------------------------------------- |
+| Orientation | integer | Orientation of current front most App. |
 
 `Examples`
 ```js
@@ -744,23 +807,23 @@ alert(`Orientation of current front most App is : ${orientation}`)
 
 ------
 
-### intToRgb(intColor)
+### intToRgb
 > Transit integer color to independent values of R,G,B.<br/>
 > It's in `utils` module, not `at` module
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| intColor   |   Integer   | Integer color value |
+| Parameter |  Type   | Specification       |
+| --------- | :-----: | ------------------- |
+| intColor  | Integer | Integer color value |
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| R   |   Integer   | Red color value. |
-| G   |   Integer   | Green color value. |
-| B   |   Integer   | Blue color value. |
+| Return |  Type   | Specification      |
+| ------ | :-----: | ------------------ |
+| R      | Integer | Red color value.   |
+| G      | Integer | Green color value. |
+| B      | Integer | Blue color value.  |
 
 `Examples`
 ```js
@@ -777,17 +840,17 @@ alert(`red: ${r}, green: ${g}, blue: ${b}`)
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| R   |   Integer   | Red color value. |
-| G   |   Integer   | Green color value. |
-| B   |   Integer   | Blue color value. |
+| Parameter |  Type   | Specification      |
+| --------- | :-----: | ------------------ |
+| R         | Integer | Red color value.   |
+| G         | Integer | Green color value. |
+| B         | Integer | Blue color value.  |
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| intColor   |   Integer   | Integer color value |
+| Return   |  Type   | Specification       |
+| -------- | :-----: | ------------------- |
+| intColor | Integer | Integer color value |
 
 `Examples`
 ```js
@@ -798,14 +861,14 @@ alert(`integer value of rgb(200, 255, 100) is ${intColor}`)
 
 ------
 
-### copyText(text)
+### copyText
 > Copy specified text to clipboard.
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| text     |   string   |  Text to be copied. |
+| Parameter |  Type  | Specification      |
+| --------- | :----: | ------------------ |
+| text      | string | Text to be copied. |
 
 `Return`
 
@@ -827,9 +890,9 @@ None
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| text     |   string   | Text copied in the clipboard. |
+| Return |  Type  | Specification                 |
+| ------ | :----: | ----------------------------- |
+| text   | string | Text copied in the clipboard. |
 
 `Examples`
 ```js
@@ -840,15 +903,15 @@ alert(text)
 
 ------
 
-### inputText(text)
+### inputText
 > Input text to the input box selected now. You can delete a character backspace by inputText("\b").
 > **ATTENSION:** Enable inoutText function at AutoTouch Settings > Features before using it.
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| text     |   string   |  Text to be input. |
+| Parameter |  Type  | Specification     |
+| --------- | :----: | ----------------- |
+| text      | string | Text to be input. |
 
 `Return`
 
@@ -863,7 +926,7 @@ at.inputText("\b\b\b")
 
 ------
 
-### dialog(params)
+### dialog
 > Pop up self-defined dialog box to accept the user input. Please refer to the example for specific usage.
 
 `Parameters`
@@ -924,7 +987,7 @@ if (result == 1) {
 
 ------
 
-### clearDialogValues(scriptPath)
+### clearDialogValues
 > Clear the remembered values of the dialog created by the function dialog.
 
 `Parameters`
@@ -945,7 +1008,7 @@ clearDialogValues("dialog.js")
 
 ------
 
-### openURL(urlString)
+### openURL
 > Open url, or open other apps' url scheme. Look at [Always-Updated List of iOS App URL Scheme Names](https://ios.gadgethacks.com/news/always-updated-list-ios-app-url-scheme-names-0184033/) and example: [Google Maps URL Scheme for iOS](https://developers.google.com/maps/documentation/urls/ios-urlscheme)
 
 `Parameters`
@@ -981,9 +1044,9 @@ None
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| license type     |   string   | `BASIC` or `PRO` or `null` |
+| Return       |  Type  | Specification              |
+| ------------ | :----: | -------------------------- |
+| license type | string | `BASIC` or `PRO` or `null` |
 
 `Examples`
 ```js
@@ -997,10 +1060,10 @@ alert(`AutoTouch license of current device is ${at.license()}!`)
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| filePath     |   string   |  Relative path of a script inside script directory of AutoTouch, such as "/Records/test.lua". |
-| on     |   boolean   |  Switch auto launch on or off, true means on, false means off. |
+| Parameter |  Type   | Specification                                                                                |
+| --------- | :-----: | -------------------------------------------------------------------------------------------- |
+| filePath  | string  | Relative path of a script inside script directory of AutoTouch, such as "/Records/test.lua". |
+| on        | boolean | Switch auto launch on or off, true means on, false means off.                                |
 
 `Return`
 
@@ -1022,9 +1085,9 @@ None
 
 `Return`
 
-| Return     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| scripts     |   table   |   Relative path List of auto launch scripts.  |
+| Return  | Type  | Specification                              |
+| ------- | :---: | ------------------------------------------ |
+| scripts | table | Relative path List of auto launch scripts. |
 
 `Examples`
 ```js
@@ -1057,93 +1120,177 @@ at.stop()
 
 ------
 
-### ocr(region, languages, threshold, whitelist, blacklist, timeout, tessdataParentDir, debug)
-> Text recognition from the screen with library `tesseract ocr`
-
-`Parameters`
-
-| Parameter     | Type   |  Specification  | Optional | Default |
-| -------- | :-----:| ----  | :----:  | :----:  |
-| region    |  table    | What region you want to recognize text at the screen. | YES | Whole screen |
-| languages    |  String  | Languages you want to recognize, by default AutoTouch has included `eng.traineddata` at `/var/mobile/Library/AutoTouch/Library/tessadata`, you may download other languages you needed to the same dir from [https://github.com/tesseract-ocr/tessdata/tree/3.04.00](https://github.com/tesseract-ocr/tessdata/tree/3.04.00). Somewhat you may even train your own data for `tesseract orc` and put it at `tessadata` dir. | YES | "eng" |
-| threshold    |  Integer  | Threshold the image, Adjust this value to improve the accurancy. Value range is from 0 to 255.  | YES | 100 |
-| whitelist    |  String  | What characters you want to recognize in the region, such as "0123456789" will find numbers only. | YES | NULL |
-| blacklist    |  String  | What characters you do not want to recognize from the region. | YES | NULL |
-| timeout    |  Integer  | Timeout in seconds. | YES | 3 |
-| tessdataParentDir    |  String  | Parent directory path of the `tessdata` directory, google to know more about `tessdata` of `tesseract ocr`. If this parameter starts with "/", it will be treated as an absolute path, otherwise it will be treated as a relative path. The real `traineddata` files will be at `tessdata` dir inside `tessdataParentDir`. **ATTENSION** this parameter is the **parent dir** of the `tessdata` folder!!! And the folder containers traineddata files must be named `tessdata`.  | YES | `/var/mobile/Library/AutoTouch/Library/` |
-| debug    |  boolean  | If pass debug=true, it will produce a image ends with "-Debug.PNG" marked the matching areas. | YES | false |
-
-`Return`
-
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| Recognized Text     |   String   |  Recognized Text.  |
+### recognizeTeext
+> Recognize text on the screen
 
 `Examples`
 ```js
-const { ocr } = at
+const options = {
+    region: { x: 0, y: 100, width: 300, height: 300 }, // OPTIONAL, area of the screen you want to detect
+    // customWords: ['Deploy', 'Troops'], // OPTIONAL, an array of strings to supplement the recognized languages at the word recognition stage.
+    // minimumTextHeight: 1 / 32, // OPTIONAL, the minimum height of the text expected to be recognized, relative to the region/screen height, default is 1/32
+    // level: 0, // OPTIONAL, 0 means accurate first, 1 means speed first
+    // languages: ['en-US', 'fr-CA'], // OPTIONAL, an array of languages to detect, in priority order, only `en-US` supported now. ISO language codes: http://www.lingoes.net/en/translator/langcode.htm
+    // correct: false, // OPTIONAL, whether use language correction during the recognition process.
+    debug: true, // OPTIONAL, you can choose to produce debug image
+}
 
-// Example:
-const result = ocr({
-    region: {100, 100, 300, 300}, 
-    languages: 'eng', 
-    threshold: 220
-})
-
-// Example:
-const result = ocr({
-    region: {100, 100, 300, 300}, // Optional
-    languages: 'eng+fra', // Optional
-    threshold: 220, // Optional
-    whitelist: '0123456789 ', // Optional
-    blacklist: '..........', // Optional
-    timeout: 5, // Optional
-    tessdataParentDir: null, // Optional
-    debug: true // Optional
-})
-
-// Example:
-// Find English+France at the specified region with threshold 220, using the traindata in `tessdata` folder at the current directory.
-// Like this example, you can put the traindata inside your package project, so you can encrypt and pack them to a single bot.
-
-/*
-+TestOrcProject.at
-+----tesseract
-+--------eng.traindata
-+--------fra.traindata
-+----main.lua
-+----worker.lua
-*/
-
-//  `./` means under current directory, it will find `tessdata` folder in current directory.
-const result = ocr({
-    region: {100, 100, 300, 300}, // Optional
-    languages: 'eng+fra', // Optional
-    threshold: 220, // Optional
-    whitelist: null, // Optional
-    blacklist: null, // Optional
-    timeout: 5, // Optional
-    tessdataParentDir: './', // Optional
-    debug: true // Optional
+/**
+ * Recognize text on the screen or a specified region
+ * at.recognizeText(options, callback)
+ * @param {object} options - recognition options
+ * @param {function} callback - callback function for handling the result or error
+ */
+at.recognizeText(options, (result, error) => {
+    if (error) {
+        alert(error)
+    } else {
+        console.log(`Got result of recognizeText:\n${JSON.stringify(result, null, '    ')}`)
+        // Got result of recognizeText:
+        // [
+        //     {
+        //         "text": "Example",
+        //         "rectangle": {
+        //             "bottomRight": {
+        //                 "x": 300.47,
+        //                 "y": 177.78
+        //             },
+        //             "topRight": {
+        //                 "x": 300.47,
+        //                 "y": 237.52
+        //             },
+        //             "topLeft": {
+        //                 "x": 33.51,
+        //                 "y": 237.42
+        //             },
+        //             "bottomLeft": {
+        //                 "x": 33.51,
+        //                 "y": 177.68
+        //             }
+        //         }
+        //     }
+        // ]
+    }
 })
 ```
 
 ------
 
-### appInfo(appIdentifier)
+### findText()
+
+```js
+//------------------------------------------------
+/**
+ * METHOD 1: keep doing findText continually for specified times or specified long time or till a specified time
+ * at.findText(params)
+ * @param {object} params - object of params
+ */
+at.findText({
+    options: {
+        debug: true
+    }, // OPTIONAL, options for text recoginition, same as function recognizeText().
+    matchMethod: text => text.toLowerCase() === 'examples', // REQUIRED, How to do matching to determine found.
+    duration: 10, // OPTIONAL, how long time you want it to keep finding? Three formats are supported: 1. `duration: 10` means repeat finding 10 times, the value must be a number, can't be a string; 2. `duration: '60s'` means keep finding for 60 seconds, the value must be seconds + a character 's'; 3. `duration: '2020-05-30 12:00:00'` means keep finding till 2020-05-30 12:00:00. Default is `duration: 10` means repeat 10 times, the value must be a string.
+    interval: 1000, // OPTIONAL, interval between loops in milliseconds, default is 1000 milliseconds.
+    exitIfFound: true, // OPTIONAL, if exit findText if got a result successfully, default is true.
+    eachFindingCallback: () => { // OPTIONAL, will call this function after each finding loop.
+        console.log(`------Did a time of finding text at ${new Date().toLocaleString()}-------`)
+    },
+    foundCallback: result => { // OPTIONAL, will call this function while getting matched result, returns the rectangle coordinate matching the action you specified through `matchMethod`.
+        console.log(`Got result of findText:\n${JSON.stringify(result, null, '    ')}`)
+        alert(`Got result of findText:\n${JSON.stringify(result)}`)
+    },
+    errorCallback: error => { // OPTIONAL, handle any error, will exit findText if got error, if no errorCallback provide, it will alert while getting error.
+        alert(error)
+    },
+    completedCallback: () => { // OPTIONAL, callback when all finding completed
+        console.log('findText compeleted!')
+    },
+    block: false, // OPTIONAL, you want to run findColors asynchronously or synchronously, block=true means it will run synchronously and block here till completed, default is false, doesn't block here.
+})
+
+//------------------------------------------------
+
+console.log(`>>>>>>>>> 2222222 Executing here at ${new Date().toLocaleString()}`)
+
+//------------------------------------------------
+/**
+ * METHOD 2: do findText a single time synchronously
+ * at.findText(options, matchMethod)
+ * @param {object} options - recognitionOptions, same with recognizeText
+ * @param {function} matchMethod - matchMethod, same with METHOD 1 of findText
+ * @returns {array} - array of [result, error]
+ */
+const [result, error] = at.findText({}, text => text.toLowerCase() === 'examples')
+if (error) {
+    alert('Failed to findText, error: %s', error)
+} else {
+    console.log('Got result by findText synchronously', result);
+}
+
+//------------------------------------------------
+
+console.log(`>>>>>>>>> 3333333 Executing here at ${new Date().toLocaleString()}`)
+
+//------------------------------------------------
+/**
+ * METHOD 3: do findText a single time asynchronously
+ * at.findText(options, matchMethod, callback)
+ * @param {object} options - recognition options, same with recognizeText
+ * @param {function} matchMethod - same with METHOD 1 of findText
+ * @param {function} callback - callback function for handling the result or error
+ */
+at.findText({}, text => text.toLowerCase() === 'examples', (result, error) => {
+    if (error) {
+        alert('Failed to findText, error: %s', error)
+        return
+    }
+    console.log('Got result by findText asynchronously', result);
+})
+
+//------------------------------------------------
+
+console.log(`>>>>>>>>> 4444444 Executing here at ${new Date().toLocaleString()}`)
+
+// Format of findText result:
+// [
+//     {
+//         "bottomRight": {
+//             "x": 355.99,
+//             "y": 1442.97
+//         },
+//         "topRight": {
+//             "x": 355.99,
+//             "y": 1504.57
+//         },
+//         "topLeft": {
+//             "x": 35.7,
+//             "y": 1505.92
+//         },
+//         "bottomLeft": {
+//             "x": 35.7,
+//             "y": 1444.33
+//         }
+//     }
+// ]
+```
+
+------
+
+### appInfo
 > Get the speficied App's displayName,executablePath,bundleContainerPath,dataContainerPath.
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  |
-| -------- | :-----:| ----  |
-| appIdentifier     |  String  |  App identifier，such as "com.apple.mobilesafari", Get identifiers from [here](https://offcornerdev.com/bundleid.html). |
+| Parameter     |  Type  | Specification                                                                                                          |
+| ------------- | :----: | ---------------------------------------------------------------------------------------------------------------------- |
+| appIdentifier | String | App identifier，such as "com.apple.mobilesafari", Get identifiers from [here](https://offcornerdev.com/bundleid.html). |
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| info     |  table  |  App info table  |
+| Return | Type  | Specification  |
+| ------ | :---: | -------------- |
+| info   | table | App info table |
 
 `Examples`
 ```lua
@@ -1158,18 +1305,18 @@ alert(table.tostring(result))
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  | Optional | Default |
-| -------- | :-----:| ----  | :----:  | :----:  |
-| filePath     |   string   |  Relative path of a script inside script directory of AutoTouch, such as "/Records/test.lua". | NO | |
-| fireTime     |   string or integer   |  When should the timer trigger. If this parameter is an integer, it means you want it trigger after n seconds from now on, if it is a string, it should be a datetime with format "2019-09-17 08:12:52" which means the timer will trigger at this time. | NO | |
-| repeat     |   boolean   |  If the timer should run repleatly. | NO | |
-| interval     |   integer   |  Repeat interval in seconds. | NO | |
+| Parameter |       Type        | Specification                                                                                                                                                                                                                                           | Optional | Default |
+| --------- | :---------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------: | :-----: |
+| filePath  |      string       | Relative path of a script inside script directory of AutoTouch, such as "/Records/test.lua".                                                                                                                                                            |    NO    |         |
+| fireTime  | string or integer | When should the timer trigger. If this parameter is an integer, it means you want it trigger after n seconds from now on, if it is a string, it should be a datetime with format "2019-09-17 08:12:52" which means the timer will trigger at this time. |    NO    |         |
+| repeat    |      boolean      | If the timer should run repleatly.                                                                                                                                                                                                                      |    NO    |         |
+| interval  |      integer      | Repeat interval in seconds.                                                                                                                                                                                                                             |    NO    |         |
 
 `Return`
 
-| Return     | Type  |  Specification  |
-| -------- | :-----:| ----  |
-| done    |  boolean  |  If it is successful.  |
+| Return |  Type   | Specification        |
+| ------ | :-----: | -------------------- |
+| done   | boolean | If it is successful. |
 
 `Examples`
 ```lua
@@ -1182,14 +1329,14 @@ local done = setTimer("/Records/test.lua", "2019-09-17 08:12:52", true, 10000)
 
 ------
 
-### removeTimer(scriptPath)
+### removeTimer
 > Remove timer of a script.
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  | Optional | Default |
-| -------- | :-----:| ----  | :----:  | :----:  |
-| filePath     |   string   |  Relative path of a script inside script directory of AutoTouch, such as "/Records/test.lua". | NO | |
+| Parameter |  Type  | Specification                                                                                | Optional | Default |
+| --------- | :----: | -------------------------------------------------------------------------------------------- | :------: | :-----: |
+| filePath  | string | Relative path of a script inside script directory of AutoTouch, such as "/Records/test.lua". |    NO    |         |
 
 `Return`
 
@@ -1204,14 +1351,14 @@ local done = removeTimer("/Records/test.lua")
 
 ------
 
-### keepAutoTouchAwake(keepAwake)
+### keepAutoTouchAwake
 > Keep AutoTouch awake aginst iOS idle sleep.
 
 `Parameters`
 
-| Parameter     | Type   |  Specification  | Optional | Default |
-| -------- | :-----:| ----  | :----:  | :----:  |
-| keepAwake     |   boolean   |  Keep AutoTouch awake or not | NO | |
+| Parameter |  Type   | Specification               | Optional | Default |
+| --------- | :-----: | --------------------------- | :------: | :-----: |
+| keepAwake | boolean | Keep AutoTouch awake or not |    NO    |         |
 
 `Return`
 
@@ -1224,7 +1371,7 @@ keepAutoTouchAwake(true)
 
 ------
 
-### exec(command)
+### exec
 > Run a shell command
 
 `Parameters`

@@ -90,8 +90,8 @@ alert(result1)
 > `console.log` and `alert` don't need importing separately.
 
 `Relative Extended Functions`
-> * [`console.log()`](/js/api-references.md#consolelog)<br/>
-> * [`alert()`](/js/api-references.md#alert)
+> * [`console.log()`](/js/api.html#consolelog)<br/>
+> * [`alert()`](/js/api.html#alert)
 
 `Examples`
 ```js
@@ -128,9 +128,9 @@ alert(`I am a log of something interesting: ${ JSON.stringify(something )}`)
 > Use `touchDown`, `touchMove`, `touchUp`, `usleep`
 
 `Relative Extended Functions`
-> * [`touchDown()`](/js/api-references.md#touchDown)<br/>
-> * [`touchMove()`](/js/api-references.md#touchMove)<br/>
-> * [`touchUp()`](/js/api-references.md#touchUp)
+> * [`touchDown()`](/js/api.html#touchdown)<br/>
+> * [`touchMove()`](/js/api.html#touchmove)<br/>
+> * [`touchUp()`](/js/api.html#touchup)
 
 `Examples`
 ```js
@@ -177,8 +177,8 @@ tap(100, 200)
 > use `keyDown`, `keyUp`
 
 `Relative Extended Functions`
-> * [`keyDown()`](/js/api-references.md#keyDown)<br/>
-> * [`keyUp()`](/js/api-references.md#keyUp)
+> * [`keyDown()`](/js/api.html#keydown)<br/>
+> * [`keyUp()`](/js/api.html#keyup)
 
 `Examples`
 ```js
@@ -230,8 +230,8 @@ function unlockScreen() {
 > Use `getColor`, `getColors`
 
 `Relative Extended Functions`
-> * [`getColor()`](/js/api-references.md#getColor)<br/>
-> * [`getColors()`](/js/api-references.md#getColors)
+> * [`getColor()`](/js/api.html#getcolor)<br/>
+> * [`getColors()`](/js/api.html#getcolors)
 
 `Examples`
 ```js
@@ -285,7 +285,7 @@ if (error) {
 ------
 
 ## How to find locations of specified colors from the screen?
-> * Use `findColor`, `findColors`, `findColorAsync`, `findColorsAsync`,<br/>
+> * Use `findColor`, `findColors`<br/>
 > * Search all rectangular areas matching “specified color and their corresponding location and return the coordinate of the pixel point matching the first color in the rectangular area. This function has the search efficiency and availability far beyond findImage. For example, you need not match the whole key picture, but only match the anchors’ color and their corresponding location on the key. You can specify the number of the results by count parameter. 0 refers to all, 1 refers to the first one, and 2 refers to the first tow. region parameter can specify the search area, which is the table type {x,y,width, height}. You only input nil if no data is specified. <br/>
 > * This function can use the "HELPER" tool in the “Extension Function” of the script-editing interface to select the anchors’ colors from the screenshot and get their corresponding location to the function’s parameter automatically.<br/>
 > * The coordinate of the pixel point pointed by the arrow is the coordinate of the return value.
@@ -293,20 +293,15 @@ if (error) {
 ![IMG_0361.PNG-101.9kB](https://i.imgur.com/ODEtwAz.png)
 
 `Relative Extended Functions`
-> * [`findColor()`](/js/api-references.md#findColor)<br/>
-> * [`findColors()`](/js/api-references.md#findColors)<br/>
-> * [`findColorAsync()`](/js/api-references.md#findColorAsync)<br/>
-> * [`findColorsAsync()`](/js/api-references.md#findColorsAsync)
+> * [`findColor()`](/js/api.html#findcolor)<br/>
+> * [`findColors()`](/js/api.html#findcolors)<br/>
 
 `Examples`
 ```js
-// import functions from the main module of AutoTouch
-const { findColor, findColorAsync, findColors, findColorsAsync } = at
-
 //---------------------------------------------------
 // find a specified color synchronously from the screen, 
 // synchronous means it will block here until it returns
-const [result, error] = findColor({ color: 0xFFFFFF, count: 3 })
+const [result, error] = at.findColor({ color: 0xFFFFFF, count: 3 })
 if (error) {
     alert('Failed to find colors, error: %s', error)
 } else {
@@ -315,86 +310,89 @@ if (error) {
 }
 
 //---------------------------------------------------
-// find a specified color asynchronously from the screen, 
-// asynchronous means it WILL NOT block here, it get returned values through a callback function
-findColorAsync({ color: 0xFFFFFF, count: 3 }, (result, error) => {
-    if (error) {
-        alert('Failed to find colors, error: %s', error)
-        return
-    }
-    alert('Got result by findColorAsync', result, error)
-})
-
-//---------------------------------------------------
-// Prepare parameters
-const params = {
-    colors: [ // Required parameter
-        { color: 0xFFEE22, x: 0, y: 0 },
-        { color: 0xDDEEAA, x: -53, y: 67 },
+// options for findColors
+const options = {
+    colors: [ // REQUIRED, colors and their relative positions
+        { color: 16661296, x: 0, y: 0 },
+        { color: 1751033, x: -53, y: 67 },
     ],
-    count: 3, // optional, default is 10
-    region: null, // optional, default is null, null means the whole screen
-    debug: true, // optional, default is false, true means turn on the debug mode which will produce an image showing the finding process
-    rightToLeft: false, // optional, default is false, true means do the finding from right to left of the screen
-    bottomToTop: false // optional, default is false, true means do the finding from bottom to top of the screen
+    count: 3, // OPTIONAL, default is 0, 0 means no limitation
+    region: null, // OPTIONAL, default is null, null means the whole screen
+    debug: true, // OPTIONAL, default is false, true means turn on the debug mode which will produce an image showing the finding process
+    rightToLeft: false, // OPTIONAL, default is false, true means do the finding from right to left of the screen
+    bottomToTop: false // OPTIONAL, default is false, true means do the finding from bottom to top of the screen
 }
 
-// Call findColors on synchronous way which WILL block here till get the result
-const [result, error] = findColors(params)
+//------------------------------------------------
+/**
+ * METHOD 1: keep doing findColors continually for specified times or specified long time or till a specified time
+ * at.findColors(params)
+ * @param {object} params - object of params
+ */
+at.findColors({
+    options, // OPTIONAL, options for text recoginition, same as function recognizeText().
+    duration: 10, // OPTIONAL, how long time you want it to keep finding? Three formats are supported: 1. `duration: 10` means repeat finding 10 times, the value must be a number, can't be a string; 2. `duration: '60s'` means keep finding for 60 seconds, the value must be seconds + a character 's'; 3. `duration: '2020-05-30 12:00:00'` means keep finding till 2020-05-30 12:00:00. Default is `duration: 10` means repeat 10 times, the value must be a string.
+    interval: 1000, // OPTIONAL, interval between loops in milliseconds, default is 1000 milliseconds.
+    exitIfFound: true, // OPTIONAL, if exit findColors if got a result successfully, default is true.
+    eachFindingCallback: () => { // OPTIONAL, will call this function after each finding loop.
+        console.log(`------Did a time of findColors at ${new Date().toLocaleString()}-------`)
+    },
+    foundCallback: result => { // OPTIONAL, will call this function while getting matched result, returns the rectangle coordinate matching the action you specified through `matchMethod`.
+        console.log(`Got result of findColors:\n${JSON.stringify(result, null, '    ')}`)
+    },
+    errorCallback: error => { // OPTIONAL, handle any error, will exit findColors if got error, if no errorCallback provide, it will alert while getting error.
+        alert(error)
+    },
+    completedCallback: () => { // OPTIONAL, callback when all finding completed
+        console.log('findImage compeleted!')
+    },
+    block: false, // OPTIONAL, you want to run findColors asynchronously or synchronously, block=true means it will run synchronously and block here till completed, default is false, doesn't block here.
+})
+
+//------------------------------------------------
+/**
+ * METHOD 2: do findColors a single time synchronously
+ * at.findColors(options)
+ * @param {object} options - find image options
+ * @returns {array} - array of [result, error]
+ */
+const [result, error] = at.findColors(options)
 if (error) {
     alert('Failed to find colors, error: %s', error)
 } else {
-    result.forEach(item => console.log('>>>>>>> found colors at: %j', item))
-    alert('Got result by findColors', result)
+    console.log('Got result by findColors synchronously', result);
 }
-// You can also ignore the error checking like this
-// const [result] = findColors(params)
 
-//---------------------------------------------------
-// Call findColors on asynchronous way which WILL NOT block here
-// Incept the returned values through a callback function
-findColorsAsync(params, (result, error) => {
+//------------------------------------------------
+/**
+ * METHOD 3: do findColors a single time asynchronously
+ * at.findColors(options, callback)
+ * @param {object} options - find image options
+ * @param {function} callback - callback function for handling the result or error
+ */
+at.findColors(options, (result, error) => {
     if (error) {
         alert('Failed to find colors, error: %s', error)
         return
     }
-    alert('Got result by findColorsAsync', result, error)
+    console.log('Got result by findColors asynchronously', result);
 })
-
-console.log('Arrive here before findColorsAsync returns result')
-
-//---------------------------------------------------
-// You can also define the callback separately
-function callback(result, error) {
-    if (error) {
-        alert('Failed to find colors, error: %s', error)
-        return
-    }
-    alert('Got result by findColorsAsync', result, error)
-}
-
-findColorsAsync(params, callback)
 ```
 
 ------
 
 ## How to find areas matching the specified image from the screen?
-> * Use `findImage`, `findImageAsync`, `screenshot`
+> * Use `findImage`, `screenshot`
 > * Search areas matching the specified image on current screen and return the center coordinates. It supports any format of target images. It also provides a debug mode which will produce an image marked the matching areas.
 
 ![Imgur](https://i.imgur.com/9eyFOu7.png)
 
 `Relative Extended Functions`
-> * [`findImage()`](/js/api-references.md#findImage)<br/>
-> * [`findImageAsync()`](/js/api-references.md#findImageAsync)<br/>
-> * [`screenshot()`](/js/api-references.md#screenshot)
+> * [`findImage()`](/js/api.html#findimage)<br/>
+> * [`screenshot()`](/js/api.html#screenshot)
 
 `Examples`
 ```js
-// import functions from the main module of AutoTouch
-const { screenshot, findImage, findImageAsync } = at
-
-//---------------------------------------------------
 const targetImagePath = 'images/test_finding_image.png'
 
 const region = {
@@ -404,55 +402,75 @@ const region = {
     height: 300
 }
 
-//---------------------------------------------------
 // Capture specified area from the current screen
-screenshot(targetImagePath, region)
+at.screenshot(targetImagePath, region)
 
-//---------------------------------------------------
 // Prepare parameters
-const params = {
+const options = {
     targetImagePath: targetImagePath,
-    count: 3, // optional, default is 0, 0 means no limitation
-    threshold: 0.9, // optional, default is 0.9
-    region: null, // optional, default is null, null means the whole screen
-    debug: true, // optional, default is false, true means turn on the debug mode which will produce an image showing the finding process
-    method: 1, // optional, default is 1, 2 means a more intelligent method
+    count: 3, // OPTIONAL, default is 0, 0 means no limitation
+    threshold: 0.9, // OPTIONAL, default is 0.9
+    region: null, // OPTIONAL, default is null, null means the whole screen
+    debug: true, // OPTIONAL, default is false, true means turn on the debug mode which will produce an image showing the finding process
+    method: 1, // OPTIONAL, default is 1, 2 means a more intelligent method
 }
 
-//---------------------------------------------------
-// Call findImage on synchronous way which WILL block here till get the result
-const [result, error] = findImage(params)
-if (error) {
-    alert('Failed to find image, error: %s', error)
-} else {
-    alert('Got result by findImage', result)
-}
-// You can also ignore the error checking like this
-const [result] = findColors(params)
-
-//---------------------------------------------------
-// Call findImage on asynchronous way which WILL NOT block here
-findImageAsync(params, (result, error) => {
-    if (error) {
-        alert('Failed to find image, error: %s', error)
-        return
-    }
-    alert('Got result of findImageAsync', result, error)
+//------------------------------------------------
+/**
+ * METHOD 1: keep doing findImage continually for specified times or specified long time or till a specified time
+ * at.findImage(params)
+ * @param {object} params - object of params
+ */
+at.findImage({
+    options, // OPTIONAL, options for text recoginition, same as function recognizeText().
+    duration: 10, // OPTIONAL, how long time you want it to keep finding? Three formats are supported: 1. `duration: 10` means repeat finding 10 times, the value must be a number, can't be a string; 2. `duration: '60s'` means keep finding for 60 seconds, the value must be seconds + a character 's'; 3. `duration: '2020-05-30 12:00:00'` means keep finding till 2020-05-30 12:00:00. Default is `duration: 10` means repeat 10 times, the value must be a string.
+    interval: 1000, // OPTIONAL, interval between loops in milliseconds, default is 1000 milliseconds.
+    exitIfFound: true, // OPTIONAL, if exit findImage if got a result successfully, default is true.
+    eachFindingCallback: () => { // OPTIONAL, will call this function after each finding loop.
+        console.log(`------Did a time of findImage at ${new Date().toLocaleString()}-------`)
+    },
+    foundCallback: result => { // OPTIONAL, will call this function while getting matched result, returns the rectangle coordinate matching the action you specified through `matchMethod`.
+        console.log(`Got result of findImage:\n${JSON.stringify(result, null, '    ')}`)
+    },
+    errorCallback: error => { // OPTIONAL, handle any error, will exit findImage if got error, if no errorCallback provide, it will alert while getting error.
+        alert(error)
+    },
+    completedCallback: () => { // OPTIONAL, callback when all finding completed
+        console.log('findImage compeleted!')
+    },
+    block: false, // OPTIONAL, you want to run findImage asynchronously or synchronously, block=true means it will run synchronously and block here till completed, default is false, doesn't block here.
 })
 
-console.log('Arrive here before findImageAsync returns result')
-
-//---------------------------------------------------
-// You can also define the callback separately
-function callback(result, error) {
-    if (error) {
-        alert('Failed to find image, error: %s', error)
-        return
-    }
-    alert('Got result of findImageAsync', result, error)
+//------------------------------------------------
+/**
+ * METHOD 2: do findImage a single time synchronously
+ * at.findImage(options)
+ * @param {object} options - find image options
+ * @returns {array} - array of [result, error]
+ */
+const [result, error] = at.findImage(options)
+if (error) {
+    alert('Failed to findImage, error: %s', error)
+} else {
+    console.log('Got result by findImage synchronously', result);
 }
 
-findImageAsync(params, callback)
+//------------------------------------------------
+/**
+ * METHOD 3: do findImage a single time asynchronously
+ * at.findImage(options, callback)
+ * @param {object} options - find image options
+ * @param {function} callback - callback function for handling the result or error
+ */
+at.findImage(options, (result, error) => {
+    if (error) {
+        alert('Failed to findImage, error: %s', error)
+        return
+    }
+    console.log('Got result by findImage asynchronously', result);
+})
+
+//------------------------------------------------
 ```
 
 ------
@@ -461,10 +479,10 @@ findImageAsync(params, callback)
 > * Use `appRun`, `appKill`, `appState`
 
 `Relative Extended Functions`
-> * [`appRun()`](/js/api-references.md#appRun)<br/>
-> * [`appKill()`](/js/api-references.md#appKill)<br/>
-> * [`appState()`](/js/api-references.md#appState)<br/>
-> * [`appInfo()`](/js/api-references.md#appInfo)
+> * [`appRun()`](/js/api.html#apprun)<br/>
+> * [`appKill()`](/js/api.html#appkill)<br/>
+> * [`appState()`](/js/api.html#appstate)<br/>
+> * [`appInfo()`](/js/api.html#appinfo)
 
 `Examples`
 ```js
@@ -494,8 +512,8 @@ alert('Informations of Outlook are: %j', result)
 ## How to set a script auto launch?
 
 `Relative Extended Functions`
-> * [`setAutoLaunch()`](/js/api-references.md#setAutoLaunch)
-> * [`listAutoLaunch()`](/js/api-references.md#listAutoLaunch)
+> * [`setAutoLaunch()`](/js/api.html#setAautolaunch)
+> * [`listAutoLaunch()`](/js/api.html#listautolaunch)
 
 ```js
 const { setAutoLaunch, listAutoLaunch } = at
@@ -522,8 +540,8 @@ autoLaunchScripts.forEach(item => console.log(`Got a auto launch script: ${item}
 ## How to trigger a script with timer?
 
 `Relative Extended Functions`
-> * [`setTimer()`](/js/api-references.md#setTimer)
-> * [`removeTimer()`](/js/api-references.md#removeTimer)
+> * [`setTimer()`](/js/api.html#settimer)
+> * [`removeTimer()`](/js/api.html#removetimer)
 
 `Examples`
 ```js
@@ -547,7 +565,7 @@ removeTimer("/Records/test.lua")
 > You can use `keepAutoTouchAwake()` to keep AutoTouch awake aginst iOS idle sleep.
 
 `Relative Extended Functions`
-> * [`keepAutoTouchAwake()`](/js/api-references.md#keepAutoTouchAwake-on)
+> * [`keepAutoTouchAwake()`](/js/api.html#keepautotouchawake)
 
 `Examples`
 ```lua
@@ -560,7 +578,7 @@ keepAutoTouchAwake(true)
 > You need `AutoTouch inputText` special version to enable `inputText` feature
 
 `Relative Extended Functions`
-> * [`rootDir()`](/js/api-references.md#rootDir)
+> * [`rootDir()`](/js/api.html#rootdir)
 
 `Examples`
 ```js
@@ -587,8 +605,8 @@ inputText("\b\b\b")
 ## How to show a dialog?
 
 `Relative Extended Functions`
-> * [`dialog()`](/js/api-references.md#dialog)<br/>
-> * [`clearDialogValues()`](/js/api-references.md#clearDialogValues)
+> * [`dialog()`](/js/api.html#dialog)<br/>
+> * [`clearDialogValues()`](/js/api.html#cleardialogvalues)
 
 `Examples`
 ```js
@@ -636,66 +654,159 @@ clearDialogValues("dialog.js");
 
 -----
 
-## How to use ocr for text recognition?
+## How to recognize text on the screen?
 
 `Relative Extended Functions`
-> * [`ocr()`](/js/api-references.md#ocr)
+> * [`recognizeText()`](/js/api.html#recognizetext)
 
 `Examples`
 ```js
-const { ocr } = at
+const options = {
+    region: { x: 0, y: 100, width: 300, height: 300 }, // OPTIONAL, area of the screen you want to detect
+    // customWords: ['Deploy', 'Troops'], // OPTIONAL, an array of strings to supplement the recognized languages at the word recognition stage.
+    // minimumTextHeight: 1 / 32, // OPTIONAL, the minimum height of the text expected to be recognized, relative to the region/screen height, default is 1/32
+    // level: 0, // OPTIONAL, 0 means accurate first, 1 means speed first
+    // languages: ['en-US', 'fr-CA'], // OPTIONAL, an array of languages to detect, in priority order, only `en-US` supported now. ISO language codes: http://www.lingoes.net/en/translator/langcode.htm
+    // correct: false, // OPTIONAL, whether use language correction during the recognition process.
+    debug: true, // OPTIONAL, you can choose to produce debug image
+}
 
-// Example:
-const result = ocr({
-    region: {100, 100, 300, 300}, 
-    languages: 'eng', 
-    threshold: 220
-})
-
-// Example:
-const result = ocr({
-    region: {100, 100, 300, 300}, // Optional
-    languages: 'eng+fra', // Optional
-    threshold: 220, // Optional
-    whitelist: '0123456789 ', // Optional
-    blacklist: '..........', // Optional
-    timeout: 5, // Optional
-    tessdataParentDir: null, // Optional
-    debug: true // Optional
-})
-
-// Example:
-// Find English+France at the specified region with threshold 220, using the traindata in `tessdata` folder at the current directory.
-// Like this example, you can put the traindata inside your package project, so you can encrypt and pack them to a single bot.
-
-/*
-+TestOrcProject.at
-+----tesseract
-+--------eng.traindata
-+--------fra.traindata
-+----main.lua
-+----worker.lua
-*/
-
-//  `./` means under current directory, it will find `tessdata` folder in current directory.
-const result = ocr({
-    region: {100, 100, 300, 300}, // Optional
-    languages: 'eng+fra', // Optional
-    threshold: 220, // Optional
-    whitelist: null, // Optional
-    blacklist: null, // Optional
-    timeout: 5, // Optional
-    tessdataParentDir: './', // Optional
-    debug: true // Optional
+/**
+ * Recognize text on the screen or a specified region
+ * at.recognizeText(options, callback)
+ * @param {object} options - recognition options
+ * @param {function} callback - callback function for handling the result or error
+ */
+at.recognizeText(options, (result, error) => {
+    if (error) {
+        alert(error)
+    } else {
+        console.log(`Got result of recognizeText:\n${JSON.stringify(result, null, '    ')}`)
+        // Got result of recognizeText:
+        // [
+        //     {
+        //         "text": "Example",
+        //         "rectangle": {
+        //             "bottomRight": {
+        //                 "x": 300.47,
+        //                 "y": 177.78
+        //             },
+        //             "topRight": {
+        //                 "x": 300.47,
+        //                 "y": 237.52
+        //             },
+        //             "topLeft": {
+        //                 "x": 33.51,
+        //                 "y": 237.42
+        //             },
+        //             "bottomLeft": {
+        //                 "x": 33.51,
+        //                 "y": 177.68
+        //             }
+        //         }
+        //     }
+        // ]
+    }
 })
 ```
 
+## How to find text on the screen?
+
+`Relative Extended Functions`
+> * [`findText()`](/js/api.html#findtext)
+
+`Examples`
+```js
+//------------------------------------------------
+/**
+ * METHOD 1: keep doing findText continually for specified times or specified long time or till a specified time
+ * at.findText(params)
+ * @param {object} params - object of params
+ */
+at.findText({
+    options: {
+        debug: true
+    }, // OPTIONAL, options for text recoginition, same as function recognizeText().
+    matchMethod: text => text.toLowerCase() === 'examples', // REQUIRED, How to do matching to determine found.
+    duration: 10, // OPTIONAL, how long time you want it to keep finding? Three formats are supported: 1. `duration: 10` means repeat finding 10 times, the value must be a number, can't be a string; 2. `duration: '60s'` means keep finding for 60 seconds, the value must be seconds + a character 's'; 3. `duration: '2020-05-30 12:00:00'` means keep finding till 2020-05-30 12:00:00. Default is `duration: 10` means repeat 10 times, the value must be a string.
+    interval: 1000, // OPTIONAL, interval between loops in milliseconds, default is 1000 milliseconds.
+    exitIfFound: true, // OPTIONAL, if exit findText if got a result successfully, default is true.
+    eachFindingCallback: () => { // OPTIONAL, will call this function after each finding loop.
+        console.log(`------Did a time of finding text at ${new Date().toLocaleString()}-------`)
+    },
+    foundCallback: result => { // OPTIONAL, will call this function while getting matched result, returns the rectangle coordinate matching the action you specified through `matchMethod`.
+        console.log(`Got result of findText:\n${JSON.stringify(result, null, '    ')}`)
+        alert(`Got result of findText:\n${JSON.stringify(result)}`)
+    },
+    errorCallback: error => { // OPTIONAL, handle any error, will exit findText if got error, if no errorCallback provide, it will alert while getting error.
+        alert(error)
+    },
+    completedCallback: () => { // OPTIONAL, callback when all finding completed
+        console.log('findText compeleted!')
+    },
+    block: false, // OPTIONAL, you want to run findColors asynchronously or synchronously, block=true means it will run synchronously and block here till completed, default is false, doesn't block here.
+})
+
+//------------------------------------------------
+/**
+ * METHOD 2: do findText a single time synchronously
+ * at.findText(options, matchMethod)
+ * @param {object} options - recognitionOptions, same with recognizeText
+ * @param {function} matchMethod - matchMethod, same with METHOD 1 of findText
+ * @returns {array} - array of [result, error]
+ */
+const [result, error] = at.findText({}, text => text.toLowerCase() === 'examples')
+if (error) {
+    alert('Failed to findText, error: %s', error)
+} else {
+    console.log('Got result by findText synchronously', result);
+}
+
+//------------------------------------------------
+/**
+ * METHOD 3: do findText a single time asynchronously
+ * at.findText(options, matchMethod, callback)
+ * @param {object} options - recognition options, same with recognizeText
+ * @param {function} matchMethod - same with METHOD 1 of findText
+ * @param {function} callback - callback function for handling the result or error
+ */
+at.findText({}, text => text.toLowerCase() === 'examples', (result, error) => {
+    if (error) {
+        alert('Failed to findText, error: %s', error)
+        return
+    }
+    console.log('Got result by findText asynchronously', result);
+})
+
+//------------------------------------------------
+// Format of findText result:
+// [
+//     {
+//         "bottomRight": {
+//             "x": 355.99,
+//             "y": 1442.97
+//         },
+//         "topRight": {
+//             "x": 355.99,
+//             "y": 1504.57
+//         },
+//         "topLeft": {
+//             "x": 35.7,
+//             "y": 1505.92
+//         },
+//         "bottomLeft": {
+//             "x": 35.7,
+//             "y": 1444.33
+//         }
+//     }
+// ]
+```
 ------
 
 ## How to execute a shell command?
 
 `Relative Extended Functions`
-> * [`exec()`](/js/api-references.md#exec)
+> * [`exec()`](/js/api.html#exec)
 
 `Examples`
 ```js
@@ -703,19 +814,29 @@ const result = at.exec('ls -l')
 console.log(result)
 ```
 
+## How to stop playing?
+
+`Relative Extended Functions`
+> * [`stop()`](/js/api.html#stop)
+
+`Examples`
+```js
+at.stop()
+```
+
 -----
 
 ## Other stuff
 
 `Relative Extended Functions`
-> * [`rootDir()`](/js/api-references.md#rootDir)
-> * [`toast()`](/js/api-references.md#toast)
-> * [`getDeviceOrientation()`](/js/api-references.md#getDeviceOrientation)
-> * [`getScreenInfo()`](/js/api-references.md#getScreenInfo)
-> * [`getSN()`](/js/api-references.md#getSN)
-> * [`getLicense()`](/js/api-references.md#getLicense)
-> * [`frontMostAppId()`](/js/api-references.md#frontMostAppId)
-> * [`frontMostAppOrientation()`](/js/api-references.md#frontMostAppOrientation)
+> * [`rootDir()`](/js/api.html#rootdir)
+> * [`toast()`](/js/api.html#toast)
+> * [`getDeviceOrientation()`](/js/api.html#getdeviceorientation)
+> * [`getScreenInfo()`](/js/api.html#getscreeninfo)
+> * [`getSN()`](/js/api.html#getsn)
+> * [`getLicense()`](/js/api.html#getlicense)
+> * [`frontMostAppId()`](/js/api.html#frontmostappid)
+> * [`frontMostAppOrientation()`](/js/api.html#frontmostapporientation)
 
 `Examples`
 ```js
@@ -778,8 +899,8 @@ openURL("clashofclans://")
 > These functions are inside `utils` module, not `at` module
 
 `Relative Extended Functions`
-> * [`intToRgb()`](/js/api-references.md#intToRgb)
-> * [`rgbToInt()`](/js/api-references.md#rgbToInt)
+> * [`intToRgb()`](/js/api.html#inttorgb)
+> * [`rgbToInt()`](/js/api.html#rgbtoint)
 
 `Examples`
 ```js
@@ -799,4 +920,4 @@ alert(`Hex format of color rgb(${r}, ${g}, ${b}) is ${intColor.toString(16)}`)
 
 ------
 
-## [Constants](/js/api-references.html#constants)
+## [Constants](/js/api.html#constants)

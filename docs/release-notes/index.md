@@ -1,6 +1,11 @@
 # Release Notes
 -----
 
+## v7.0.15
+`2020-06-11`
+> * New param `completedCallback` for `findColors`, `findImage`, `findText`;
+> * Added sync and async single execution usages for `findText`.
+
 ## v7.0.14
 `2020-06-10`
 > * New `setInterruptAble()` method for making a point of your code interrupt-able, just place it where you want it able to be stopped by force in your code. `usleep()` has the same functionality, if you have `usleep()` there you don't need `setInterruptAble()`;
