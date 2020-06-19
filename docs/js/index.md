@@ -330,7 +330,7 @@ const options = {
  * @param {object} params - object of params
  */
 at.findColors({
-    options, // OPTIONAL, options for text recoginition, same as function recognizeText().
+    options, // OPTIONAL, options for finding colors.
     duration: 10, // OPTIONAL, how long time you want it to keep finding? Three formats are supported: 1. `duration: 10` means repeat finding 10 times, the value must be a number, can't be a string; 2. `duration: '60s'` means keep finding for 60 seconds, the value must be seconds + a character 's'; 3. `duration: '2020-05-30 12:00:00'` means keep finding till 2020-05-30 12:00:00. Default is `duration: 10` means repeat 10 times, the value must be a string.
     interval: 1000, // OPTIONAL, interval between loops in milliseconds, default is 1000 milliseconds.
     exitIfFound: true, // OPTIONAL, if exit findColors if got a result successfully, default is true.
@@ -344,7 +344,7 @@ at.findColors({
         alert(error)
     },
     completedCallback: () => { // OPTIONAL, callback when all finding completed
-        console.log('findImage compeleted!')
+        console.log('findColors compeleted!')
     },
     block: false, // OPTIONAL, you want to run findColors asynchronously or synchronously, block=true means it will run synchronously and block here till completed, default is false, doesn't block here.
 })
@@ -422,7 +422,7 @@ const options = {
  * @param {object} params - object of params
  */
 at.findImage({
-    options, // OPTIONAL, options for text recoginition, same as function recognizeText().
+    options, // OPTIONAL, options for finding image.
     duration: 10, // OPTIONAL, how long time you want it to keep finding? Three formats are supported: 1. `duration: 10` means repeat finding 10 times, the value must be a number, can't be a string; 2. `duration: '60s'` means keep finding for 60 seconds, the value must be seconds + a character 's'; 3. `duration: '2020-05-30 12:00:00'` means keep finding till 2020-05-30 12:00:00. Default is `duration: 10` means repeat 10 times, the value must be a string.
     interval: 1000, // OPTIONAL, interval between loops in milliseconds, default is 1000 milliseconds.
     exitIfFound: true, // OPTIONAL, if exit findImage if got a result successfully, default is true.
