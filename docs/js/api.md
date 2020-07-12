@@ -585,7 +585,7 @@ screenshot(savePath, region)
 None
 
 `Example`
-```lua
+```js
 -- Run Safari
 at.appRun("com.apple.mobilesafari")
 ```
@@ -606,7 +606,7 @@ at.appRun("com.apple.mobilesafari")
 None
 
 `Example`
-```lua
+```js
 -- Kill the running Safari
 at.appKill("com.apple.mobilesafari")
 ```
@@ -629,7 +629,7 @@ at.appKill("com.apple.mobilesafari")
 | state  | string | State of Character string type: "NOT RUNNING", "ACTIVATED", "DEACTIVATED"。 |
 
 `Example`
-```lua
+```js
 -- Get the state of Safari.
 const state = appState('com.apple.mobilesafari')
 alert('State of Safari: %s', state))
@@ -1001,7 +1001,7 @@ if (result == 1) {
 None
 
 `Examples`
-```lua
+```js
 -- There is a dialog.js script in the scripts list
 clearDialogValues("dialog.js")
 ```
@@ -1293,9 +1293,9 @@ console.log(`>>>>>>>>> 4444444 Executing here at ${new Date().toLocaleString()}`
 | info   | table | App info table |
 
 `Examples`
-```lua
-local result = appInfo("com.microsoft.Office.Outlook")
-alert(table.tostring(result))
+```js
+const info = at.appInfo("com.microsoft.Office.Outlook")
+at.alert(info)
 ```
 
 ------
@@ -1319,12 +1319,12 @@ alert(table.tostring(result))
 | done   | boolean | If it is successful. |
 
 `Examples`
-```lua
--- trigger after 1000 seconds
-local done = setTimer("/Records/test.lua", 1000, false, 0)
+```js
+// trigger after 1000 seconds
+const done = at.setTimer("/Records/test.lua", 1000, false, 0)
 
--- trigger at 2019-09-17 08:12:52 and repeat every 10000 seconds
-local done = setTimer("/Records/test.lua", "2019-09-17 08:12:52", true, 10000)
+// trigger at 2019-09-17 08:12:52 and repeat every 10000 seconds
+const done = at.setTimer("/Records/test.lua", "2019-09-17 08:12:52", true, 10000)
 ```
 
 ------
@@ -1345,8 +1345,8 @@ local done = setTimer("/Records/test.lua", "2019-09-17 08:12:52", true, 10000)
 | done   | boolean | If it is successful. |
 
 `Examples`
-```lua
-local done = removeTimer("/Records/test.lua")
+```js
+const done = at.removeTimer("/Records/test.lua")
 ```
 
 ------
@@ -1365,8 +1365,8 @@ local done = removeTimer("/Records/test.lua")
 None
 
 `Examples`
-```lua
-keepAutoTouchAwake(true)
+```js
+at.keepAutoTouchAwake(true)
 ```
 
 ------
