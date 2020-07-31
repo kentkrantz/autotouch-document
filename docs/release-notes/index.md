@@ -1,6 +1,14 @@
 # Release Notes
 -----
 
+## v7.0.22
+`2020-07-31`
+> * Fied bug of package encryption with single `index.js` file;
+
+## v7.0.21
+`2020-07-30`
+> * Fixed bug of `setTimer` and `removeTimer` for `JavaScript`;
+
 ## v7.0.15
 `2020-06-11`
 > * New param `completedCallback` for `findColors`, `findImage`, `findText`;

@@ -62,7 +62,7 @@
 - You can also turn on WebDAV Server and connect the told address with  WebDAV client on computer. 
 
 ## How to use Package to orgainize the script project?
-- You can create a Package as script project to contain different scripts, files and images etc. Package must have a main.lua file as the entrance of the execution. A Package in fact is a directory named with .at extension such as xxx.at.
+- You can create a Package as script project to contain different scripts, files and images etc. Package must have a `index.js` or `main.lua` file as the entrance of the execution. A Package in fact is a directory named with .at extension such as xxx.at.
 - Package can be encrypted to xxx.ate which is also execuate-able and can be released to Script Store.
 
 ## How to encrypt the scripts?
