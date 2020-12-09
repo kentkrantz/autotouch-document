@@ -1,9 +1,22 @@
 # Release Notes
 -----
 
+## v7.0.27
+`2020-12-09`
+> * Upgrade text recognition to support iOS 14 revision;
+> * Add function `recognizeTextSupportedLanguages()`;
+
+## v7.0.25
+`2020-12-06`
+> * Fixed bug of `inputText` on iOS 14;
+
+## v7.0.23
+`2020-12-06`
+> * Fixed bug of Touch Indicator;
+
 ## v7.0.22
 `2020-07-31`
-> * Fied bug of package encryption with single `index.js` file;
+> * Fixed bug of package encryption with single `index.js` file;
 
 ## v7.0.21
 `2020-07-30`

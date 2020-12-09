@@ -654,6 +654,24 @@ clearDialogValues("dialog.js");
 
 -----
 
+## How to get supported languages of text recognition?
+
+`Relative Extended Functions`
+> * [`recognizeTextSupportedLanguages()`](/js/api.html#recognizetextsupportedlanguages)
+
+`Examples`
+```js
+/**
+ * Get supported languages of text recognition
+ * at.recognizeTextSupportedLanguages()
+ * @return {object} languages
+ */
+const supportedLanguages = at.recognizeTextSupportedLanguages();
+console.log(`Supported languages of text recognition:\n${JSON.stringify(supportedLanguages, null, '    ')}`)
+```
+
+-----
+
 ## How to recognize text on the screen?
 
 `Relative Extended Functions`
@@ -662,13 +680,27 @@ clearDialogValues("dialog.js");
 `Examples`
 ```js
 const options = {
-    region: { x: 0, y: 100, width: 300, height: 300 }, // OPTIONAL, area of the screen you want to detect
-    // customWords: ['Deploy', 'Troops'], // OPTIONAL, an array of strings to supplement the recognized languages at the word recognition stage.
-    // minimumTextHeight: 1 / 32, // OPTIONAL, the minimum height of the text expected to be recognized, relative to the region/screen height, default is 1/32
-    // level: 0, // OPTIONAL, 0 means accurate first, 1 means speed first
-    // languages: ['en-US', 'fr-CA'], // OPTIONAL, an array of languages to detect, in priority order, only `en-US` supported now. ISO language codes: http://www.lingoes.net/en/translator/langcode.htm
-    // correct: false, // OPTIONAL, whether use language correction during the recognition process.
-    debug: true, // OPTIONAL, you can choose to produce debug image
+    // OPTIONAL, area of the screen you want to detect
+    region: { x: 0, y: 100, width: 300, height: 300 },
+
+    // OPTIONAL, an array of strings to supplement the recognized languages at the word recognition stage.
+    // customWords: ['Deploy', 'Troops'],
+
+    // OPTIONAL, the minimum height of the text expected to be recognized, relative to the region/screen height, default is 1/32
+    // minimumTextHeight: 1 / 32,
+
+    // OPTIONAL, 0 means accurate first, 1 means speed first
+    level: 0,
+
+    // OPTIONAL, an array of languages to detect, in priority order, only `en-US` supported now. ISO language codes: http://www.lingoes.net/en/translator/langcode.htm
+    // Use function `at.recognizeTextSupportedLanguages()` to get the supported languages
+    languages: ['en-US', "fr-FR", 'zh-Hans'],
+
+    // OPTIONAL, whether use language correction during the recognition process.
+    // correct: false,
+
+    // OPTIONAL, you can choose to produce debug image
+    debug: true,
 }
 
 /**
