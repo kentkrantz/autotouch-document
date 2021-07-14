@@ -1,6 +1,14 @@
 # Release Notes
 -----
 
+## v7.1.3
+`2021-07-14`
+> * Fixed bug of "lfs.so";
+
+## v7.1.2
+`2021-06-30`
+> * Fixed bug of "Mach error";
+
 ## v7.0.27
 `2020-12-09`
 > * Upgrade text recognition to support iOS 14 revision;
