@@ -1460,7 +1460,7 @@ end
 
 | Parameter |  Type   | Specification                                                                                |
 | --------- | :-----: | -------------------------------------------------------------------------------------------- |
-| filePath  | string  | Relative path of a script inside script directory of AutoTouch, such as "/Records/test.lua". |
+| filePath  | string  | Path starts with "/" is a absolute path, otherwise it's a relative path. |
 | on        | boolean | Switch auto launch on or off, true means on, false means off.                                |
 
 `Return`
@@ -1469,7 +1469,7 @@ None
 
 `Examples`
 ```lua
-setAutoLaunch("/Records/test.lua", true);
+setAutoLaunch("Records/test.lua", true);
 ```
 
 [Top](#usage)
@@ -1593,7 +1593,7 @@ alert(table.tostring(result))
 
 | Parameter     | Type   |  Specification  | Optional | Default |
 | -------- | :-----:| ----  | :----:  | :----:  |
-| filePath     |   string   |  Relative path of a script inside script directory of AutoTouch, such as "/Records/test.lua". | NO | |
+| filePath     |   string   |  Path starts with "/" is a absolute path, otherwise it's a relative path | NO | |
 | fireTime     |   string or integer   |  When should the timer trigger. If this parameter is an integer, it means you want it trigger after n seconds from now on, if it is a string, it should be a datetime with format "2019-09-17 08:12:52" which means the timer will trigger at this time. | NO | |
 | repeat     |   boolean   |  If the timer should run repleatly. | NO | |
 | interval     |   integer   |  Repeat interval in seconds. | NO | |
@@ -1607,10 +1607,12 @@ alert(table.tostring(result))
 `Examples`
 ```lua
 -- trigger after 1000 seconds
-local done = setTimer("/Records/test.lua", 1000, false, 0);
+local done = setTimer("Records/test.lua", 1000, false, 0);
+-- Equals to
+const done = at.setTimer("/var/mobile/Library/AutoTouch/Scripts/Records/test.lua", 1000, false, 0)
 
 -- trigger at 2019-09-17 08:12:52 and repeat every 10000 seconds
-local done = setTimer("/Records/test.lua", "2019-09-17 08:12:52", true, 10000);
+local done = setTimer("Records/test.lua", "2019-09-17 08:12:52", true, 10000);
 ```
 
 [Top](#usage)

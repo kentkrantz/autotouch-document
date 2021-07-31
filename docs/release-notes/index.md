@@ -1,6 +1,10 @@
 # Release Notes
 -----
 
+## v7.1.4
+`2021-07-31`
+> * Fixed bug of setTimer function.
+
 ## v7.1.3
 `2021-07-14`
 > * Fixed bug of "lfs.so";

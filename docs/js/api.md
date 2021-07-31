@@ -1062,7 +1062,7 @@ alert(`AutoTouch license of current device is ${at.license()}!`)
 
 | Parameter |  Type   | Specification                                                                                |
 | --------- | :-----: | -------------------------------------------------------------------------------------------- |
-| filePath  | string  | Relative path of a script inside script directory of AutoTouch, such as "/Records/test.lua". |
+| filePath  | string  | Path starts with "/" is a absolute path, otherwise it's a relative path. |
 | on        | boolean | Switch auto launch on or off, true means on, false means off.                                |
 
 `Return`
@@ -1071,7 +1071,7 @@ None
 
 `Examples`
 ```js
-at.setAutoLaunch("/Records/test.lua", true)
+at.setAutoLaunch("Records/test.lua", true)
 ```
 
 ------
