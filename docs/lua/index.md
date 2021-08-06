@@ -917,8 +917,8 @@ alert(dirPath);
 
 [Top](#usage)
 
-### currentPath()
-> Get full path of current executing script.
+### currentDir()
+> Get directory of current executing script in runtime.
 
 `Parameters`
 
@@ -928,13 +928,37 @@ None
 
 | Return |  Type  | Specification                |
 | ------ | :----: | ---------------------------- |
-| path   | string | Full path of current script. |
+| dir   | string | Directory of script in runtime. |
 
 `Examples`
 ```lua
-local path = currentPath();
+local dir = currentDir();
+alert(dir);
+-- "/var/mobile/Library/AutoTouch/Scripts"
+-- Or maybe in tmp place for encrypted scripts: "/tmp/xxxxxxxxxxxx/"
+```
+
+[Top](#usage)
+
+### botPath()
+> Get original path of the bot, relative to the runtime path of encrypted scripts.
+
+`Parameters`
+
+None
+
+`Return`
+
+| Return |  Type  | Specification                |
+| ------ | :----: | ---------------------------- |
+| path   | string | Original path of the bot. |
+
+`Examples`
+```lua
+local path = botPath();
 alert(path);
--- Popup "/var/mobile/Library/AutoTouch/Scripts/test.lua"
+-- "/var/mobile/Library/AutoTouch/Scripts/test.lua"
+-- "/var/mobile/Library/AutoTouch/Scripts/test1.ate"
 ```
 
 [Top](#usage)
