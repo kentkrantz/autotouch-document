@@ -1,6 +1,10 @@
 # Release Notes
 -----
 
+## v7.1.6
+`2021-08-27`
+> * Add function `recognizeText()` to lua
+
 ## v7.1.4
 `2021-07-31`
 > * Fixed bug of setTimer function.

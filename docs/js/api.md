@@ -1161,7 +1161,7 @@ const options = {
     // OPTIONAL, whether use language correction during the recognition process.
     // correct: false,
 
-    // OPTIONAL, you can choose to produce debug image
+    // OPTIONAL, whether you want to produce debug image
     debug: true,
 }
 

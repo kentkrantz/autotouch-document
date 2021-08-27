@@ -1587,6 +1587,60 @@ local result = ocr({100, 100, 300, 300}, 'eng+fra', 220, nil, nil, 5, './', true
 
 [Top](#usage)
 
+### recognizeText(region, customWords, minimumTextHeight, level, languages, correct, debug)
+> Recognize text on the screen
+
+`Examples`
+```lua
+
+-- Recognize text on the screen or a specified region
+-- recognizeText(region, customWords, minimumTextHeight, level, languages, correct, debug)
+-- @param {region} - specified the region to recognize text
+-- @param {customWords} - an array of strings to supplement the recognized languages at the word recognition stage.
+-- @param {minimumTextHeight} - the minimum height of the text expected to be recognized, relative to the region/screen height, default is 1/32.
+-- @param {level} - 0 means accurate first, 1 means speed first
+-- @param {languages} - an array of languages to detect, in priority order, only `en-US` supported now. ISO language codes: http://www.lingoes.net/en/translator/langcode.htm. Use function `at.recognizeTextSupportedLanguages()` of `JavaScript` API to get the supported languages
+-- @param {correct} - whether use language correction during the recognition process.
+-- @param {debug} - whether you want to produce debug image
+
+local region = {10, 20, 500, 600}; -- nil for default means hole screen, 
+local customWords = nil; -- nil for default, or something like ['Deploy', 'Troops']
+local minimumTextHeight = nil; -- nil for default
+local level = nil; -- nil for default means value 0
+local languages = nil; -- nil for default, or something like ['en-US', "fr-FR", 'zh-Hans'].
+local correct = nil; -- nil for default value false
+local debug = nil; -- nil for default value false
+
+local result = recognizeText(region, customWords, minimumTextHeight, level, languages, correct, debug);
+
+-- Got result of recognizeText:
+-- {
+--     {
+--         "text": "Example",
+--         "rectangle": {
+--             "bottomRight": {
+--                 "x": 300.47,
+--                 "y": 177.78
+--             },
+--             "topRight": {
+--                 "x": 300.47,
+--                 "y": 237.52
+--             },
+--             "topLeft": {
+--                 "x": 33.51,
+--                 "y": 237.42
+--             },
+--             "bottomLeft": {
+--                 "x": 33.51,
+--                 "y": 177.68
+--             }
+--         }
+--     }
+-- }
+```
+
+[Top](#usage)
+
 ### appInfo(appIdentifier)
 > Get the speficied App's displayName,executablePath,bundleContainerPath,dataContainerPath.
 
